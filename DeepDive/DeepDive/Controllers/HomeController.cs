@@ -1,4 +1,5 @@
 using DeepDive.Models;
+using DeepDive.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,7 +9,8 @@ namespace DeepDive.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var packages = PackageRepository.GetAll();
+            return View(packages);
         }
 
         public IActionResult Privacy()

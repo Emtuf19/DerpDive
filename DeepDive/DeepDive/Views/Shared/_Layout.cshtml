@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom ">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DeepDive</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,24 +22,24 @@
                     <ul class="navbar-nav flex-grow-1">
                         <div class="navbar-collapse collapse d-sm-inline-flex">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Equipment" asp-action="Equipment">Udstyr</a>
+                                <a class="nav-link " asp-area="" asp-controller="Equipment" asp-action="Index">Udstyr</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Info">Praktisk information</a>
+                                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Info">Praktisk information</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">Om os</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">Om os</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a>
                             </li>
                         </div>
                         <div>
                             <li>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Cart">🛒Kurv</a>
+                                <a class="nav-link " asp-area="" asp-controller="Cart" asp-action="Cart">🛒Kurv</a>
                             </li>
                         </div>
                     </ul>
@@ -47,13 +47,13 @@
             </div>
         </nav>
     </header>
+    @await RenderSectionAsync("Header", required: false)
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <section>
     <footer class="border-top footer text-muted">
         <div class="container">
             <div class="row g-4">
@@ -76,7 +76,7 @@
             </div>
         </div>
     </footer>
-    </section>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
