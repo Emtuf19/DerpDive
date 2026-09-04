@@ -94,5 +94,11 @@ namespace DeepDive.Controllers
 
             return View(vm);
         }
+
+        public IActionResult _SpecificEquipment()
+        {
+            return View();
+        }
+
     }
 }
