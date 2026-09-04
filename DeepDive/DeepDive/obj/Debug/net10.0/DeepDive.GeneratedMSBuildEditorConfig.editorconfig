@@ -8,44 +8,89 @@ build_property.ProjectTypeGuids =
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DeepDive
 build_property.RootNamespace = DeepDive
-build_property.ProjectDir = C:\Users\USER\source\repos\DeepDive\DeepDive\
+build_property.ProjectDir = C:\Users\marcu\OneDrive\Skrivebord\3 Semester\Projekt\DerpDive\DeepDive\DeepDive\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.RazorLangVersion = 9.0
+build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\USER\source\repos\DeepDive\DeepDive
+build_property.MSBuildProjectDirectory = C:\Users\marcu\OneDrive\Skrivebord\3 Semester\Projekt\DerpDive\DeepDive\DeepDive
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/Home/Index.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/BCD.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XEJDRC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/DivingSuits.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XERpdmluZ1N1aXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/Finns.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XEZpbm5zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/Mask_Snorkel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XE1hc2tfU25vcmtlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/RegulatorSet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XFJlZ3VsYXRvclNldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/Tank.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XFRhbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Equipment/_Equipment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XF9FcXVpcG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Home/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/Home/Privacy.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Home/PracticalInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcmFjdGljYWxJbmZvcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/Shared/Error.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/_ViewImports.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/_ViewStart.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/source/repos/DeepDive/DeepDive/Views/Shared/_Layout.cshtml]
+[C:/Users/marcu/OneDrive/Skrivebord/3 Semester/Projekt/DerpDive/DeepDive/DeepDive/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-gpan9mkdvb

@@ -1,0 +1,131 @@
+﻿@using DeepDive.ViewModels;
+@model AllEquipmentViewData
+
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var equipment in Model.bcds)
+    {
+        <a asp-controller="Equipment" asp-action="BCD">
+            <div class="col">
+                <div class="card" style="width: 17rem; height: 22rem; margin: 0 0 2rem 0;">
+                    <div class="card-body">
+                        <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="BCD Vest" style="width: 15rem; height: 10rem;" />
+                        <h6>Mærke: @equipment.Brand</h6>
+                        <h6>Model: @equipment.Model</h6>
+                        <h6>Størrelse: @equipment.Size</h6>
+                        <h6>Pris pr. dag: @equipment.Price kr</h6>
+                        <button class="btn btn-primary">Se Produkt</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var equipment in Model.divingSuits)
+    {
+        <a asp-controller="Equipment" asp-action="DivingSuits">
+            <div class="col">
+                <div class="card" style="width: 17rem; height: 25rem; margin: 0 0 2rem 0;">
+                    <div class="card-body">
+                        <img src="~/IMGs/Suit.webp" alt="BCD Vest" style="width: 15rem; height: 10rem;" />
+                        <h6>Mærke: @equipment.Brand</h6>
+                        <h6>Model: @equipment.Model</h6>
+                        <h6>Størrelse: @equipment.Size</h6>
+                        <h6>Tykkelse: @equipment.Thickness</h6>
+                        <h6>Køn: @equipment.Gender</h6>
+                        <h6>Pris pr. dag: @equipment.Price kr</h6>
+                        <button class="btn btn-primary">Se Produkt</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var equipment in Model.finns)
+    {
+        <a asp-controller="Equipment" asp-action="Finns">
+            <div class="col">
+                <div class="card" style="width: 17rem; height: 22rem; margin: 0 0 2rem 0;">
+                    <div class="card-body">
+                        <img src="~/IMGs/Flippers.webp" alt="BCD Vest" style="width: 15rem; height: 10rem;" />
+                        <h6>Mærke: @equipment.Brand</h6>
+                        <h6>Model: @equipment.Model</h6>
+                        <h6>Størrelse: @equipment.Size</h6>
+                        <h6>Pris pr. dag: @equipment.Price kr</h6>
+                        <button class="btn btn-primary">Se Produkt</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var equipment in Model.mask_Snorkels)
+    {
+        <a asp-controller="Equipment" asp-action="Mask_Snorkel">
+            <div class="col">
+                <div class="card" style="width: 17rem; height: 20rem; margin: 0 0 2rem 0;">
+                    <div class="card-body">
+                        <img src="~/IMGs/Mask.webp" alt="BCD Vest" style="width: 15rem; height: 10rem;" />
+                        <h6>Mærke: @equipment.Brand</h6>
+                        <h6>Model: @equipment.Model</h6>
+                        <h6>Pris pr. dag: @equipment.Price kr</h6>
+                        <button class="btn btn-primary">Se Produkt</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var equipment in Model.regulatorSets)
+    {
+        <a asp-controller="Equipment" asp-action="RegulatorSet">
+            <div class="col">
+                <div class="card" style="width: 17rem; height: 23rem; margin: 0 0 2rem 0;">
+                    <div class="card-body">
+                        <img src="~/IMGs/Regulator.webp" alt="BCD Vest" style="width: 15rem; height: 10rem;" />
+                        <h6>Mærke: @equipment.Brand</h6>
+                        <h6>1. Step: @equipment.FirstStep</h6>
+                        <h6>2. Step: @equipment.SecondStep</h6>
+                        <h6>Octopus: @equipment.Octopus</h6>
+                        <h6>Pris pr. dag: @equipment.Price kr</h6>
+                        <button class="btn btn-primary">Se Produkt</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var equipment in Model.tanks)
+    {
+        <a asp-controller="Equipment" asp-action="Tank">
+            <div class="col">
+                <div class="card" style="width: 17rem; height: 20rem; margin: 0 0 2rem 0;">
+                    <div class="card-body">
+                        <img src="~/IMGs/Tank.webp" alt="BCD Vest" style="width: 15rem; height: 10rem;" />
+                        <h6>Mærke: @equipment.Brand</h6>
+                        <h6>Volume: @equipment.Volumen</h6>
+                        <h6>Pris pr. dag: @equipment.Price kr</h6>
+                        <button class="btn btn-primary">Se Produkt</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+
+
+}

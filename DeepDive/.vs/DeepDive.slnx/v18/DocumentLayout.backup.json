@@ -1,22 +1,126 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\DeepDive\\",
+  "WorkspaceRootPath": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|c:\\users\\user\\source\\repos\\deepdive\\deepdive\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\_equipment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\_equipment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|c:\\users\\user\\source\\repos\\deepdive\\deepdive\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|c:\\users\\user\\source\\repos\\deepdive\\deepdive\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|c:\\users\\user\\source\\repos\\deepdive\\deepdive\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{214CC3CD-EF50-4575-B705-53ABEFDD792C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\home\\practicalinformation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\home\\practicalinformation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\home\\aboutus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\finns.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\finns.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\category.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\category.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\controllers\\equipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\controllers\\equipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\bcd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\bcd.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\tank.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\tank.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\regulatorset.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\regulatorset.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\mask_snorkel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\mask_snorkel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\equipment\\divingsuits.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\equipment\\divingsuits.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\viewmodels\\allequipmentviewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\viewmodels\\allequipmentviewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\persistance\\equipmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\persistance\\equipmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\bcd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\bcd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\tank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\tank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\divingsuits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\divingsuits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\deepdive.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\deepdive.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\finns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\finns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\mask_snorkel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\mask_snorkel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\regulatorset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\regulatorset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|c:\\users\\marcu\\onedrive\\skrivebord\\3 semester\\projekt\\derpdive\\deepdive\\deepdive\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4F91EC9-3C03-0D75-EA81-F491E611F48C}|DeepDive\\DeepDive.csproj|solutionrelative:deepdive\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,63 +130,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml.css",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeDocumentMoniker": "DeepDive\\Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeToolTip": "DeepDive\\Views\\Shared\\_Layout.cshtml.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-09-01T07:14:46.602Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "DeepDive\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "DeepDive\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAE4AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-01T06:20:09.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "DeepDive\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "DeepDive\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-01T06:19:40.178Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "DeepDive\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "DeepDive\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-01T06:16:56.199Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -91,6 +147,406 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T10:43:15.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T10:41:59.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAD0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-01T06:20:09.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Equipment.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\_Equipment.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\_Equipment.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\_Equipment.cshtml*",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\_Equipment.cshtml*",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAHgAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:34:48.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "DeepDive\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAB4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T06:16:56.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PracticalInformation.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\PracticalInformation.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Home\\PracticalInformation.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\PracticalInformation.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Home\\PracticalInformation.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T10:33:58.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-01T06:19:40.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AboutUs.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\AboutUs.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Home\\AboutUs.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\AboutUs.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Home\\AboutUs.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T10:29:30.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Finns.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Finns.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\Finns.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Finns.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\Finns.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:34:28.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Category.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Category.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\Category.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Category.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\Category.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:23:08.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EquipmentController.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Controllers\\EquipmentController.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Controllers\\EquipmentController.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Controllers\\EquipmentController.cs",
+              "RelativeToolTip": "DeepDive\\Controllers\\EquipmentController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:22:09.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:21:09.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BCD.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\BCD.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\BCD.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\BCD.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\BCD.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:34:15.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Tank.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Tank.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\Tank.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Tank.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\Tank.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:33:37.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RegulatorSet.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\RegulatorSet.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\RegulatorSet.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\RegulatorSet.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\RegulatorSet.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:34:05.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Mask_Snorkel.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Mask_Snorkel.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\Mask_Snorkel.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\Mask_Snorkel.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\Mask_Snorkel.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:33:24.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DivingSuits.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\DivingSuits.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Equipment\\DivingSuits.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Equipment\\DivingSuits.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\Equipment\\DivingSuits.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:33:51.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AllEquipmentViewData.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\ViewModels\\AllEquipmentViewData.cs",
+              "RelativeDocumentMoniker": "DeepDive\\ViewModels\\AllEquipmentViewData.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\ViewModels\\AllEquipmentViewData.cs",
+              "RelativeToolTip": "DeepDive\\ViewModels\\AllEquipmentViewData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:47:34.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EquipmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Persistance\\EquipmentRepository.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Persistance\\EquipmentRepository.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Persistance\\EquipmentRepository.cs",
+              "RelativeToolTip": "DeepDive\\Persistance\\EquipmentRepository.cs",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAAABYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:43:38.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BCD.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\BCD.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\BCD.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\BCD.cs",
+              "RelativeToolTip": "DeepDive\\Models\\BCD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:36:05.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Tank.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\Tank.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\Tank.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\Tank.cs",
+              "RelativeToolTip": "DeepDive\\Models\\Tank.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:35:48.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:21:15.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "DeepDive\\Views\\Shared\\_Layout.cshtml.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-09-01T07:14:46.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DivingSuits.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\DivingSuits.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\DivingSuits.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\DivingSuits.cs",
+              "RelativeToolTip": "DeepDive\\Models\\DivingSuits.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:36:18.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DeepDive",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\DeepDive.csproj",
+              "RelativeDocumentMoniker": "DeepDive\\DeepDive.csproj",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\DeepDive.csproj",
+              "RelativeToolTip": "DeepDive\\DeepDive.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-09-04T07:42:03.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Finns.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\Finns.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\Finns.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\Finns.cs",
+              "RelativeToolTip": "DeepDive\\Models\\Finns.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:36:39.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Mask_Snorkel.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\Mask_Snorkel.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\Mask_Snorkel.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\Mask_Snorkel.cs",
+              "RelativeToolTip": "DeepDive\\Models\\Mask_Snorkel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:36:54.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RegulatorSet.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\RegulatorSet.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\RegulatorSet.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\RegulatorSet.cs",
+              "RelativeToolTip": "DeepDive\\Models\\RegulatorSet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:36:29.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "DeepDive\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "DeepDive\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T07:31:57.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "DeepDive\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "DeepDive\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-04T07:21:18.173Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

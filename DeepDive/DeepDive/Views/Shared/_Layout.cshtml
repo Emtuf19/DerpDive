@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DeepDive.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -25,10 +26,10 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Equipment" asp-action="Equipment">Udstyr</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Equipment" asp-action="Category">Udstyr</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Info">Praktisk information</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PracticalInformation">Praktisk information</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">Om os</a>
@@ -47,35 +48,36 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
     <section>
-    <footer class="border-top footer text-muted">
         <div class="container">
-            <div class="row g-4">
-                <div class="col">
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-1">Adresse: Dykkervej 10, 5000 Odense C</li>
-                    <li class="mb-1">CVR-nummer: 81828384</li>
-                    <li class="mb-1">Telefonnummer: +45 60708090</li>
-                    <li class="mb-1">Email: info@deepdive.dk</li>
-                </ul>
-                </div>
-                <div class="col">
-                <h4>Åbningstider:</h4>
-                <ul>
-                    <li>Mandag-Fredag: 10:00 - 17:30</li>
-                    <li>Lørdag: 10:00 - 14:00</li>
-                    <li>Søndag: Lukket</li>
-                </ul>
-            </div>
-            </div>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+    </section>
+    <section>
+        <footer class="border-top ">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-1">Adresse: Dykkervej 10, 5000 Odense C</li>
+                            <li class="mb-1">CVR-nummer: 81828384</li>
+                            <li class="mb-1">Telefonnummer: +45 60708090</li>
+                            <li class="mb-1">Email: info@deepdive.dk</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Åbningstider:</h4>
+                        <ul>
+                            <li>Mandag-Fredag: 10:00 - 17:30</li>
+                            <li>Lørdag: 10:00 - 14:00</li>
+                            <li>Søndag: Lukket</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </section>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

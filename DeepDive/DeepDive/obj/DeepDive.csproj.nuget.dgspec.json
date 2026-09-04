@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\DeepDive.csproj": {}
+    "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\DeepDive.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\DeepDive.csproj": {
+    "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\DeepDive.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\DeepDive.csproj",
+        "projectUniqueName": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\DeepDive.csproj",
         "projectName": "DeepDive",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\DeepDive.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\DeepDive\\DeepDive\\obj\\",
+        "projectPath": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\DeepDive.csproj",
+        "packagesPath": "C:\\Users\\marcu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marcu\\OneDrive\\Skrivebord\\3 Semester\\Projekt\\DerpDive\\DeepDive\\DeepDive\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -30,6 +30,7 @@
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -44,10 +45,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -68,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
