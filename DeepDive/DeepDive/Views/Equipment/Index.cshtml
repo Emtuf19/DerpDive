@@ -1,5 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<string>
+<h1>Vælg kategori</h1>
+<div class="row row-cols-2 g-3">
+    @foreach (var cat in Model)
+    {
+        <div class="col">
+            <div class="card bg-b">
+                <div class="card-body">
+                    <h5 class="card-title">@cat</h5>
+                    <a asp-action="Category" asp-route-id="@cat" class="btn btn-primary ">Se varer</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

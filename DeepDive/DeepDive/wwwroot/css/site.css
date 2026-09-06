@@ -16,6 +16,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
     body h1 {
@@ -24,7 +25,9 @@ body {
         font-weight: bold;
         font-size: 25px;
         padding: 0 0 0 10px;
+        padding-bottom: 20px;
     }
+
 
 #BackgoundIMG {
     height: 400px;
@@ -69,12 +72,15 @@ body {
 
 .container {
     flex: 1 0 auto;
+    padding-top: 20px;
 }
 
 footer {
     flex-shrink: 0;
     color: white;
+   background: rgb(18, 27, 75);
 }
+   
 
 #Package {
     overflow: auto;
@@ -133,3 +139,53 @@ button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
 }
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: none;
+    max-width: 250px;
+    min-height: 50px;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+}
+.card.bg-b {
+    background: linear-gradient(135deg, #1b6ec2, #123a6b);
+    color: white;
+}
+
+    .card.bg-b .card-title,
+    .card.bg-b .card-text,
+    .card.bg-b p {
+        color: white;
+    }
+    .card.bg-b .btn-primary {
+        background-color: white;
+        color: #1b6ec2;
+        border: none;
+    }
+#AboutUs p {
+    color: white !important;
+    font-size: 1.1rem;
+    text-align:center
+    line-height: 1.6;
+}
+
+#AboutUs h1 {
+    color: white;
+    text-align: center
+}
+
+#AboutUs h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-align: center
+}
+
+
+
+  

@@ -13,10 +13,21 @@ namespace DeepDive.Controllers
             return View(packages);
         }
 
-        public IActionResult Privacy()
+      
+        public IActionResult AboutUs()
         {
-            return View();
+            return View(AboutUs);
         }
+        public IActionResult Contact()
+        {
+            return View(Contact);
+        }
+
+        public IActionResult PracticalInfo()
+        {
+            return View(PracticalInfo);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

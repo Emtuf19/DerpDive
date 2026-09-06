@@ -1,6 +1,13 @@
-﻿namespace DeepDive.Models
+﻿
+namespace DeepDive.Models
+
 {
-    public class BCD
+    public class BCD : IEquipmentItem
     {
+        public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Title { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public decimal Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ImageUrl { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
