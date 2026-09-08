@@ -3,7 +3,20 @@
 
 @{
     string action = ViewBag.Action ?? string.Empty;
+
+    string title = action switch
+    {
+        "BCD" => "BCD",
+        "DivingSuits" => "Dykkerdragter",
+        "Finns" => "Finner",
+        "Mask_Snorkel" => "Maske & Snorkel",
+        "RegulatorSet" => "RegulatorSæt",
+        "Tank" => "Tank",
+        _ => ""
+    };
 }
+
+<h1>@title</h1>
 
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.bcds)
