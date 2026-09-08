@@ -1,3 +1,7 @@
+using DeepDive.Data;
+using DeepDive.Persistance;
+using Microsoft.EntityFrameworkCore;
+
 namespace DeepDive
 {
     public class Program
@@ -8,6 +12,14 @@ namespace DeepDive
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<EquipmentContext>(options => { options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); });
+            // Register repositories
+            builder.Services.AddScoped<IMask_SnorkelRepository, Mask_SnorkelRepository>();
+            builder.Services.AddScoped<IBCDRepository, BCDRepository>();
+            builder.Services.AddScoped<ITankRepository, TankRepository>();
+            builder.Services.AddScoped<IDivingSuitsRepository, DivingSuitRepository>();
+            builder.Services.AddScoped<IRegulatorSetRepository, RegulatorSetRepository>();
+            builder.Services.AddScoped<IFinnsRepository, FinnsRepository>();
 
             var app = builder.Build();
 

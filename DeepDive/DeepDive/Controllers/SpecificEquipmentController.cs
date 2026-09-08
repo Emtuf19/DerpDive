@@ -1,4 +1,5 @@
 ﻿using DeepDive.Models;
+using DeepDive.Persistance;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,22 @@ namespace DeepDive.Controllers
 {
     public class SpecificEquipmentController : Controller
     {
+        private readonly IMask_SnorkelRepository Mask_SnorkelRepository;
+        private readonly IBCDRepository BCDRepository;
+        private readonly ITankRepository TankRepository;
+        private readonly IDivingSuitsRepository DivingSuitsRepository;
+        private readonly IRegulatorSetRepository RegulatorSetRepository;
+        private readonly IFinnsRepository FinnsRepository;
+
+        public SpecificEquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository)
+        {
+            Mask_SnorkelRepository = mask_SnorkelRepository;
+            BCDRepository = bCDRepository;
+            TankRepository = tankRepository;
+            DivingSuitsRepository = divingSuitsRepository;
+            RegulatorSetRepository = regulatorSetRepository;
+            FinnsRepository = finnsRepository;
+        }
         public IActionResult Index()
         {
             return View();
@@ -13,7 +30,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificBCD(int id)
         {
-            var sBCD = Persistance.EquipmentRepository.GetByIdBCD(id);
+            var sBCD = BCDRepository.GetById(id);
             if (sBCD == null)
             {
                 return NotFound();
@@ -41,7 +58,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificDivingSuits(int id)
         {
-            var sDivingSuit = Persistance.EquipmentRepository.GetByIdDivingSuits(id);
+            var sDivingSuit = DivingSuitsRepository.GetById(id);
             if (sDivingSuit == null)
             {
                 return NotFound();
@@ -77,7 +94,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificFinns(int id)
         {
-            var sFinns = Persistance.EquipmentRepository.GetByIdFinns(id);
+            var sFinns = FinnsRepository.GetById(id);
             if (sFinns == null)
             {
                 return NotFound();
@@ -105,7 +122,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificMask_Snorkel(int id)
         {
-            var sMask_Snorkel = Persistance.EquipmentRepository.GetByIdMask_Snorkel(id);
+            var sMask_Snorkel = Mask_SnorkelRepository.GetById(id);
             if (sMask_Snorkel == null)
             {
                 return NotFound();
@@ -131,7 +148,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificRegulatorSet(int id)
         {
-            var sRegulatorSet = Persistance.EquipmentRepository.GetByIdRegulatorSet(id);
+            var sRegulatorSet = RegulatorSetRepository.GetById(id);
             if (sRegulatorSet == null)
             {
                 return NotFound();
@@ -162,7 +179,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificTank(int id)
         {
-            var sTank = Persistance.EquipmentRepository.GetByIdTank(id);
+            var sTank = TankRepository.GetById(id);
             if (sTank == null)
             {
                 return NotFound();

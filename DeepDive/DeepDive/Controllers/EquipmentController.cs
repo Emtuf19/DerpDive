@@ -1,11 +1,29 @@
 ﻿using DeepDive.Models;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using DeepDive.Data;
+using DeepDive.Persistance;
 
 namespace DeepDive.Controllers
 {
     public class EquipmentController : Controller
     {
+        private readonly IMask_SnorkelRepository Mask_SnorkelRepository;
+        private readonly IBCDRepository BCDRepository;
+        private readonly ITankRepository TankRepository;
+        private readonly IDivingSuitsRepository DivingSuitsRepository;
+        private readonly IRegulatorSetRepository RegulatorSetRepository;
+        private readonly IFinnsRepository FinnsRepository;
+
+        public EquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository)
+        {
+            Mask_SnorkelRepository = mask_SnorkelRepository;
+            BCDRepository = bCDRepository;
+            TankRepository = tankRepository;
+            DivingSuitsRepository = divingSuitsRepository;
+            RegulatorSetRepository = regulatorSetRepository;
+            FinnsRepository = finnsRepository;
+        }
         public IActionResult Category()
         {
             return View();
@@ -15,7 +33,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "Mask_Snorkel";
 
-            var mask_snorkels = Persistance.EquipmentRepository.GetAllMask_Snorkels();
+            var mask_snorkels = Mask_SnorkelRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -29,7 +47,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "Tank";
 
-            var tanks = Persistance.EquipmentRepository.GetAllTanks();
+            var tanks = TankRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -43,7 +61,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "DivingSuits";
 
-            var divingSuits = Persistance.EquipmentRepository.GetAllDivingSuits();
+            var divingSuits = DivingSuitsRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -57,7 +75,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "RegulatorSet";
 
-            var regulatorSets = Persistance.EquipmentRepository.GetAllRegulatorSets();
+            var regulatorSets = RegulatorSetRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -71,7 +89,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "BCD";
 
-            var BCDs = Persistance.EquipmentRepository.GetAllBCDs();
+            var BCDs = BCDRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -85,7 +103,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "Finns";
 
-            var finns = Persistance.EquipmentRepository.GetAllFinns();
+            var finns = FinnsRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
