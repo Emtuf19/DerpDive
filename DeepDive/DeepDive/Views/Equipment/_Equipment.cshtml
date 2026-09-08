@@ -8,7 +8,7 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.bcds)
     {
-        <a asp-controller="Equipment" asp-action="_SpecificEquipment">
+        <a asp-controller="SpecificEquipment" asp-action="SpecificBCD" asp-route-id="@equipment.BCDId" >
             <div class="col">
                 <div class="card" style="width: 17rem; height: 22rem; margin: 0 0 2rem 0;">
                     <div class="card-body">
@@ -28,7 +28,7 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.divingSuits)
     {
-        <a asp-controller="Equipment" asp-action="_SpecificEquipment">
+        <a asp-controller="SpecificEquipment" asp-action="SpecificDivingSuits" asp-route-id="@equipment.DivingSuitsId">
             <div class="col">
                 <div class="card" style="width: 17rem; height: 25rem; margin: 0 0 2rem 0;">
                     <div class="card-body">
@@ -50,7 +50,7 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.finns)
     {
-        <a asp-controller="Equipment" asp-action="_SpecificEquipment">
+        <a asp-controller="SpecificEquipment" asp-action="SpecificFinns" asp-route-id="@equipment.FinnsId">
             <div class="col">
                 <div class="card" style="width: 17rem; height: 22rem; margin: 0 0 2rem 0;">
                     <div class="card-body">
@@ -70,7 +70,7 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.mask_Snorkels)
     {
-        <a asp-controller="Equipment" asp-action="_SpecificEquipment">
+        <a asp-controller="SpecificEquipment" asp-action="SpecificMask_Snorkel" asp-route-id="@equipment.Mask_SnorkelId">
             <div class="col">
                 <div class="card" style="width: 17rem; height: 20rem; margin: 0 0 2rem 0;">
                     <div class="card-body">
@@ -89,7 +89,7 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.regulatorSets)
     {
-        <a asp-controller="Equipment" asp-action="_SpecificEquipment">
+        <a asp-controller="SpecificEquipment" asp-action="SpecificRegulatorSet" asp-route-id="@equipment.RegulatorSetId">
             <div class="col">
                 <div class="card" style="width: 17rem; height: 23rem; margin: 0 0 2rem 0;">
                     <div class="card-body">
@@ -110,7 +110,7 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.tanks)
     {
-        <a asp-controller="Equipment" asp-action="_SpecificEquipment">
+        <a asp-controller="SpecificEquipment" asp-action="SpecificTank" asp-route-id="@equipment.TankId">
             <div class="col">
                 <div class="card" style="width: 17rem; height: 20rem; margin: 0 0 2rem 0;">
                     <div class="card-body">
