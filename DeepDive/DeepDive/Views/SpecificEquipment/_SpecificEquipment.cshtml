@@ -1,0 +1,10 @@
+﻿@using DeepDive.ViewModels;
+@model AllEquipmentViewData
+
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<form method="post" asp-controller="SpecificEquipment" asp-action="@action">
+    <input type="hidden" asp-for="@action" asp-route-id="@action"/>
+</form>

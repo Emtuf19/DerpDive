@@ -1,10 +1,10 @@
 ﻿namespace DeepDive.Models
 {
-    public class Tank
+    public class Mask_Snorkel
     {
-        public int TankId { get; set; }
+        public int Mask_SnorkelId { get; set; }
         public string Brand { get; set; }
-        public int Volumen { get; set; }
+        public string Model { get; set; }
         public double Price { get; set; }
     }
 }
