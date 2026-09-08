@@ -1,4 +1,35 @@
 ﻿@using DeepDive.ViewModels;
-@model AllEquipmentViewData
+@model SpecificMask_Snorkel;
 
-<partial name="_SpecificEquipment" model="Model" />
+<form method="post"
+      asp-controller="SpecificEquipment"
+      asp-action="SpecificMask_Snorkel">
+
+    <input type="hidden" asp-for="Mask_SnorkelId" />
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Brand"></label>
+            <input asp-for="Brand" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" readonly />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Vælg maske/snorkel
+    </button>
+
+</form>

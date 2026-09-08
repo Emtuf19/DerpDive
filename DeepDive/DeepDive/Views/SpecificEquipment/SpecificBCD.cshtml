@@ -1,4 +1,42 @@
 ﻿@using DeepDive.ViewModels;
-@model AllEquipmentViewData
+@model SpecificBCD;
 
-<partial name="_SpecificEquipment" model="Model" />
+<form method="post"
+      asp-controller="SpecificEquipment"
+      asp-action="SpecificBCD">
+
+    <input type="hidden" asp-for="BCDId" />
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Brand"></label>
+            <input asp-for="Brand" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Size"></label>
+            <input asp-for="Size" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" readonly />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Vælg BCD
+    </button>
+
+</form>
