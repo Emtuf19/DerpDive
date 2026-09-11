@@ -1,4 +1,5 @@
 ﻿using DeepDive.Enums;
+using DeepDive.Validation;
 
 namespace DeepDive.Models
 {
@@ -12,5 +13,9 @@ namespace DeepDive.Models
         public List<EquipmentGender> Gender { get; set; } = new();
         public int Thickness { get; set; }
         public double Price { get; set; }
+
+        [DateNotInPast]
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTo { get; set; }
     }
 }

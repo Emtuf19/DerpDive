@@ -6,6 +6,7 @@
       asp-action="SpecificMask_Snorkel">
 
     <input type="hidden" asp-for="Mask_SnorkelId" />
+    <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="row mb-3">
         <div class="col">
@@ -23,10 +24,10 @@
 
     <div class="row mb-3">
         <div class="col">
-            <option value="">Dato Fra</option>
-            <input type="date" name="Date" value="date" />
-            <option value="">Dato til</option>
-            <input type="date" name="Date" value="date" />
+            <label>Dato Fra</label>
+            <input asp-for="DateFrom" type="date" class="form-control" value="date" />
+            <label>Dato Til</label>
+            <input asp-for="DateTo" type="date" class="form-control" value="date" />
         </div>
     </div>
 

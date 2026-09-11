@@ -18,6 +18,9 @@ else
 
             <p><strong>Brand:</strong> @item.Brand</p>
 
+            <p><strong>Dato Fra:</strong> @item.DateFrom.ToString("dd/MM/yyyy")</p>
+            <p><strong>Dato Til:</strong> @item.DateTo.ToString("dd/MM/yyyy")</p>
+
             @if (item.EquipmentType == EquipmentType.DivingSuits)
             {
                 <p><strong>Model:</strong> @item.Model</p>

@@ -56,6 +56,8 @@ namespace DeepDive.Controllers
                             SelectedSize = item.SelectedSize,
                             Thickness = divingSuit.Thickness,
                             Type = divingSuit.Type,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -74,6 +76,8 @@ namespace DeepDive.Controllers
                             Brand = bcd.Brand,
                             Model = bcd.Model,
                             SelectedSize = item.SelectedSize,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -92,6 +96,8 @@ namespace DeepDive.Controllers
                             Brand = finns.Brand,
                             Model = finns.Model,
                             SelectedSize = item.SelectedSize,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -109,6 +115,8 @@ namespace DeepDive.Controllers
                             EquipmentId = maskSnorkel.Mask_SnorkelId,
                             Brand = maskSnorkel.Brand,
                             Model = maskSnorkel.Model,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -128,6 +136,8 @@ namespace DeepDive.Controllers
                             FirstStep = regulatorSet.FirstStep,
                             SecondStep = regulatorSet.SecondStep,
                             Octopus = regulatorSet.Octopus,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -145,6 +155,8 @@ namespace DeepDive.Controllers
                             EquipmentId = tank.TankId,
                             Brand = tank.Brand,
                             Volumen = tank.Volumen,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -154,6 +166,7 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
+        //Virker ikke rigtigt. Fjerner første i listen!
         [HttpPost]
         public IActionResult Remove(int cartItemId)
         {
@@ -204,6 +217,8 @@ namespace DeepDive.Controllers
                             SelectedSize = item.SelectedSize,
                             Thickness = divingSuit.Thickness,
                             Type = divingSuit.Type,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -222,6 +237,8 @@ namespace DeepDive.Controllers
                             Brand = bcd.Brand,
                             Model = bcd.Model,
                             SelectedSize = item.SelectedSize,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -240,6 +257,8 @@ namespace DeepDive.Controllers
                             Brand = finns.Brand,
                             Model = finns.Model,
                             SelectedSize = item.SelectedSize,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -257,6 +276,8 @@ namespace DeepDive.Controllers
                             EquipmentId = maskSnorkel.Mask_SnorkelId,
                             Brand = maskSnorkel.Brand,
                             Model = maskSnorkel.Model,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -276,6 +297,8 @@ namespace DeepDive.Controllers
                             FirstStep = regulatorSet.FirstStep,
                             SecondStep = regulatorSet.SecondStep,
                             Octopus = regulatorSet.Octopus,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }
@@ -293,6 +316,8 @@ namespace DeepDive.Controllers
                             EquipmentId = tank.TankId,
                             Brand = tank.Brand,
                             Volumen = tank.Volumen,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
                             Price = item.Price
                         });
                     }

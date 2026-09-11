@@ -23,6 +23,10 @@ namespace DeepDive.ViewModels
         public int? Volumen { get; set; }
         public int? Thickness { get; set; }
 
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTo { get; set; }
+
+
         public EquipmentSize? SelectedSize { get; set; }
 
         public EquipmentGender? SelectedGender { get; set; }
