@@ -28,7 +28,7 @@
                         <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="BCD Vest" />
                         <h6>Mærke: @equipment.Brand</h6>
                         <h6>Model: @equipment.Model</h6>
-                        <h6>Størrelse: @equipment.Size</h6>
+                        <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
                         <h6>Pris pr. dag: @equipment.Price kr</h6>
                         <button class="btn btn-primary">Se Produkt</button>
                     </div>
@@ -48,9 +48,10 @@
                         <img src="~/IMGs/Suit.webp" alt="BCD Vest" />
                         <h6>Mærke: @equipment.Brand</h6>
                         <h6>Model: @equipment.Model</h6>
-                        <h6>Størrelse: @equipment.Size</h6>
+                        <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
+                        <h6>Type: @equipment.Type</h6>
                         <h6>Tykkelse: @equipment.Thickness</h6>
-                        <h6>Køn: @equipment.Gender</h6>
+                        <h6>Køn: @string.Join(", ", equipment.Gender)</h6>
                         <h6>Pris pr. dag: @equipment.Price kr</h6>
                         <button class="btn btn-primary">Se Produkt</button>
                     </div>
@@ -70,7 +71,7 @@
                         <img src="~/IMGs/Flippers.webp" alt="BCD Vest" />
                         <h6>Mærke: @equipment.Brand</h6>
                         <h6>Model: @equipment.Model</h6>
-                        <h6>Størrelse: @equipment.Size</h6>
+                        <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
                         <h6>Pris pr. dag: @equipment.Price kr</h6>
                         <button class="btn btn-primary">Se Produkt</button>
                     </div>

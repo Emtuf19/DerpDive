@@ -1,6 +1,8 @@
 ﻿using DeepDive.Models;
 using Microsoft.EntityFrameworkCore;
+using DeepDive.Enums;
 using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DeepDive.Data
 {
@@ -21,13 +23,66 @@ namespace DeepDive.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
+            var sizeComparer = new ValueComparer<List<EquipmentSize>>(
+                (a, b) => a.SequenceEqual(b),
+                a => a.Aggregate(0, (hash, value) => HashCode.Combine(hash, value)),
+                a => a.ToList()
+            );
+
+            var genderComparer = new ValueComparer<List<EquipmentGender>>(
+                (a, b) => a.SequenceEqual(b),
+                a => a.Aggregate(0, (hash, value) => HashCode.Combine(hash, value)),
+                a => a.ToList()
+            );
+
+            modelBuilder.Entity<BCD>()
+                .Property(b => b.Size)
+                .HasConversion(
+                    size => string.Join(',', size),
+                    size => size.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(size => Enum.Parse<EquipmentSize>(size))
+                        .ToList()
+                )
+                .Metadata.SetValueComparer(sizeComparer);
+
+            modelBuilder.Entity<DivingSuits>()
+                .Property(b => b.Size)
+                .HasConversion(
+                    size => string.Join(',', size),
+                    size => size.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(size => Enum.Parse<EquipmentSize>(size)).ToList()
+                ).Metadata.SetValueComparer(sizeComparer);
+
+            modelBuilder.Entity<DivingSuits>()
+                .Property(b => b.Gender)
+                .HasConversion(
+                    gender => string.Join(',', gender),
+                    gender => gender.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(gender => Enum.Parse<EquipmentGender>(gender)).ToList()
+                ).Metadata.SetValueComparer(genderComparer);
+
+            modelBuilder.Entity<Finns>()
+                .Property(f => f.Size)
+                .HasConversion(
+                    size => string.Join(',', size),
+                    size => size.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(size => Enum.Parse<EquipmentSize>(size))
+                        .ToList()
+                )
+                .Metadata.SetValueComparer(sizeComparer);
+
             modelBuilder.Entity<BCD>().HasData(
                 new BCD
                 {
                     BCDId = 1,
                     Brand = "Scubapro",
                     Model = "Navigator Lite BCD",
-                    Size = "S, M, L",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L
+                    },
                     Price = 125
                 },
                 new BCD
@@ -35,7 +90,12 @@ namespace DeepDive.Data
                     BCDId = 2,
                     Brand = "Scubapro",
                     Model = "BCD Glide",
-                    Size = "S, M, L",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L
+                    },
                     Price = 140
                 },
                 new BCD
@@ -43,7 +103,12 @@ namespace DeepDive.Data
                     BCDId = 3,
                     Brand = "Scubapro",
                     Model = "BCD Hydros Pro",
-                    Size = "S, M, L",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L
+                    },
                     Price = 200
                 },
                 new BCD
@@ -51,7 +116,12 @@ namespace DeepDive.Data
                     BCDId = 4,
                     Brand = "Seac",
                     Model = "BCD Modular",
-                    Size = "S, M, L",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L
+                    },
                     Price = 145
                 }
             );
@@ -61,9 +131,24 @@ namespace DeepDive.Data
                     DivingSuitsId = 1,
                     Brand = "Scubapro",
                     Model = "Definition",
-                    Size = "XS, S, M, L, XL",
+
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
+
                     Type = "Våddragt",
-                    Gender = "Herre/Dame",
+
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
+
                     Price = 100,
                     Thickness = 3
                 },
@@ -72,9 +157,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 2,
                     Brand = "Scubapro",
                     Model = "Definition",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Våddragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 100,
                     Thickness = 5
                 },
@@ -83,9 +179,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 3,
                     Brand = "Scubapro",
                     Model = "Definition",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Våddragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 100,
                     Thickness = 7
                 },
@@ -94,9 +201,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 4,
                     Brand = "Waterproof",
                     Model = "W5",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Våddragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 100,
                     Thickness = 3
                 },
@@ -105,9 +223,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 5,
                     Brand = "Fourth Element",
                     Model = "Proteus",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Våddragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 120,
                     Thickness = 5
                 },
@@ -116,9 +245,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 6,
                     Brand = "Scubapro",
                     Model = "Exodry 4.0",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Tørdragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 300,
                     Thickness = 0
                 },
@@ -127,9 +267,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 7,
                     Brand = "Waterproof",
                     Model = "D7 Evo",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Tørdragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 320,
                     Thickness = 0
                 },
@@ -138,9 +289,20 @@ namespace DeepDive.Data
                     DivingSuitsId = 8,
                     Brand = "Santi",
                     Model = "E.Lite Plus",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Type = "Tørdragt",
-                    Gender = "Herre/Dame",
+                    Gender = new List<EquipmentGender>
+                    {
+                        EquipmentGender.Herre,
+                        EquipmentGender.Dame
+                    },
                     Price = 350,
                     Thickness = 0
                 }
@@ -151,7 +313,14 @@ namespace DeepDive.Data
                     FinnsId = 1,
                     Brand = "Scubapro",
                     Model = "Jet Fin",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 50
                 },
                 new Finns
@@ -159,7 +328,14 @@ namespace DeepDive.Data
                     FinnsId = 2,
                     Brand = "Scubapro",
                     Model = "GO Travel",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 50
                 },
                 new Finns
@@ -167,7 +343,14 @@ namespace DeepDive.Data
                     FinnsId = 3,
                     Brand = "Scubapro",
                     Model = "Seawing Supernova",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 60
                 },
                 new Finns
@@ -175,7 +358,14 @@ namespace DeepDive.Data
                     FinnsId = 4,
                     Brand = "Seac",
                     Model = "Propulsion",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 50
                 },
                 new Finns
@@ -183,7 +373,14 @@ namespace DeepDive.Data
                     FinnsId = 5,
                     Brand = "Seac",
                     Model = "ALA",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 50
                 },
                 new Finns
@@ -191,7 +388,14 @@ namespace DeepDive.Data
                     FinnsId = 6,
                     Brand = "Fourth Element",
                     Model = "Tech",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 75
                 },
                 new Finns
@@ -199,7 +403,14 @@ namespace DeepDive.Data
                     FinnsId = 7,
                     Brand = "Fourth Element",
                     Model = "Rec Fin",
-                    Size = "XS, S, M, L, XL",
+                    Size = new List<EquipmentSize>
+                    {
+                        EquipmentSize.XS,
+                        EquipmentSize.S,
+                        EquipmentSize.M,
+                        EquipmentSize.L,
+                        EquipmentSize.XL
+                    },
                     Price = 80
                 }
             );
