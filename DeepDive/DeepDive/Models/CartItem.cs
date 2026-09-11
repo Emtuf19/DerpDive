@@ -10,5 +10,8 @@ namespace DeepDive.Models
         public EquipmentSize? SelectedSize { get; set; }
         public EquipmentGender? SelectedGender { get; set; }
         public double Price { get; set; }
+
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTo { get; set; }
     }
 }

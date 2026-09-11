@@ -4,6 +4,7 @@ using DeepDive.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeepDive.Migrations
 {
     [DbContext(typeof(EquipmentContext))]
-    partial class EquipmentContextModelSnapshot : ModelSnapshot
+    [Migration("20260911083605_AddDatesBCD")]
+    partial class AddDatesBCD
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,12 +113,6 @@ namespace DeepDive.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -147,8 +144,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 1,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "Definition",
                             Price = 100.0,
@@ -160,8 +155,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 2,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "Definition",
                             Price = 100.0,
@@ -173,8 +166,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 3,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "Definition",
                             Price = 100.0,
@@ -186,8 +177,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 4,
                             Brand = "Waterproof",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "W5",
                             Price = 100.0,
@@ -199,8 +188,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 5,
                             Brand = "Fourth Element",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "Proteus",
                             Price = 120.0,
@@ -212,8 +199,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 6,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "Exodry 4.0",
                             Price = 300.0,
@@ -225,8 +210,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 7,
                             Brand = "Waterproof",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "D7 Evo",
                             Price = 320.0,
@@ -238,8 +221,6 @@ namespace DeepDive.Migrations
                         {
                             DivingSuitsId = 8,
                             Brand = "Santi",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Gender = "Herre,Dame",
                             Model = "E.Lite Plus",
                             Price = 350.0,
@@ -261,12 +242,6 @@ namespace DeepDive.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -287,8 +262,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 1,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Jet Fin",
                             Price = 50.0,
                             Size = "XS,S,M,L,XL"
@@ -297,8 +270,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 2,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "GO Travel",
                             Price = 50.0,
                             Size = "XS,S,M,L,XL"
@@ -307,8 +278,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 3,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Seawing Supernova",
                             Price = 60.0,
                             Size = "XS,S,M,L,XL"
@@ -317,8 +286,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 4,
                             Brand = "Seac",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Propulsion",
                             Price = 50.0,
                             Size = "XS,S,M,L,XL"
@@ -327,8 +294,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 5,
                             Brand = "Seac",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "ALA",
                             Price = 50.0,
                             Size = "XS,S,M,L,XL"
@@ -337,8 +302,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 6,
                             Brand = "Fourth Element",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Tech",
                             Price = 75.0,
                             Size = "XS,S,M,L,XL"
@@ -347,8 +310,6 @@ namespace DeepDive.Migrations
                         {
                             FinnsId = 7,
                             Brand = "Fourth Element",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Rec Fin",
                             Price = 80.0,
                             Size = "XS,S,M,L,XL"
@@ -367,12 +328,6 @@ namespace DeepDive.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -389,8 +344,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 1,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Ghost",
                             Price = 50.0
                         },
@@ -398,8 +351,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 2,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "D-Mask",
                             Price = 60.0
                         },
@@ -407,8 +358,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 3,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Spectra Mini",
                             Price = 50.0
                         },
@@ -416,8 +365,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 4,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Crystal VU",
                             Price = 75.0
                         },
@@ -425,8 +372,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 5,
                             Brand = "Fourth Element",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Scout Kontrast",
                             Price = 75.0
                         },
@@ -434,8 +379,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 6,
                             Brand = "Fourth Element",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Scout Enhance",
                             Price = 75.0
                         },
@@ -443,8 +386,6 @@ namespace DeepDive.Migrations
                         {
                             Mask_SnorkelId = 7,
                             Brand = "Tusa",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Model = "Element",
                             Price = 75.0
                         });
@@ -461,12 +402,6 @@ namespace DeepDive.Migrations
                     b.Property<string>("Brand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("FirstStep")
                         .IsRequired()
@@ -492,8 +427,6 @@ namespace DeepDive.Migrations
                         {
                             RegulatorSetId = 1,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstStep = "MK25EVO",
                             Octopus = "R105",
                             Price = 125.0,
@@ -503,8 +436,6 @@ namespace DeepDive.Migrations
                         {
                             RegulatorSetId = 2,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstStep = "MK17EVO",
                             Octopus = "R095",
                             Price = 100.0,
@@ -514,8 +445,6 @@ namespace DeepDive.Migrations
                         {
                             RegulatorSetId = 3,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstStep = "MK25EVO BT",
                             Octopus = "S270",
                             Price = 150.0,
@@ -535,12 +464,6 @@ namespace DeepDive.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateFrom")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateTo")
-                        .HasColumnType("datetime2");
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -556,8 +479,6 @@ namespace DeepDive.Migrations
                         {
                             TankId = 1,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 150.0,
                             Volumen = 5
                         },
@@ -565,8 +486,6 @@ namespace DeepDive.Migrations
                         {
                             TankId = 2,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 160.0,
                             Volumen = 10
                         },
@@ -574,8 +493,6 @@ namespace DeepDive.Migrations
                         {
                             TankId = 3,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 170.0,
                             Volumen = 12
                         },
@@ -583,8 +500,6 @@ namespace DeepDive.Migrations
                         {
                             TankId = 4,
                             Brand = "Scubapro",
-                            DateFrom = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 180.0,
                             Volumen = 15
                         });

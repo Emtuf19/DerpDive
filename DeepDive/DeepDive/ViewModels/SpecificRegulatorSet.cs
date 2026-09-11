@@ -1,4 +1,6 @@
-﻿namespace DeepDive.ViewModels
+﻿using DeepDive.Validation;
+
+namespace DeepDive.ViewModels
 {
     public class SpecificRegulatorSet
     {
@@ -8,5 +10,9 @@
         public string SecondStep { get; set; }
         public string Octopus { get; set; }
         public double Price { get; set; }
+
+        [DateNotInPast]
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTo { get; set; }
     }
 }
