@@ -3,6 +3,7 @@ using DeepDive.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeepDive.Migrations
 {
     [DbContext(typeof(EquipmentContext))]
-    partial class EquipmentContextModelSnapshot : ModelSnapshot
+    [Migration("20260910114625_DivingSuitsEnums")]
+    partial class DivingSuitsEnums
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +58,7 @@ namespace DeepDive.Migrations
                             Brand = "Scubapro",
                             Model = "Navigator Lite BCD",
                             Price = 125.0,
-                            Size = "S,M,L"
+                            Size = "S, M, L"
                         },
                         new
                         {
@@ -63,7 +66,7 @@ namespace DeepDive.Migrations
                             Brand = "Scubapro",
                             Model = "BCD Glide",
                             Price = 140.0,
-                            Size = "S,M,L"
+                            Size = "S, M, L"
                         },
                         new
                         {
@@ -71,7 +74,7 @@ namespace DeepDive.Migrations
                             Brand = "Scubapro",
                             Model = "BCD Hydros Pro",
                             Price = 200.0,
-                            Size = "S,M,L"
+                            Size = "S, M, L"
                         },
                         new
                         {
@@ -79,7 +82,7 @@ namespace DeepDive.Migrations
                             Brand = "Seac",
                             Model = "BCD Modular",
                             Price = 145.0,
-                            Size = "S,M,L"
+                            Size = "S, M, L"
                         });
                 });
 
@@ -246,7 +249,7 @@ namespace DeepDive.Migrations
                             Brand = "Scubapro",
                             Model = "Jet Fin",
                             Price = 50.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         },
                         new
                         {
@@ -254,7 +257,7 @@ namespace DeepDive.Migrations
                             Brand = "Scubapro",
                             Model = "GO Travel",
                             Price = 50.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         },
                         new
                         {
@@ -262,7 +265,7 @@ namespace DeepDive.Migrations
                             Brand = "Scubapro",
                             Model = "Seawing Supernova",
                             Price = 60.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         },
                         new
                         {
@@ -270,7 +273,7 @@ namespace DeepDive.Migrations
                             Brand = "Seac",
                             Model = "Propulsion",
                             Price = 50.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         },
                         new
                         {
@@ -278,7 +281,7 @@ namespace DeepDive.Migrations
                             Brand = "Seac",
                             Model = "ALA",
                             Price = 50.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         },
                         new
                         {
@@ -286,7 +289,7 @@ namespace DeepDive.Migrations
                             Brand = "Fourth Element",
                             Model = "Tech",
                             Price = 75.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         },
                         new
                         {
@@ -294,7 +297,7 @@ namespace DeepDive.Migrations
                             Brand = "Fourth Element",
                             Model = "Rec Fin",
                             Price = 80.0,
-                            Size = "XS,S,M,L,XL"
+                            Size = "XS, S, M, L, XL"
                         });
                 });
 

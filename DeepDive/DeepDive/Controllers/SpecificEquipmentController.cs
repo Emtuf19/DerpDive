@@ -1,7 +1,9 @@
-﻿using DeepDive.Models;
+﻿using DeepDive.Extensions;
+using DeepDive.Models;
 using DeepDive.Persistance;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using DeepDive.Enums;
 
 namespace DeepDive.Controllers
 {
@@ -30,28 +32,46 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificBCD(int id)
         {
-            var sBCD = BCDRepository.GetById(id);
-            if (sBCD == null)
+            var bcd = BCDRepository.GetById(id);
+
+            if (bcd == null)
             {
                 return NotFound();
             }
 
             var vm = new SpecificBCD
             {
-                BCDId = sBCD.BCDId,
-                Brand = sBCD.Brand,
-                Model = sBCD.Model,
-                Size = sBCD.Size,
-                Price = sBCD.Price
+                BCDId = bcd.BCDId,
+                Brand = bcd.Brand,
+                Model = bcd.Model,
+                Price = bcd.Price,
+                AvailableSizes = bcd.Size
             };
+
             return View(vm);
         }
 
         [HttpPost]
         public IActionResult SpecificBCD(SpecificBCD vm)
         {
-            var id = vm.BCDId;
-            var size = vm.Size;
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
+
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.BCD,
+                EquipmentId = vm.BCDId,
+                SelectedSize = vm.SelectedSize,
+                Price = vm.Price
+            };
+
+            cart.Items.Add(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
 
             return View(vm);
         }
@@ -72,8 +92,8 @@ namespace DeepDive.Controllers
                 Type = sDivingSuit.Type,
                 Thickness = sDivingSuit.Thickness,
                 Price = sDivingSuit.Price,
-                Gender = sDivingSuit.Gender,
-                Size = sDivingSuit.Size
+                AvailableGenders = sDivingSuit.Gender,
+                AvailableSizes = sDivingSuit.Size
             };
             return View(vm);
         }
@@ -81,13 +101,25 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult SpecificDivingSuits(SpecificDivingSuitVM vm)
         {
-            // Her har du brugerens valg
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
 
-            var id = vm.DivingSuitsId; //ikke sikker på ID skal med??
-            var gender = vm.Gender;
-            var size = vm.Size;
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
 
-            // Gør noget med valget...
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.DivingSuits,
+                EquipmentId = vm.DivingSuitsId,
+                SelectedSize = vm.SelectedSize,
+                SelectedGender = vm.SelectedGender,
+                Price = vm.Price
+            };
+
+            cart.Items.Add(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
 
             return View(vm);
         }
@@ -105,7 +137,7 @@ namespace DeepDive.Controllers
                 FinnsId = sFinns.FinnsId,
                 Brand = sFinns.Brand,
                 Model = sFinns.Model,
-                Size = sFinns.Size,
+                AvailableSizes = sFinns.Size,
                 Price = sFinns.Price
             };
             return View(vm);
@@ -114,8 +146,24 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult SpecificFinns(SpecificFinns vm)
         {
-            var id = vm.FinnsId;
-            var size = vm.Size;
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
+
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.Finns,
+                EquipmentId = vm.FinnsId,
+                SelectedSize = vm.SelectedSize,
+                Price = vm.Price
+            };
+
+            cart.Items.Add(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
 
             return View(vm);
         }
@@ -141,7 +189,23 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult SpecificMask_Snorkel(SpecificMask_Snorkel vm)
         {
-            var id = vm.Mask_SnorkelId;
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
+
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.Mask_Snorkel,
+                EquipmentId = vm.Mask_SnorkelId,
+                Price = vm.Price
+            };
+
+            cart.Items.Add(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
 
             return View(vm);
         }
@@ -169,10 +233,23 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult SpecificRegulatorSet(SpecificRegulatorSet vm)
         {
-            var id = vm.RegulatorSetId;
-            var firstStep = vm.FirstStep;
-            var secondStep = vm.SecondStep;
-            var octopus = vm.Octopus;
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
+
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.RegulatorSet,
+                EquipmentId = vm.RegulatorSetId,
+                Price = vm.Price
+            };
+
+            cart.Items.Add(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
 
             return View(vm);
         }
@@ -198,8 +275,23 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult SpecificTank(SpecificTank vm)
         {
-            var id = vm.TankId;
-            var volumen = vm.Volumen;
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
+
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.Tank,
+                EquipmentId = vm.TankId,
+                Price = vm.Price
+            };
+
+            cart.Items.Add(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
 
             return View(vm);
         }

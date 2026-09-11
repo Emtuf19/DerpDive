@@ -1,0 +1,74 @@
+﻿@using DeepDive.ViewModels;
+@using DeepDive.Enums;
+@model CartVM
+
+<h1>Din kurv</h1>
+
+@if (!Model.Items.Any())
+{
+    <p>Din kurv er tom.</p>
+}
+else
+{
+    foreach (var item in Model.Items)
+    {
+        <div class="mb-4">
+
+            <h4>@item.EquipmentType</h4>
+
+            <p><strong>Brand:</strong> @item.Brand</p>
+
+            @if (item.EquipmentType == EquipmentType.DivingSuits)
+            {
+                <p><strong>Model:</strong> @item.Model</p>
+                <p><strong>Type:</strong> @item.Type</p>
+                <p><strong>Tykkelse:</strong> @item.Thickness mm</p>
+                <p><strong>Køn:</strong> @item.SelectedGender</p>
+                <p><strong>Størrelse:</strong> @item.SelectedSize</p>
+            }
+            else if (item.EquipmentType == EquipmentType.BCD)
+            {
+                <p><strong>Model:</strong> @item.Model</p>
+                <p><strong>Størrelse:</strong> @item.SelectedSize</p>
+            }
+            else if (item.EquipmentType == EquipmentType.Finns)
+            {
+                <p><strong>Model:</strong> @item.Model</p>
+                <p><strong>Størrelse:</strong> @item.SelectedSize</p>
+            }
+            else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
+            {
+                <p><strong>Model:</strong> @item.Model</p>
+            }
+            else if (item.EquipmentType == EquipmentType.RegulatorSet)
+            {
+                <p><strong>1. trin:</strong> @item.FirstStep</p>
+                <p><strong>2. trin:</strong> @item.SecondStep</p>
+                <p><strong>Octopus:</strong> @item.Octopus</p>
+            }
+            else if (item.EquipmentType == EquipmentType.Tank)
+            {
+                <p><strong>Volumen:</strong> @item.Volumen L</p>
+            }
+
+            <p><strong>Pris:</strong> @item.Price kr.</p>
+
+            <form asp-controller="Cart" asp-action="Remove" method="post">
+                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                <button type="submit" class="btn btn-danger">
+                    Fjern
+                </button>
+            </form>
+
+        </div>
+
+        <hr />
+    }
+
+    <p>Antal varer: @Model.Items.Count</p>
+    <p>Total: @Model.TotalPrice kr.</p>
+
+    <a class="btn btn-primary" asp-controller="Cart" asp-action="Checkout">
+        Gå til betaling
+    </a>
+}

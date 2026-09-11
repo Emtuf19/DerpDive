@@ -23,8 +23,23 @@
 
     <div class="row mb-3">
         <div class="col">
-            <label asp-for="Size"></label>
-            <input asp-for="Size" class="form-control" />
+            <select asp-for="SelectedSize" required>
+                <option value="">Vælg størrelse</option>
+
+                @foreach (var size in Model.AvailableSizes)
+                {
+                    <option value="@size">@size</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <option value="">Dato Fra</option>
+            <input type="date" name="Date" value="date" />
+            <option value="">Dato til</option>
+            <input type="date" name="Date" value="date" />
         </div>
     </div>
 
@@ -38,5 +53,10 @@
     <button type="submit" class="btn btn-primary">
         Vælg svømmefødder
     </button>
-
+    <a class="btn btn-secondary" asp-controller="Equipment" asp-action="Category">
+        Shop videre
+    </a>
+    <a class="btn btn-secondary" asp-controller="Cart" asp-action="Index">
+        Gå til kurv
+    </a>
 </form>

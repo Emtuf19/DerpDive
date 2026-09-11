@@ -12,6 +12,9 @@ namespace DeepDive
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            // Bruger til kurven. Kurven bliver gemt i sessionen
+            builder.Services.AddSession();
+
             builder.Services.AddDbContext<EquipmentContext>(options => { options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); });
             // Register repositories
             builder.Services.AddScoped<IMask_SnorkelRepository, Mask_SnorkelRepository>();
@@ -33,6 +36,9 @@ namespace DeepDive
 
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            // Tilføjet for at kunne bruge sessionen i applikationen
+            app.UseSession();
 
             app.UseAuthorization();
 
