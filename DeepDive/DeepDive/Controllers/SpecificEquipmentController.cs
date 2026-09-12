@@ -71,6 +71,7 @@ namespace DeepDive.Controllers
             bool alreadyInCart = cart.Items.Any(item =>
                 item.EquipmentType == EquipmentType.BCD &&
                 item.EquipmentId == vm.BCDId &&
+                vm.SelectedSize == item.SelectedSize &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
@@ -95,7 +96,8 @@ namespace DeepDive.Controllers
 
             HttpContext.Session.SetObject("Cart", cart);
 
-            return View(vm);
+            //Redirect fixer at man ikke kan vælge størrelse osv
+            return RedirectToAction("SpecificBCD", new { id = vm.BCDId });
         }
 
         public IActionResult SpecificDivingSuits(int id)
