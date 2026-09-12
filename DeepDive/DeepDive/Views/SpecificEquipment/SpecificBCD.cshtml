@@ -52,9 +52,26 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">
+    <button type="button" class="btn btn-primary" id="OpenPopUp">
         Tilføj til kurv
     </button>
+    <dialog class="modal-dialog" id="ConfirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Bekræftelse</h5>
+            </div>
+            <div class="modal-body">
+                <p>Din vare er blevet tilføjet til kurven</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary" id="ClosePopUp">Ok</button>
+            </div>
+        </div>
+    </dialog>
+        @* <a class="btn btn-primary" asp-controller="Equipment" asp-action="Category"></a>
+    <button type="submit" class="btn btn-primary">
+        Tilføj til kurv
+    </button> *@
     <a class="btn btn-secondary" asp-controller="Equipment" asp-action="Category">
         Shop videre
     </a>
@@ -62,3 +79,17 @@
         Gå til kurv
     </a>
 </form>
+
+<script>
+        const PopUp = document.getElementById('ConfirmationModal');
+        const openBtn = document.getElementById('OpenPopUp');
+        const closeBtn = document.getElementById('ClosePopUp');
+
+        openBtn.addEventListener('click', () => {
+            PopUp.showModal();
+        });
+
+        closeBtn.addEventListener('click', () => {
+            PopUp.close();
+        });
+</script>

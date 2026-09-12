@@ -7,7 +7,7 @@
         {
             get
             {
-                return Items.Sum(item => item.Price);
+                return Items.Sum(item => item.Price * (item.DateTo - item.DateFrom + TimeSpan.FromDays(1)).TotalDays);
             }
         }
     }
