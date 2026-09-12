@@ -1,18 +1,15 @@
 html {
-    font-size: 14px;
+    font-size: 16px;
     position: relative;
     min-height: 100%;
+    color: white;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
 
 body {
     font-family: Arial;
-    background-color: rgb(52, 102, 140);
+    color: white;
+    background: linear-gradient(180deg, rgb(18, 27, 75) 0%, #1b6ec2 50%, rgb(18, 27, 75) 100%);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -23,12 +20,13 @@ body {
         margin: 0;
         color: white;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 32px;
         padding: 0 0 0 10px;
         padding-bottom: 20px;
     }
 
-#BackgoundIMG {
+
+#BackgroundIMG {
     height: 400px;
     width: 100%;
     overflow: hidden;
@@ -36,7 +34,7 @@ body {
     margin: 0;
 }
 
-    #BackgoundIMG img {
+    #BackgroundIMG img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -44,13 +42,13 @@ body {
         margin: 0;
     }
 
-#BackgoundIMG_Text {
+#BackgroundIMG_Text {
     color: white;
     position: absolute;
     left: 10px;
-    right: 10px
+    right: 10px;
     bottom: 20px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: normal;
     font-style: italic;
     margin: 0;
@@ -60,14 +58,6 @@ body {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-    color: var(--bs-secondary-color);
-    text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-    text-align: start;
-}
 
 .container {
     flex: 1 0 auto;
@@ -76,7 +66,10 @@ body {
 
 footer {
     flex-shrink: 0;
-    color: white;
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    color: lightgray;
     background-color: rgb(18, 27, 75)
 }
 
@@ -88,6 +81,9 @@ body nav {
     margin: 0;
     background-color: rgb(18, 27, 75);
     color: white;
+    font-size: 16px;
+    border: none;
+    box-shadow: none;
 }
 
 .navbar-nav .nav-link {
@@ -101,6 +97,7 @@ body nav {
 a.navbar-brand {
     white-space: normal;
     color: white;
+    font-size: 20px;
     text-align: center;
     word-break: break-all;
 }
@@ -115,28 +112,7 @@ a {
     border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
+/*Produkt kortene */
 
 .card {
     border-radius: 12px;
@@ -160,6 +136,7 @@ button.accept-policy {
 
     .card.bg-b img {
         width: 100%;
+       margin: 5px;
         max-width: 100%;
         height: 100px;
         object-fit: contain;
@@ -175,34 +152,43 @@ button.accept-policy {
     .card.bg-b .btn-primary {
         background-color: white;
         color: #1b6ec2;
+        font-weight: bold;
         border: none;
     }
 
     .card.bg-b h6 {
-        font-size: 1rem;
-        margin-bottom: 10px;
+        font-size: 14px;
+        opacity: 0.85;
+        margin-bottom: 6px;
+    }
+    .card.bg-b .product-title {
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 1;
     }
 
     .card.bg-b .card-body {
-        padding: 1rem;
+        padding: 12px;
         overflow: hidden;
     }
 
 .EquipmentCard {
-    width: 20rem;
-    margin-bottom: 2rem;
+    width: 320px;
+    margin-bottom: 32px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+    .EquipmentCard:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
 
     .EquipmentCard img {
-        width: 18rem;
-        height: 12rem;
+        width: 288px;
+        height: 192px;
         object-fit: contain;
     }
 
-.row {
-    margin-botton: 1.5 rem;
-}
-
+/*Specifik produkt formular*/
 form label {
     color: white;
     font-weight: bold;
@@ -218,16 +204,43 @@ form .form-control {
 
     form .form-control[readonly] {
         background-color: rgba(255,255,255,0.7);
-        color: #333;
     }
 
-form {
+.product-form {
     background: linear-gradient(135deg, #1b6ec2, #123a6b);
-    padding: 2rem;
+    padding: 32px;
     border-radius: 12px;
     max-width: 500px;
-    margin: 2rem auto;
+    margin: 32px auto;
 }
+.product-image {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.product-form select.form-control {
+    appearance: auto;
+    padding: 8px 12px;
+    padding-right: 32px;
+    height: auto;
+    width: 100%;
+}
+.product-form .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.6);
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+    .product-form .btn-ghost:hover {
+        background: rgba(255,255,255,0.15);
+    }
+
 
     form .btn-primary {
         background-color: white;
@@ -236,7 +249,189 @@ form {
         font-weight: bold;
         width: 100%;
     }
+        
+/*Kurven*/
+.cart-item {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    color: #123a6b;
+}
 
-        form .btn-primary:hover {
-            background-color: #e0e0e0;
-        }
+.cart-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+    .cart-item-header h5 {
+        margin: 0;
+        font-weight: bold;
+    }
+
+.cart-item-price {
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    color: #5a6c85;
+    font-size: 14px;
+    
+    margin-bottom: 16px;
+}
+
+.cart-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.cart-dates {
+    font-size: 14px;
+    color: #5a6c85;
+}
+
+.btn-remove {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #1b6ec2;
+    color: darkred;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .btn-remove:hover {
+        background: rgb(91 21 21 / 0.85);
+        color: white;
+    }
+.cart-summary {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    color: #123a6b;
+    top: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+    .cart-summary h5 {
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+    
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.summary-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-checkout {
+    display: block;
+    width: 100%;
+    background: #1b6ec2;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn-checkout:hover {
+        background: #155a9e;
+        color: white;
+    }
+
+.btn-ghost-dark {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #1b6ec2;
+    color: #1b6ec2;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .btn-ghost-dark:hover {
+        background: rgba(27,110,194,0.1);
+        color: #1b6ec2;
+    }
+/*Betalingssiden når man trykker på kurven */
+.section-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.payment-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    color: #123a6b;
+}
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.payment-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.payment-label {
+    display: block;
+    color: #123a6b;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.payment-input {
+    width: 100%;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+    .payment-input:focus {
+        outline: none;
+        border-color: #1b6ec2;
+    }
+
+.summary-check {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+

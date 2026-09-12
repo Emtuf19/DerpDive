@@ -2,144 +2,182 @@
 @using DeepDive.Enums
 @model CartVM
 
-<h1>Betaling</h1>
+<div class="container py-4">
+    <h1>Betaling</h1>
 
-@if (!Model.Items.Any())
-{
-    <p>Din kurv er tom.</p>
-}
-else
-{
-    <h2>Din bestilling</h2>
-
-    foreach (var item in Model.Items)
+    @if (!Model.Items.Any())
     {
-        <div>
-            <h3>@item.EquipmentType</h3>
-
-            <p>Brand: @item.Brand</p>
-
-            @if (item.EquipmentType == EquipmentType.DivingSuits)
-            {
-                <p>Model: @item.Model</p>
-                <p>Køn: @item.SelectedGender</p>
-                <p>Størrelse: @item.SelectedSize</p>
-                <p>Type: @item.Type</p>
-                <p>Tykkelse: @item.Thickness mm</p>
-            }
-            else if (item.EquipmentType == EquipmentType.BCD)
-            {
-                <p>Model: @item.Model</p>
-                <p>Størrelse: @item.SelectedSize</p>
-            }
-            else if (item.EquipmentType == EquipmentType.Finns)
-            {
-                <p>Model: @item.Model</p>
-                <p>Størrelse: @item.SelectedSize</p>
-            }
-            else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
-            {
-                <p>Model: @item.Model</p>
-            }
-            else if (item.EquipmentType == EquipmentType.RegulatorSet)
-            {
-                <p>1. trin: @item.FirstStep</p>
-                <p>2. trin: @item.SecondStep</p>
-                <p>Octopus: @item.Octopus</p>
-            }
-            else if (item.EquipmentType == EquipmentType.Tank)
-            {
-                <p>Volumen: @item.Volumen L</p>
-            }
-
-            <p>Pris: @item.Price kr.</p>
+        <div class="empty-cart">
+            <p>Din kurv er tom.</p>
+            <a class="btn btn-primary" asp-controller="Equipment" asp-action="Category">
+                Se vores udstyr
+            </a>
         </div>
     }
+    else
+    {
+        <div class="row g-4">
 
+          
+            <div class="col-lg-8">
 
-    <div class="container">
-        <h1 class="h3 mb-5">Payment</h1>
-        <div class="row">
-            <!-- Left -->
-            <div class="col-lg-9">
-                <div class="accordion" id="accordionPayment">
-                    <!-- Credit card -->
-                    <div class="accordion-item mb-3">
-                        <h2 class="h5 px-4 py-3 accordion-header d-flex justify-content-between align-items-center">
-                            <div class="form-check w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseCC" aria-expanded="false">
-                                <input class="form-check-input" type="radio" name="payment" id="payment1">
-                                <label class="form-check-label pt-1" for="payment1">
-                                    Credit Card
-                                </label>
-                            </div>
-                            <span>
-                                <svg width="34" height="25" xmlns="http://www.w3.org/2000/svg">
-                                    <g fill-rule="nonzero" fill="#333840">
-                                        <path d="M29.418 2.083c1.16 0 2.101.933 2.101 2.084v16.666c0 1.15-.94 2.084-2.1 2.084H4.202A2.092 2.092 0 0 1 2.1 20.833V4.167c0-1.15.941-2.084 2.102-2.084h25.215ZM4.203 0C1.882 0 0 1.865 0 4.167v16.666C0 23.135 1.882 25 4.203 25h25.215c2.321 0 4.203-1.865 4.203-4.167V4.167C33.62 1.865 31.739 0 29.418 0H4.203Z"></path>
-                                        <path d="M4.203 7.292c0-.576.47-1.042 1.05-1.042h4.203c.58 0 1.05.466 1.05 1.042v2.083c0 .575-.47 1.042-1.05 1.042H5.253c-.58 0-1.05-.467-1.05-1.042V7.292Zm0 6.25c0-.576.47-1.042 1.05-1.042H15.76c.58 0 1.05.466 1.05 1.042 0 .575-.47 1.041-1.05 1.041H5.253c-.58 0-1.05-.466-1.05-1.041Zm0 4.166c0-.575.47-1.041 1.05-1.041h2.102c.58 0 1.05.466 1.05 1.041 0 .576-.47 1.042-1.05 1.042H5.253c-.58 0-1.05-.466-1.05-1.042Zm6.303 0c0-.575.47-1.041 1.051-1.041h2.101c.58 0 1.051.466 1.051 1.041 0 .576-.47 1.042-1.05 1.042h-2.102c-.58 0-1.05-.466-1.05-1.042Zm6.304 0c0-.575.47-1.041 1.051-1.041h2.101c.58 0 1.05.466 1.05 1.041 0 .576-.47 1.042-1.05 1.042h-2.101c-.58 0-1.05-.466-1.05-1.042Zm6.304 0c0-.575.47-1.041 1.05-1.041h2.102c.58 0 1.05.466 1.05 1.041 0 .576-.47 1.042-1.05 1.042h-2.101c-.58 0-1.05-.466-1.05-1.042Z"></path>
-                                    </g>
-                                </svg>
+                <h2 class="section-title">Din bestilling</h2>
+
+                @foreach (var item in Model.Items)
+                {
+                    <div class="cart-item">
+                        <div class="cart-item-header">
+                            <h5>@item.EquipmentType - @item.Brand</h5>
+                            <span class="cart-item-price">@item.Price kr. pr. dag</span>
+                        </div>
+
+                        <div class="cart-item-details">
+                            @if (item.EquipmentType == EquipmentType.DivingSuits)
+                            {
+                                <span>@item.Model</span>
+                                <span>@item.Type · @item.Thickness mm</span>
+                                <span>@item.SelectedGender · Størrelse: @item.SelectedSize</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.BCD
+                                  || item.EquipmentType == EquipmentType.Finns)
+                            {
+                                <span>@item.Model</span>
+                                <span>Størrelse: @item.SelectedSize</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
+                            {
+                                <span>@item.Model</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.RegulatorSet)
+                            {
+                                <span>1. trin: @item.FirstStep</span>
+                                <span>2. trin: @item.SecondStep</span>
+                                <span>Octopus: @item.Octopus</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.Tank)
+                            {
+                                <span>@item.Volumen L</span>
+                            }
+                        </div>
+
+                        <div class="cart-item-footer">
+                            <span class="cart-dates">
+                                Fra d. @item.DateFrom.ToString("dd/MM/yyyy") til d. @item.DateTo.ToString("dd/MM/yyyy")
+                                (@((item.DateTo - item.DateFrom).Days + 1) dage)
                             </span>
-                        </h2>
-                        <div id="collapseCC" class="accordion-collapse collapse show" data-bs-parent="#accordionPayment" style="">
-                            <div class="accordion-body">
-                                <div class="mb-3">
-                                    <label class="form-label">Card Number</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Name on card</label>
-                                            <input type="text" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">Expiry date</label>
-                                            <input type="text" class="form-control" placeholder="MM/YY">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="mb-3">
-                                            <label class="form-label">CVV Code</label>
-                                            <input type="password" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                
+            </div>
+                }
+                <h2 class="section-title mt-4">Dine oplysninger</h2>
+
+                <div class="payment-card mb-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="payment-label">Fornavn</label>
+                            <input type="text" class="payment-input" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="payment-label">Efternavn</label>
+                            <input type="text" class="payment-input" required />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="payment-label">Email</label>
+                            <input type="email" class="payment-input" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="payment-label">Telefonnummer</label>
+                            <input type="tel" class="payment-input" required />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="payment-label">Adresse</label>
+                        <input type="text" class="payment-input" required />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="payment-label">Postnummer</label>
+                            <input type="text" class="payment-input" required />
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label class="payment-label">By</label>
+                            <input type="text" class="payment-input" required />
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title mt-4">Betalingsoplysninger</h2>
+
+                <div class="payment-card">
+                    <div class="payment-header">
+                        <span class="payment-title">Betalingskort</span>
+                        <svg width="34" height="25" xmlns="http://www.w3.org/2000/svg">
+                            <g fill-rule="nonzero" fill="#123a6b">
+                                <path d="M29.418 2.083c1.16 0 2.101.933 2.101 2.084v16.666c0 1.15-.94 2.084-2.1 2.084H4.202A2.092 2.092 0 0 1 2.1 20.833V4.167c0-1.15.941-2.084 2.102-2.084h25.215ZM4.203 0C1.882 0 0 1.865 0 4.167v16.666C0 23.135 1.882 25 4.203 25h25.215c2.321 0 4.203-1.865 4.203-4.167V4.167C33.62 1.865 31.739 0 29.418 0H4.203Z"></path>
+                                <path d="M4.203 7.292c0-.576.47-1.042 1.05-1.042h4.203c.58 0 1.05.466 1.05 1.042v2.083c0 .575-.47 1.042-1.05 1.042H5.253c-.58 0-1.05-.467-1.05-1.042V7.292Zm0 6.25c0-.576.47-1.042 1.05-1.042H15.76c.58 0 1.05.466 1.05 1.042 0 .575-.47 1.041-1.05 1.041H5.253c-.58 0-1.05-.466-1.05-1.041Zm0 4.166c0-.575.47-1.041 1.05-1.041h2.102c.58 0 1.05.466 1.05 1.041 0 .576-.47 1.042-1.05 1.042H5.253c-.58 0-1.05-.466-1.05-1.042Zm6.303 0c0-.575.47-1.041 1.051-1.041h2.101c.58 0 1.051.466 1.051 1.041 0 .576-.47 1.042-1.05 1.042h-2.102c-.58 0-1.05-.466-1.05-1.042Zm6.304 0c0-.575.47-1.041 1.051-1.041h2.101c.58 0 1.05.466 1.05 1.041 0 .576-.47 1.042-1.05 1.042h-2.101c-.58 0-1.05-.466-1.05-1.042Zm6.304 0c0-.575.47-1.041 1.05-1.041h2.102c.58 0 1.05.466 1.05 1.041 0 .576-.47 1.042-1.05 1.042h-2.101c-.58 0-1.05-.466-1.05-1.042Z"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="payment-label">Kortnummer</label>
+                        <input type="text" class="payment-input" placeholder="0000 0000 0000 0000" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="payment-label">Navn på kort</label>
+                            <input type="text" class="payment-input" />
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="payment-label">Udløbsdato</label>
+                            <input type="text" class="payment-input" placeholder="MM/ÅÅ" />
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="payment-label">CVV</label>
+                            <input type="password" class="payment-input" />
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Right -->
-            <div class="col-lg-3">
-                <div class="card position-sticky top-0">
-                    <div class="p-3 bg-light bg-opacity-10">
-                        <h6 class="card-title mb-3">Order Summary</h6>
-                        <div class="d-flex justify-content-between mb-1 small">
-                            <span>Antal varer: @Model.Items.Count</span>
-                        </div>
-                        <hr>
-                        <div class="d-flex justify-content-between mb-4 small">
-                            <span>Total: @Model.TotalPrice kr.</span>
-                        </div>
-                        <div class="form-check mb-1 small">
-                            <input class="form-check-input" type="checkbox" value="" id="tnc">
-                            <label class="form-check-label" for="tnc">
-                                I agree to the <a href="#">terms and conditions</a>
-                            </label>
-                        </div>
-                        <div class="form-check mb-3 small">
-                            <input class="form-check-input" type="checkbox" value="" id="subscribe">
-                            <label class="form-check-label" for="subscribe">
-                                Get emails about product updates and events. If you change your mind, you can unsubscribe at any time. <a href="#">Privacy Policy</a>
-                            </label>
-                        </div>
-                        <button class="btn btn-primary w-100 mt-2">Betal</button>
+
+            
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <h5>Opsummering</h5>
+
+                    <div class="summary-row">
+                        <span>Antal varer</span>
+                        <span>@Model.Items.Count</span>
                     </div>
+
+                    <hr />
+
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span>@Model.TotalPrice kr.</span>
+                    </div>
+
+                    <div class="summary-check">
+                        <input class="form-check-input" type="checkbox" id="tnc" />
+                        <label for="tnc">
+                            Jeg accepterer <a href="#">handelsbetingelserne</a>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-checkout">Betal</button>
+
+                    <a class="btn btn-ghost-dark" asp-controller="Cart" asp-action="Index">
+                        Tilbage til kurv
+                    </a>
                 </div>
             </div>
+
         </div>
-    </div>
-}
+    }
+</div>

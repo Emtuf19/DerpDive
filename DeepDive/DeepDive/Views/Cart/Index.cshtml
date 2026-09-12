@@ -2,76 +2,105 @@
 @using DeepDive.Enums;
 @model CartVM
 
-<h1>Din kurv</h1>
+<div class="container py-4">
+    <h1>Din kurv</h1>
 
-@if (!Model.Items.Any())
-{
-    <p>Din kurv er tom.</p>
-}
-else
-{
-    foreach (var item in Model.Items)
+    @if (!Model.Items.Any())
     {
-        <div class="mb-4">
+        <div class="empty-cart">
+            <p>Din kurv er tom.</p>
+            <a class="btn btn-primary" asp-controller="Equipment" asp-action="Category">
+                Se vores udstyr
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
 
-            <h4>@item.EquipmentType</h4>
+            @* Venstre: varer *@
+            <div class="col-lg-8">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="cart-item">
+                        <div class="cart-item-header">
+                            <h5>@item.EquipmentType - @item.Brand</h5>
+                            <span class="cart-item-price">@item.Price kr. pr. dag</span>
+                        </div>
 
-            <p><strong>Brand:</strong> @item.Brand</p>
+                        <div class="cart-item-details">
+                            @if (item.EquipmentType == EquipmentType.DivingSuits)
+                            {
+                                <span>@item.Model</span>
+                                <span>@item.Type · @item.Thickness mm</span>
+                                <span>@item.SelectedGender · Størrelse: @item.SelectedSize</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.BCD
+                                  || item.EquipmentType == EquipmentType.Finns)
+                            {
+                                <span>@item.Model</span>
+                                <span>Størrelse: @item.SelectedSize</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
+                            {
+                                <span>@item.Model</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.RegulatorSet)
+                            {
+                                <span>1. trin: @item.FirstStep</span>
+                                <span>2. trin: @item.SecondStep</span>
+                                <span>Octopus: @item.Octopus</span>
+                            }
+                            else if (item.EquipmentType == EquipmentType.Tank)
+                            {
+                                <span>@item.Volumen L</span>
+                            }
+                        </div>
 
-            <p><strong>Dato Fra:</strong> @item.DateFrom.ToString("dd/MM/yyyy")</p>
-            <p><strong>Dato Til:</strong> @item.DateTo.ToString("dd/MM/yyyy")</p>
+                        <div class="cart-item-footer">
+                            <span class="cart-dates">
+                               Fra d. @item.DateFrom.ToString("dd/MM/yyyy") til d. @item.DateTo.ToString("dd/MM/yyyy")
+                                (@((item.DateTo - item.DateFrom).Days + 1) dage)
+                            </span>
 
-            @if (item.EquipmentType == EquipmentType.DivingSuits)
-            {
-                <p><strong>Model:</strong> @item.Model</p>
-                <p><strong>Type:</strong> @item.Type</p>
-                <p><strong>Tykkelse:</strong> @item.Thickness mm</p>
-                <p><strong>Køn:</strong> @item.SelectedGender</p>
-                <p><strong>Størrelse:</strong> @item.SelectedSize</p>
-            }
-            else if (item.EquipmentType == EquipmentType.BCD)
-            {
-                <p><strong>Model:</strong> @item.Model</p>
-                <p><strong>Størrelse:</strong> @item.SelectedSize</p>
-            }
-            else if (item.EquipmentType == EquipmentType.Finns)
-            {
-                <p><strong>Model:</strong> @item.Model</p>
-                <p><strong>Størrelse:</strong> @item.SelectedSize</p>
-            }
-            else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
-            {
-                <p><strong>Model:</strong> @item.Model</p>
-            }
-            else if (item.EquipmentType == EquipmentType.RegulatorSet)
-            {
-                <p><strong>1. trin:</strong> @item.FirstStep</p>
-                <p><strong>2. trin:</strong> @item.SecondStep</p>
-                <p><strong>Octopus:</strong> @item.Octopus</p>
-            }
-            else if (item.EquipmentType == EquipmentType.Tank)
-            {
-                <p><strong>Volumen:</strong> @item.Volumen L</p>
-            }
+                            <form asp-controller="Cart" asp-action="Remove" method="post" class="d-inline">
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <button type="submit" class="btn-remove">Fjern</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
 
-            <p><strong>Pris:</strong> @item.Price kr.</p>
+            @* Højre: opsummering *@
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <h5>Opsummering</h5>
 
-            <form asp-controller="Cart" asp-action="Remove" method="post">
-                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
-                <button type="submit" class="btn btn-danger">
-                    Fjern
-                </button>
-            </form>
+
+                    <div class="summary-row">
+                        <span>Antal varer</span>
+                        <span>@Model.Items.Count</span>
+
+                    </div>
+
+                    <hr />
+
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span>@Model.TotalPrice kr.</span>
+                    </div>
+
+                    <a class="btn btn-checkout" asp-controller="Cart" asp-action="Checkout">
+                        Gå til betaling
+                    </a>
+
+                    <a class="btn btn-ghost-dark" asp-controller="Equipment" asp-action="Category">
+                        Shop videre
+                    </a>
+                </div>
+            </div>
 
         </div>
-
-        <hr />
     }
-
-    <p>Antal varer: @Model.Items.Count</p>
-    <p>Total: @Model.TotalPrice kr.</p>
-
-    <a class="btn btn-primary" asp-controller="Cart" asp-action="Checkout">
-        Gå til betaling
-    </a>
-}
+</div>

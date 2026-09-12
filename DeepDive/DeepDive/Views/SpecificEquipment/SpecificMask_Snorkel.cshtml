@@ -2,6 +2,7 @@
 @model SpecificMask_Snorkel;
 
 <form method="post"
+      class="product-form"
       asp-controller="SpecificEquipment"
       asp-action="SpecificMask_Snorkel">
 
@@ -24,16 +25,16 @@
 
     <div class="row mb-3">
         <div class="col">
-            <label>Dato Fra</label>
+            <label>Dato fra</label>
             <input asp-for="DateFrom" type="date" class="form-control" value="date" />
-            <label>Dato Til</label>
+            <label>Dato til</label>
             <input asp-for="DateTo" type="date" class="form-control" value="date" />
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col">
-            <label asp-for="Price"></label>
+            <label asp-for="Price">Pris pr. dag</label>
             <input asp-for="Price" class="form-control" readonly />
         </div>
     </div>
@@ -41,10 +42,12 @@
     <button type="submit" class="btn btn-primary">
         Tilføj til kurv
     </button>
-    <a class="btn btn-secondary" asp-controller="Equipment" asp-action="Category">
-        Shop videre
-    </a>
-    <a class="btn btn-secondary" asp-controller="Cart" asp-action="Index">
-        Gå til kurv
-    </a>
+    <div class="d-flex gap-2 mt-2">
+        <a class="btn btn-ghost flex-fill" asp-controller="Equipment" asp-action="Category">
+            Shop videre
+        </a>
+        <a class="btn btn-ghost flex-fill" asp-controller="Cart" asp-action="Index">
+            Gå til kurv
+        </a>
+    </div>
 </form>

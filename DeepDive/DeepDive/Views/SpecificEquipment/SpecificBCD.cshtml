@@ -2,11 +2,14 @@
 @model SpecificBCD;
 
 <form method="post"
+     class="product-form"
       asp-controller="SpecificEquipment"
       asp-action="SpecificBCD">
 
     <input type="hidden" asp-for="BCDId" />
     <div asp-validation-summary="All" class="text-danger"></div>
+    <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="@Model.Brand @Model.Model" class="product-image" />
+
 
     <div class="row mb-3">
         <div class="col">
@@ -24,7 +27,8 @@
 
     <div class="row mb-3">
         <div class="col">
-            <select asp-for="SelectedSize" required>
+            <label>Størrelse</label>
+            <select asp-for="SelectedSize" class="form-control" required>
                 <option value="">Vælg størrelse</option>
 
                 @foreach (var size in Model.AvailableSizes)
@@ -47,7 +51,7 @@
 
     <div class="row mb-3">
         <div class="col">
-            <label asp-for="Price"></label>
+            <label asp-for="Price">Pris pr. dag</label>
             <input asp-for="Price" class="form-control" readonly />
         </div>
     </div>
@@ -72,12 +76,14 @@
     <button type="submit" class="btn btn-primary">
         Tilføj til kurv
     </button> *@
-    <a class="btn btn-secondary" asp-controller="Equipment" asp-action="Category">
+    <div class="d-flex gap-2 mt-2">
+    <a class="btn btn-ghost flex-fill" asp-controller="Equipment" asp-action="Category">
         Shop videre
     </a>
-    <a class="btn btn-secondary" asp-controller="Cart" asp-action="Index">
+        <a class="btn btn-ghost flex-fill" asp-controller="Cart" asp-action="Index">
         Gå til kurv
     </a>
+    </div>
 </form>
 
 <script>

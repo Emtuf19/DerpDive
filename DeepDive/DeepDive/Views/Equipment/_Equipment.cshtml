@@ -21,121 +21,131 @@
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.bcds)
     {
+        <div class="col">
         <a asp-controller="SpecificEquipment" asp-action="SpecificBCD" asp-route-id="@equipment.BCDId" class="text-decoration-none">
-            <div class="col">
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
                         <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="BCD Vest" />
-                        <h6>Mærke: @equipment.Brand</h6>
-                        <h6>Model: @equipment.Model</h6>
+                        <h5 class="product-title">@equipment.Model</h5>
+                        <h6>@equipment.Brand</h6>
                         <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
-                        <h6>Pris pr. dag: @equipment.Price kr</h6>
-                        <button class="btn btn-primary">Se Produkt</button>
+                        <p class="price">@equipment.Price kr. pr. dag</p>
+                        <span class="btn btn-primary">Se produkt</span>
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+        
     }
 </div>
 
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.divingSuits)
     {
+        <div class="col">
         <a asp-controller="SpecificEquipment" asp-action="SpecificDivingSuits" asp-route-id="@equipment.DivingSuitsId" class="text-decoration-none">
-            <div class="col">
+         
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
                         <img src="~/IMGs/Suit.webp" alt="BCD Vest" />
-                        <h6>Mærke: @equipment.Brand</h6>
-                        <h6>Model: @equipment.Model</h6>
+                        <h5 class="product-title">@equipment.Model</h5>
+                        <h6>@equipment.Brand</h6>
                         <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
-                        <h6>Type: @equipment.Type</h6>
-                        <h6>Tykkelse: @equipment.Thickness</h6>
+                        <h6>Type: @equipment.Type · @equipment.Thickness mm</h6>
                         <h6>Køn: @string.Join(", ", equipment.Gender)</h6>
-                        <h6>Pris pr. dag: @equipment.Price kr</h6>
-                        <button class="btn btn-primary">Se Produkt</button>
+                        <p class="price">@equipment.Price kr. pr. dag</p>
+                        <span class="btn btn-primary">Se produkt</span>
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+   
     }
 </div>
 
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.finns)
     {
-        <a asp-controller="SpecificEquipment" asp-action="SpecificFinns" asp-route-id="@equipment.FinnsId" class="text-decoration-none">
             <div class="col">
+            <a asp-controller="SpecificEquipment" asp-action="SpecificFinns" asp-route-id="@equipment.FinnsId" class="text-decoration-none">
+
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
                         <img src="~/IMGs/Flippers.webp" alt="BCD Vest" />
-                        <h6>Mærke: @equipment.Brand</h6>
-                        <h6>Model: @equipment.Model</h6>
+                        <h5 class="product-title">@equipment.Model</h5>
+                        <h6>@equipment.Brand</h6>
                         <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
-                        <h6>Pris pr. dag: @equipment.Price kr</h6>
-                        <button class="btn btn-primary">Se Produkt</button>
+                        <p class="price">@equipment.Price kr. pr. dag</p>
+                        <span class="btn btn-primary">Se produkt</span>
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+       
     }
 </div>
 
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.mask_Snorkels)
     {
-        <a asp-controller="SpecificEquipment" asp-action="SpecificMask_Snorkel" asp-route-id="@equipment.Mask_SnorkelId" class="text-decoration-none">
             <div class="col">
+                        <a asp-controller="SpecificEquipment" asp-action="SpecificMask_Snorkel" asp-route-id="@equipment.Mask_SnorkelId" class="text-decoration-none">
+
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
                         <img src="~/IMGs/Mask.webp" alt="BCD Vest" />
-                        <h6>Mærke: @equipment.Brand</h6>
-                        <h6>Model: @equipment.Model</h6>
-                        <h6>Pris pr. dag: @equipment.Price kr</h6>
-                        <button class="btn btn-primary">Se Produkt</button>
+                        <h5 class="product-title">@equipment.Model</h5>
+                        <h6>@equipment.Brand</h6>
+                        <p class="price">@equipment.Price kr. pr. dag</p>
+                        <span class="btn btn-primary">Se produkt</span>
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+    
     }
 </div>
 
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.regulatorSets)
     {
-        <a asp-controller="SpecificEquipment" asp-action="SpecificRegulatorSet" asp-route-id="@equipment.RegulatorSetId" class="text-decoration-none">
             <div class="col">
+                 <a asp-controller="SpecificEquipment" asp-action="SpecificRegulatorSet" asp-route-id="@equipment.RegulatorSetId" class="text-decoration-none">
+
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
                         <img src="~/IMGs/Regulator.webp" alt="BCD Vest" />
-                        <h6>Mærke: @equipment.Brand</h6>
-                        <h6>1. Step: @equipment.FirstStep</h6>
-                        <h6>2. Step: @equipment.SecondStep</h6>
+                        <h5 class="product-title">@equipment.Brand</h5>
+                        <h6>1. trin: @equipment.FirstStep</h6>
+                        <h6>2. trin: @equipment.SecondStep</h6>
                         <h6>Octopus: @equipment.Octopus</h6>
-                        <h6>Pris pr. dag: @equipment.Price kr</h6>
-                        <button class="btn btn-primary">Se Produkt</button>
+                        <p class="price">@equipment.Price kr. pr. dag</p>
+                        <span class="btn btn-primary">Se produkt</span>
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+     
     }
 </div>
 
 <div class="row row-cols-2 row-cols-md-3">
     @foreach (var equipment in Model.tanks)
     {
-        <a asp-controller="SpecificEquipment" asp-action="SpecificTank" asp-route-id="@equipment.TankId" class="text-decoration-none">
             <div class="col">
+            <a asp-controller="SpecificEquipment" asp-action="SpecificTank" asp-route-id="@equipment.TankId" class="text-decoration-none">
+
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
                         <img src="~/IMGs/Tank.webp" alt="BCD Vest" />
-                        <h6>Mærke: @equipment.Brand</h6>
-                        <h6>Volume: @equipment.Volumen</h6>
-                        <h6>Pris pr. dag: @equipment.Price kr</h6>
-                        <button class="btn btn-primary">Se Produkt</button>
+                        <h5 class="product-title">@equipment.Brand</h5>
+                        <h6>Volumen: @equipment.Volumen L</h6>
+                        <p class="price">@equipment.Price kr. pr. dag</p>
+                        <span class="btn btn-primary">Se produkt</span>
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+       
     }
 </div>
