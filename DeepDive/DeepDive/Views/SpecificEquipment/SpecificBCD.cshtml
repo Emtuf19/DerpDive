@@ -56,10 +56,10 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary" id="OpenPopUp">
+    <button type="submit" class="btn btn-primary">
         Tilføj til kurv
     </button>
-    <dialog class="modal-dialog" id="ConfirmationModal">
+    <dialog id="ConfirmationModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Bekræftelse</h5>
@@ -68,14 +68,10 @@
                 <p>Din vare er blevet tilføjet til kurven</p>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary" id="ClosePopUp">Ok</button>
+                <button type="button" class="btn btn-secondary" id="ClosePopUp">Ok</button>
             </div>
         </div>
     </dialog>
-        @* <a class="btn btn-primary" asp-controller="Equipment" asp-action="Category"></a>
-    <button type="submit" class="btn btn-primary">
-        Tilføj til kurv
-    </button> *@
     <div class="d-flex gap-2 mt-2">
     <a class="btn btn-ghost flex-fill" asp-controller="Equipment" asp-action="Category">
         Shop videre
@@ -86,16 +82,17 @@
     </div>
 </form>
 
+      @*  Vi submitter først produktet og hvis det lykkedes kommer der pop up, hvis ikke kommer fejlmeddelelsen. Det gør vi via TempData. *@
 <script>
-        const PopUp = document.getElementById('ConfirmationModal');
-        const openBtn = document.getElementById('OpenPopUp');
-        const closeBtn = document.getElementById('ClosePopUp');
-
-        openBtn.addEventListener('click', () => {
-            PopUp.showModal();
-        });
-
-        closeBtn.addEventListener('click', () => {
-            PopUp.close();
-        });
+    const closeBtn = document.getElementById('ClosePopUp');
+    closeBtn.addEventListener('click', () => {
+        document.getElementById('ConfirmationModal').close();
+    });
 </script>
+
+@if (TempData["ItemAdded"] != null)
+{
+    <script>
+        document.getElementById('ConfirmationModal').showModal();
+    </script>
+}

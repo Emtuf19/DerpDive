@@ -92,9 +92,10 @@ namespace DeepDive.Controllers
                 Price = vm.Price
             };
 
-            cart.Items.Add(cartItem);
+            cart.AddItem(cartItem);
 
             HttpContext.Session.SetObject("Cart", cart);
+            TempData["ItemAdded"] = true;
 
             //Redirect fixer at man ikke kan vælge størrelse osv
             return RedirectToAction("SpecificBCD", new { id = vm.BCDId });
@@ -141,6 +142,8 @@ namespace DeepDive.Controllers
             bool alreadyInCart = cart.Items.Any(item =>
                 item.EquipmentType == EquipmentType.DivingSuits &&
                 item.EquipmentId == vm.DivingSuitsId &&
+                item.SelectedSize == vm.SelectedSize &&
+                item.SelectedGender == vm.SelectedGender &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
@@ -161,11 +164,13 @@ namespace DeepDive.Controllers
                 Price = vm.Price
             };
 
-            cart.Items.Add(cartItem);
+            cart.AddItem(cartItem);
 
             HttpContext.Session.SetObject("Cart", cart);
+            TempData["ItemAdded"] = true;
 
-            return View(vm);
+            return RedirectToAction("SpecificDivingSuits", new { id = vm.DivingSuitsId });
+
         }
 
         public IActionResult SpecificFinns(int id)
@@ -207,6 +212,7 @@ namespace DeepDive.Controllers
             bool alreadyInCart = cart.Items.Any(item =>
                 item.EquipmentType == EquipmentType.Finns &&
                 item.EquipmentId == vm.FinnsId &&
+                item.SelectedSize == vm.SelectedSize &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
@@ -226,11 +232,12 @@ namespace DeepDive.Controllers
                 Price = vm.Price
             };
 
-            cart.Items.Add(cartItem);
+            cart.AddItem(cartItem);
 
             HttpContext.Session.SetObject("Cart", cart);
+            TempData["ItemAdded"] = true;
 
-            return View(vm);
+            return RedirectToAction("SpecificFinns", new { id = vm.FinnsId });
         }
 
         public IActionResult SpecificMask_Snorkel(int id)
@@ -289,11 +296,12 @@ namespace DeepDive.Controllers
                 Price = vm.Price
             };
 
-            cart.Items.Add(cartItem);
+            cart.AddItem(cartItem);
 
             HttpContext.Session.SetObject("Cart", cart);
+            TempData["ItemAdded"] = true;
 
-            return View(vm);
+            return RedirectToAction("SpecificMask_Snorkel", new { id = vm.Mask_SnorkelId });
         }
 
         public IActionResult SpecificRegulatorSet(int id)
@@ -354,11 +362,12 @@ namespace DeepDive.Controllers
                 Price = vm.Price
             };
 
-            cart.Items.Add(cartItem);
+            cart.AddItem(cartItem);
 
             HttpContext.Session.SetObject("Cart", cart);
+            TempData["ItemAdded"] = true;
 
-            return View(vm);
+            return RedirectToAction("SpecificRegulatorSet", new { id = vm.RegulatorSetId });
         }
 
         public IActionResult SpecificTank(int id)
@@ -417,11 +426,11 @@ namespace DeepDive.Controllers
                 Price = vm.Price
             };
 
-            cart.Items.Add(cartItem);
+            cart.AddItem(cartItem);
 
             HttpContext.Session.SetObject("Cart", cart);
-
-            return View(vm);
+            TempData["ItemAdded"] = true;
+            return RedirectToAction("SpecificTank", new { id = vm.TankId });
         }
     }
 }

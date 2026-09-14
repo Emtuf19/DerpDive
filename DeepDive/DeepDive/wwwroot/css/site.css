@@ -434,4 +434,56 @@ form .form-control {
     font-size: 14px;
     margin-bottom: 16px;
 }
+.open-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .open-btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Style for the popup modal itself */
+dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+#ConfirmationModal {
+    max-width: 300px;
+    padding: 20px;
+}
+
+    /* Style for the semi-transparent background backdrop */
+    dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+/* Layout inside the popup */
+.popup-content h2 {
+    margin-top: 0;
+}
+
+.close-btn {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .close-btn:hover {
+        background-color: #bd2130;
+    }
+
 
