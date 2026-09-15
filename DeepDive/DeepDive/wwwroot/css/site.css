@@ -27,7 +27,7 @@ body {
 
 
 #BackgroundIMG {
-    height: 400px;
+    height: clamp(180px, 48vh, 400px);
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -48,7 +48,7 @@ body {
     left: 10px;
     right: 10px;
     bottom: 20px;
-    font-size: 14px;
+    font-size: clamp(12px, 2vw, 18px);
     font-weight: normal;
     font-style: italic;
     margin: 0;
@@ -89,6 +89,9 @@ body nav {
 .navbar-nav .nav-link {
     color: white;
 }
+.nav-cart {
+    margin-left: auto;
+}
 
     .navbar-nav .nav-link:hover {
         color: white;
@@ -117,10 +120,15 @@ a {
 .card {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    border:none;
-    max-width:250px;
-    min-height:50px;
-
+    border: none;
+    width: 100%;
+    max-width: 250px;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    gap: 16px;
+    justify-content: center;
 }
 
 .card-body {
@@ -173,7 +181,7 @@ a {
     }
 
 .EquipmentCard {
-    width: 320px;
+    width: 100%;
     margin-bottom: 32px;
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -183,8 +191,9 @@ a {
     }
 
     .EquipmentCard img {
-        width: 288px;
-        height: 192px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
         object-fit: contain;
     }
 
