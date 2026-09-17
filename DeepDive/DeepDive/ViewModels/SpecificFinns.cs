@@ -9,7 +9,7 @@ namespace DeepDive.ViewModels
         public string Brand { get; set; }
         public string Model { get; set; }
         public List<EquipmentSize> AvailableSizes { get; set; } = new();
-        public EquipmentSize SelectedSize { get; set; }
+        public EquipmentSize? SelectedSize { get; set; }
         public double Price { get; set; }
 
         [DateNotInPast]
