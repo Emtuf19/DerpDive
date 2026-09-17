@@ -3,6 +3,7 @@ using DeepDive.Persistance;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Controllers
 {
@@ -53,15 +54,40 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult EditBookingItem(BookingItem item)
         {
-            ModelState.Remove("Booking");   
+            ModelState.Remove("Booking");
 
             if (item.DateTo <= item.DateFrom)
                 ModelState.AddModelError("DateTo", "Slutdato skal være efter startdato.");
 
             if (!ModelState.IsValid) return View(item);
 
-            _bookingRepository.UpdateItem(item);
-            return RedirectToAction("Index");
+            try
+            {
+                _bookingRepository.UpdateItem(item);
+                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                var dbValues = ex.Entries.Single().GetDatabaseValues();
+
+                if (dbValues == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Bookingen er blevet slettet af en anden bruger.");
+                    return View(item);
+                }
+
+                var dbItem = (BookingItem)dbValues.ToObject();
+
+                ModelState.AddModelError(string.Empty,
+                    "Bookingen er blevet ændret af en anden bruger. " +
+                    $"Nuværende værdier: {dbItem.DateFrom:dd-MM-yyyy} – {dbItem.DateTo:dd-MM-yyyy}, {dbItem.Price} kr. " +
+                    "Tryk Gem igen for at overskrive.");
+
+                item.RowVersion = dbItem.RowVersion;
+                ModelState.Remove("RowVersion");
+
+                return View(item);
+            }
         }
         [HttpPost]
         public IActionResult DeleteBookingItem(int id)

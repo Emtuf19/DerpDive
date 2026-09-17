@@ -1,4 +1,5 @@
-﻿using DeepDive.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using DeepDive.Enums;
 
 namespace DeepDive.Models
 {
@@ -19,5 +20,7 @@ namespace DeepDive.Models
 
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
+        [Timestamp]
+        public byte[]? RowVersion { get; set; }
     }
 }

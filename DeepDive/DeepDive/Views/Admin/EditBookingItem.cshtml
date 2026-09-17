@@ -8,7 +8,7 @@
 
 <form asp-action="EditBookingItem" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
-
+    <input type="hidden" asp-for="RowVersion" />
     <input type="hidden" asp-for="BookingItemId" />
     <input type="hidden" asp-for="BookingId" />
     <input type="hidden" asp-for="EquipmentType" />

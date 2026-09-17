@@ -348,6 +348,7 @@ namespace DeepDive.Controllers
                 return RedirectToAction("Checkout");
             }
 
+
             var booking = new Booking()
             {
                 ApplicationUserId = _userManager.GetUserId(User)
