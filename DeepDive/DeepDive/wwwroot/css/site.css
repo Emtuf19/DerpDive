@@ -197,6 +197,7 @@ a {
         object-fit: contain;
     }
 
+
 /*Specifik produkt formular*/
 form label {
     color: white;
@@ -258,6 +259,13 @@ form .form-control {
         font-weight: bold;
         width: 100%;
     }
+
+.equipment-info {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
         
 /*Kurven*/
 .cart-item {
