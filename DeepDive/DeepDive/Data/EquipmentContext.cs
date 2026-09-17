@@ -19,6 +19,8 @@ namespace DeepDive.Data
         public DbSet<Mask_Snorkel> Mask_Snorkels { get; set; }
         public DbSet<RegulatorSet> RegulatorSets { get; set; }
         public DbSet<Tank> Tanks { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<BookingItem> BookingItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +36,12 @@ namespace DeepDive.Data
                 a => a.Aggregate(0, (hash, value) => HashCode.Combine(hash, value)),
                 a => a.ToList()
             );
+
+            modelBuilder.Entity<BookingItem>()
+                .HasOne(bi => bi.Booking)
+                .WithMany(b => b.BookingItems)
+                .HasForeignKey(bi => bi.BookingId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<BCD>()
                 .Property(b => b.Size)
@@ -524,7 +532,6 @@ namespace DeepDive.Data
                     Volumen = 15
                 }
             );
-
         }
     }
 }

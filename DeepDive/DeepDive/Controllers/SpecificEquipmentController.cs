@@ -1,9 +1,11 @@
-﻿using DeepDive.Extensions;
+﻿using DeepDive.Data;
+using DeepDive.Enums;
+using DeepDive.Extensions;
 using DeepDive.Models;
 using DeepDive.Persistance;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using DeepDive.Enums;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Controllers
 {
@@ -16,7 +18,9 @@ namespace DeepDive.Controllers
         private readonly IRegulatorSetRepository RegulatorSetRepository;
         private readonly IFinnsRepository FinnsRepository;
 
-        public SpecificEquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository)
+        private readonly EquipmentContext _context;
+
+        public SpecificEquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context)
         {
             Mask_SnorkelRepository = mask_SnorkelRepository;
             BCDRepository = bCDRepository;
@@ -24,6 +28,8 @@ namespace DeepDive.Controllers
             DivingSuitsRepository = divingSuitsRepository;
             RegulatorSetRepository = regulatorSetRepository;
             FinnsRepository = finnsRepository;
+
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -56,7 +62,7 @@ namespace DeepDive.Controllers
         [HttpPost]
         public IActionResult SpecificBCD(SpecificBCD vm)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(vm);
             }
@@ -68,16 +74,26 @@ namespace DeepDive.Controllers
                 cart = new Cart();
             }
 
-            bool alreadyInCart = cart.Items.Any(item =>
+            int cartCount = cart.Items.Count(item =>
                 item.EquipmentType == EquipmentType.BCD &&
                 item.EquipmentId == vm.BCDId &&
                 vm.SelectedSize == item.SelectedSize &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            if (alreadyInCart)
+
+            int bookedCount = _context.BookingItems.Count(item =>
+                item.EquipmentType == EquipmentType.BCD &&
+                item.EquipmentId == vm.BCDId &&
+                item.SelectedSize == vm.SelectedSize &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Denne BCD er allerede udlejet i dette tidsrum");
+                ModelState.AddModelError(
+                    string.Empty,
+                    "Der er ikke flere BCD'er i denne størrelse tilgængelige i det valgte tidsrum.");
                 return View(vm);
             }
 
@@ -139,7 +155,7 @@ namespace DeepDive.Controllers
                 cart = new Cart();
             }
 
-            bool alreadyInCart = cart.Items.Any(item =>
+            int cartCount = cart.Items.Count(item =>
                 item.EquipmentType == EquipmentType.DivingSuits &&
                 item.EquipmentId == vm.DivingSuitsId &&
                 item.SelectedSize == vm.SelectedSize &&
@@ -147,9 +163,17 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            if (alreadyInCart)
+            int bookedCount = cart.Items.Count(item =>
+                item.EquipmentType == EquipmentType.DivingSuits &&
+                item.EquipmentId == vm.DivingSuitsId &&
+                item.SelectedSize == vm.SelectedSize &&
+                item.SelectedGender == vm.SelectedGender &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Denne dragt er allerede udlejet i dette tidsrum");
+                ModelState.AddModelError(string.Empty, "Der er ikke flere dragter ledige i denne størrelse i dette tidsrum");
                 return View(vm);
             }
 
@@ -209,16 +233,23 @@ namespace DeepDive.Controllers
                 cart = new Cart();
             }
 
-            bool alreadyInCart = cart.Items.Any(item =>
+            int cartCount = cart.Items.Count(item =>
                 item.EquipmentType == EquipmentType.Finns &&
                 item.EquipmentId == vm.FinnsId &&
                 item.SelectedSize == vm.SelectedSize &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            if (alreadyInCart)
+            int bookedCount = _context.BookingItems.Count(item =>
+                item.EquipmentType == EquipmentType.Finns &&
+                item.EquipmentId == vm.FinnsId &&
+                item.SelectedSize == vm.SelectedSize &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Disse finner er allerede udlejet i dette tidsrum");
+                ModelState.AddModelError(string.Empty, "Der er ikke flere finner i denne størelse ledige i dette tidsrum");
                 return View(vm);
             }
 
@@ -275,15 +306,21 @@ namespace DeepDive.Controllers
                 cart = new Cart();
             }
 
-            bool alreadyInCart = cart.Items.Any(item =>
+            int cartCount = cart.Items.Count(item =>
                 item.EquipmentType == EquipmentType.Mask_Snorkel &&
                 item.EquipmentId == vm.Mask_SnorkelId &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            if (alreadyInCart)
+            int bookedCount = _context.BookingItems.Count(item =>
+                item.EquipmentType == EquipmentType.Mask_Snorkel &&
+                item.EquipmentId == vm.Mask_SnorkelId &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Denne Maske/Snorkel er allerede udlejet i dette tidsrum");
+                ModelState.AddModelError(string.Empty, "Der er ikke flere masker/snorkler ledige i dette tidsrum");
                 return View(vm);
             }
 
@@ -341,15 +378,21 @@ namespace DeepDive.Controllers
                 cart = new Cart();
             }
 
-            bool alreadyInCart = cart.Items.Any(item =>
+            int cartCount = cart.Items.Count(item =>
                 item.EquipmentType == EquipmentType.RegulatorSet &&
                 item.EquipmentId == vm.RegulatorSetId &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            if (alreadyInCart)
+            int bookedCount = _context.BookingItems.Count(item =>
+                item.EquipmentType == EquipmentType.RegulatorSet &&
+                item.EquipmentId == vm.RegulatorSetId &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Dette RegulatorSet er allerede udlejet i dette tidsrum");
+                ModelState.AddModelError(string.Empty, "Der er ikke flere af denne type regulatorset ledige i dette tidsrum");
                 return View(vm);
             }
 
@@ -405,15 +448,21 @@ namespace DeepDive.Controllers
                 cart = new Cart();
             }
 
-            bool alreadyInCart = cart.Items.Any(item =>
+            int cartCount = cart.Items.Count(item =>
                 item.EquipmentType == EquipmentType.Tank &&
                 item.EquipmentId == vm.TankId &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            if (alreadyInCart)
+            int bookedCount = _context.BookingItems.Count(item =>
+                item.EquipmentType == EquipmentType.Tank &&
+                item.EquipmentId == vm.TankId &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Denne Tank er allerede udlejet i dette tidsrum");
+                ModelState.AddModelError(string.Empty, "Der er ikke flere af denne type tank ledige i dette tidsrum");
                 return View(vm);
             }
 

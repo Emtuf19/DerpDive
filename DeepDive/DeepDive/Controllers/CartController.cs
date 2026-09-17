@@ -4,6 +4,7 @@ using DeepDive.Persistance;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using DeepDive.Enums;
+using DeepDive.Data;
 
 namespace DeepDive.Controllers
 {
@@ -16,7 +17,9 @@ namespace DeepDive.Controllers
         private readonly IRegulatorSetRepository _regulatorSetRepository;
         private readonly IFinnsRepository _finnsRepository;
 
-        public CartController(IDivingSuitsRepository divingSuitsRepository, IBCDRepository bcdRepository, IMask_SnorkelRepository maskSnorkelRepository, ITankRepository tankRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository)
+        private readonly EquipmentContext _context;
+
+        public CartController(IDivingSuitsRepository divingSuitsRepository, IBCDRepository bcdRepository, IMask_SnorkelRepository maskSnorkelRepository, ITankRepository tankRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context)
         {
             _divingSuitsRepository = divingSuitsRepository;
             _bcdRepository = bcdRepository;
@@ -24,6 +27,8 @@ namespace DeepDive.Controllers
             _tankRepository = tankRepository;
             _regulatorSetRepository = regulatorSetRepository;
             _finnsRepository = finnsRepository;
+
+            _context = context;
         }
 
         public IActionResult Index()
@@ -324,6 +329,46 @@ namespace DeepDive.Controllers
                 }
             }
             return View(vm);
+        }
+
+        [HttpPost]
+        [ActionName("Checkout")]
+        public IActionResult ConfirmCheckout()
+        {
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null || !cart.Items.Any())
+            {
+                TempData["CheckoutError"] = "Din kurv er tom.";
+                return RedirectToAction("Checkout");
+            }
+
+            var booking = new Booking();
+
+            foreach (var item in cart.Items)
+            {
+                var bookingItem = new BookingItem
+                {
+                    EquipmentType = item.EquipmentType,
+                    EquipmentId = item.EquipmentId,
+                    SelectedSize = item.SelectedSize,
+                    SelectedGender = item.SelectedGender,
+                    Price = item.Price,
+                    DateFrom = item.DateFrom,
+                    DateTo = item.DateTo
+                };
+
+                booking.BookingItems.Add(bookingItem);
+            }
+
+            _context.Bookings.Add(booking);
+            _context.SaveChanges();
+
+            HttpContext.Session.Remove("Cart");
+
+            TempData["BookingSuccess"] = "Din booking er gennemført!";
+
+            return RedirectToAction("Checkout");
         }
     }
 }

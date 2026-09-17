@@ -5,6 +5,20 @@
 <div class="container py-4">
     <h1>Betaling</h1>
 
+    @if (TempData["BookingSuccess"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["BookingSuccess"]
+        </div>
+    }
+
+    @if (TempData["CheckoutError"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["CheckoutError"]
+        </div>
+    }
+
     @if (!Model.Items.Any())
     {
         <div class="empty-cart">
@@ -66,8 +80,8 @@
                                 (@((item.DateTo - item.DateFrom).Days + 1) dage)
                             </span>
                         </div>
-                
-            </div>
+
+                    </div>
                 }
                 <h2 class="section-title mt-4">Dine oplysninger</h2>
 
@@ -170,7 +184,11 @@
                         </label>
                     </div>
 
-                    <button class="btn btn-checkout">Betal</button>
+                    <form asp-controller="Cart" asp-action="Checkout" method="post">
+                        <button type="submit" class="btn btn-checkout">
+                            Betal
+                        </button>
+                    </form>
 
                     <a class="btn btn-ghost-dark" asp-controller="Cart" asp-action="Index">
                         Tilbage til kurv
