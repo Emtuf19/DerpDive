@@ -8,6 +8,12 @@
       asp-action="SpecificDivingSuits">
 
     <input type="hidden" asp-for="DivingSuitsId" />
+    <input type="hidden" asp-for="Brand" />
+    <input type="hidden" asp-for="Model" />
+    <input type="hidden" asp-for="Type" />
+    <input type="hidden" asp-for="Thickness" />
+    <input type="hidden" asp-for="Price" />
+
     <div asp-validation-summary="All" class="text-danger"></div>
     <img src="~/IMGs/Suit.webp" alt="@Model.Brand @Model.Model" class="product-image" />
 

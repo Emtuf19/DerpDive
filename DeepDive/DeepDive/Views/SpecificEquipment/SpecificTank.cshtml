@@ -7,6 +7,9 @@
       asp-action="SpecificTank">
 
     <input type="hidden" asp-for="TankId" />
+    <input type="hidden" asp-for="Brand" />
+    <input type="hidden" asp-for="Volumen" />
+    <input type="hidden" asp-for="Price" />
     <div asp-validation-summary="All" class="text-danger"></div>
     <img src="~/IMGs/Tank.webp" alt="@Model.Brand" class="product-image" />
 
@@ -27,7 +30,7 @@
     <div class="row mb-3">
         <div class="col">
             <label>Dato fra</label>
-            <input asp-or="DateFrom" type="date" class="form-control" value="date" />
+            <input asp-for="DateFrom" type="date" class="form-control" value="date" />
             <label>Dato til</label>
             <input asp-for="DateTo" type="date" class="form-control" value="date" />
         </div>

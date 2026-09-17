@@ -5,8 +5,11 @@
      class="product-form"
       asp-controller="SpecificEquipment"
       asp-action="SpecificBCD">
-
     <input type="hidden" asp-for="BCDId" />
+    <input type="hidden" asp-for="Brand" />
+    <input type="hidden" asp-for="Model" />
+    <input type="hidden" asp-for="Price" />
+
     <div asp-validation-summary="All" class="text-danger"></div>
     <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="@Model.Brand @Model.Model" class="product-image" />
 

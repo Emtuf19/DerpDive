@@ -6,7 +6,11 @@
       asp-controller="SpecificEquipment"
       asp-action="SpecificMask_Snorkel">
 
-    <input type="hidden" asp-for="Mask_SnorkelId" />
+ <input type="hidden" asp-for="Mask_SnorkelId" />
+<input type="hidden" asp-for="Brand" />
+<input type="hidden" asp-for="Model" />
+<input type="hidden" asp-for="Price" />
+
     <div asp-validation-summary="All" class="text-danger"></div>
     <img src="~/IMGs/Mask.webp" alt="@Model.Brand @Model.Model" class="product-image" />
 

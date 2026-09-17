@@ -7,6 +7,11 @@
       asp-action="SpecificRegulatorSet">
 
     <input type="hidden" asp-for="RegulatorSetId" />
+    <input type="hidden" asp-for="Brand" />
+    <input type="hidden" asp-for="FirstStep" />
+    <input type="hidden" asp-for="SecondStep" />
+    <input type="hidden" asp-for="Octopus" />
+    <input type="hidden" asp-for="Price" />
     <div asp-validation-summary="All" class="text-danger"></div>
     <img src="~/IMGs/Regulator.webp" alt="@Model.Brand" class="product-image" />
 
