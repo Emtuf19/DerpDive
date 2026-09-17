@@ -1,10 +1,12 @@
-﻿using DeepDive.Extensions;
+﻿using DeepDive.Data;
+using DeepDive.Enums;
+using DeepDive.Extensions;
 using DeepDive.Models;
 using DeepDive.Persistance;
 using DeepDive.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using DeepDive.Enums;
-using DeepDive.Data;
 
 namespace DeepDive.Controllers
 {
@@ -16,10 +18,11 @@ namespace DeepDive.Controllers
         private readonly ITankRepository _tankRepository;
         private readonly IRegulatorSetRepository _regulatorSetRepository;
         private readonly IFinnsRepository _finnsRepository;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         private readonly EquipmentContext _context;
 
-        public CartController(IDivingSuitsRepository divingSuitsRepository, IBCDRepository bcdRepository, IMask_SnorkelRepository maskSnorkelRepository, ITankRepository tankRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context)
+        public CartController(IDivingSuitsRepository divingSuitsRepository, IBCDRepository bcdRepository, IMask_SnorkelRepository maskSnorkelRepository, ITankRepository tankRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context, UserManager<ApplicationUser> userManager)
         {
             _divingSuitsRepository = divingSuitsRepository;
             _bcdRepository = bcdRepository;
@@ -27,6 +30,8 @@ namespace DeepDive.Controllers
             _tankRepository = tankRepository;
             _regulatorSetRepository = regulatorSetRepository;
             _finnsRepository = finnsRepository;
+            _userManager = userManager;
+
 
             _context = context;
         }
@@ -330,7 +335,7 @@ namespace DeepDive.Controllers
             }
             return View(vm);
         }
-
+        [Authorize]
         [HttpPost]
         [ActionName("Checkout")]
         public IActionResult ConfirmCheckout()
@@ -343,7 +348,10 @@ namespace DeepDive.Controllers
                 return RedirectToAction("Checkout");
             }
 
-            var booking = new Booking();
+            var booking = new Booking()
+            {
+                ApplicationUserId = _userManager.GetUserId(User)
+            };
 
             foreach (var item in cart.Items)
             {

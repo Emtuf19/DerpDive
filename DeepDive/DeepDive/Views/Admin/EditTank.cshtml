@@ -1,0 +1,34 @@
+﻿@model DeepDive.Models.Tank
+
+@{
+    var isNew = Model.TankId == 0;
+    ViewData["Title"] = isNew ? "Tilføj tank" : "Rediger tank";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="EditTank" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="TankId" />
+    <input type="hidden" asp-for="DateFrom" />
+    <input type="hidden" asp-for="DateTo" />
+
+    <div class="mb-3">
+        <label asp-for="Brand"></label>
+        <input asp-for="Brand" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Volumen">Volumen (L)</label>
+        <input asp-for="Volumen" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gem</button>
+    <a asp-action="Index" class="btn btn-secondary">Tilbage</a>
+</form>

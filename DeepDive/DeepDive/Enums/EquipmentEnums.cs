@@ -22,6 +22,8 @@
         Finns,
         Mask_Snorkel,
         RegulatorSet,
-        Tank
+        Tank,
+
+        Package
     }
 }

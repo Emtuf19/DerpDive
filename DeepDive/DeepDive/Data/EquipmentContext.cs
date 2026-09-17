@@ -3,10 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using DeepDive.Enums;
 using System.Reflection.Emit;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DeepDive.Data
 {
-    public class EquipmentContext : DbContext
+    public class EquipmentContext : IdentityDbContext<ApplicationUser>
     {
 
         public EquipmentContext(DbContextOptions<EquipmentContext> options) : base(options)
@@ -19,11 +20,16 @@ namespace DeepDive.Data
         public DbSet<Mask_Snorkel> Mask_Snorkels { get; set; }
         public DbSet<RegulatorSet> RegulatorSets { get; set; }
         public DbSet<Tank> Tanks { get; set; }
+
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingItem> BookingItems { get; set; }
 
+        public DbSet<Package> Packages { get; set; }
+        public DbSet<PackageItem> PackageItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
 
             var sizeComparer = new ValueComparer<List<EquipmentSize>>(
                 (a, b) => a.SequenceEqual(b),
@@ -42,6 +48,19 @@ namespace DeepDive.Data
                 .WithMany(b => b.BookingItems)
                 .HasForeignKey(bi => bi.BookingId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Booking>()
+            .HasOne(b => b.ApplicationUser)
+            .WithMany(bb => bb.Bookings)
+            .HasForeignKey(b => b.ApplicationUserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<PackageItem>()
+                .HasOne(p => p.Package)
+                .WithMany(pa => pa.PackageItems)
+                .HasForeignKey(p => p.PackageId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<BCD>()
                 .Property(b => b.Size)
@@ -530,6 +549,80 @@ namespace DeepDive.Data
                     Brand = "Scubapro",
                     Price = 180,
                     Volumen = 15
+                }
+            );
+
+            modelBuilder.Entity<Package>().HasData(
+                new Package
+                {
+                    PackageId = 1,
+                    Title = "Lille pakke",
+                    Price = 80
+                },
+                new Package
+                {
+                    PackageId = 2,
+                    Title = "Stor pakke",
+                    Price = 744
+                }
+            );
+
+            modelBuilder.Entity<PackageItem>().HasData(
+                new PackageItem
+                {
+                    PackageItemId = 1,
+                    PackageId = 1,
+                    EquipmentType = EquipmentType.Finns,
+                    EquipmentId = 2
+                },
+                new PackageItem
+                {
+                    PackageItemId = 2,
+                    PackageId = 1,
+                    EquipmentType = EquipmentType.Mask_Snorkel,
+                    EquipmentId = 3
+                },
+                new PackageItem
+                {
+                    PackageItemId = 3,
+                    PackageId = 2,
+                    EquipmentType = EquipmentType.BCD,
+                    EquipmentId = 3
+                },
+                new PackageItem
+                {
+                    PackageItemId = 4,
+                    PackageId = 2,
+                    EquipmentType = EquipmentType.DivingSuits,
+                    EquipmentId = 6
+                },
+                new PackageItem
+                {
+                    PackageItemId = 5,
+                    PackageId = 2,
+                    EquipmentType = EquipmentType.Tank,
+                    EquipmentId = 4
+                },
+                new PackageItem
+                {
+                    PackageItemId = 6,
+                    PackageId = 2,
+                    EquipmentType = EquipmentType.RegulatorSet,
+                    EquipmentId = 3
+                },
+                new PackageItem
+                {
+                    PackageItemId = 7,
+                    PackageId = 2,
+                    EquipmentType = EquipmentType.Finns,
+                    EquipmentId = 1
+                },
+                new PackageItem
+                {
+                    PackageItemId = 8,
+                    PackageId = 2,
+                    EquipmentType = EquipmentType.Mask_Snorkel,
+                    EquipmentId = 1
                 }
             );
         }

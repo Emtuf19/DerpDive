@@ -205,6 +205,17 @@ form label {
     margin-bottom: 4px;
     display: block;
 }
+.form-floating > label {
+    color: #6c757d;
+    font-weight: normal;
+}
+.form-check-label {
+    display: inline;
+    font-weight: normal;
+}
+#account a {
+    color: white;
+}
 
 form .form-control {
     border-radius: 8px;

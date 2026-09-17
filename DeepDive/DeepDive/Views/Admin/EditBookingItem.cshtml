@@ -1,0 +1,38 @@
+﻿@model DeepDive.Models.BookingItem
+
+@{
+    ViewData["Title"] = "Rediger booking";
+}
+
+<h1>Rediger booking-vare</h1>
+
+<form asp-action="EditBookingItem" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="BookingItemId" />
+    <input type="hidden" asp-for="BookingId" />
+    <input type="hidden" asp-for="EquipmentType" />
+    <input type="hidden" asp-for="EquipmentId" />
+    <input type="hidden" asp-for="SelectedSize" />
+    <input type="hidden" asp-for="SelectedGender" />
+
+    <p>Booking @Model.BookingId – @Model.EquipmentType (id @Model.EquipmentId)</p>
+
+    <div class="mb-3">
+        <label asp-for="DateFrom">Fra</label>
+        <input asp-for="DateFrom" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DateTo">Til</label>
+        <input asp-for="DateTo" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price">Pris pr. dag</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gem</button>
+    <a asp-action="Index" class="btn btn-secondary">Tilbage</a>
+</form>
