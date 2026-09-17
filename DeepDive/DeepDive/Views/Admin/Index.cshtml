@@ -1,0 +1,298 @@
+﻿@model DeepDive.ViewModels.AdminVM
+
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>Admin</h1>
+
+<!-- Hurtige links til hver sektion -->
+<p>
+    <a href="#bookinger" class="btn btn-sm btn-light">Bookinger</a>
+    <a href="#bcd" class="btn btn-sm btn-light">BCD</a>
+    <a href="#dragter" class="btn btn-sm btn-light">Dragter</a>
+    <a href="#finner" class="btn btn-sm btn-light">Finner</a>
+    <a href="#masker" class="btn btn-sm btn-light">Maske & snorkel</a>
+    <a href="#regulatorer" class="btn btn-sm btn-light">Regulatorsæt</a>
+    <a href="#tanke" class="btn btn-sm btn-light">Tanke</a>
+</p>
+
+<!-- ===================== BOOKINGER ===================== -->
+<h2 id="bookinger">Bookinger</h2>
+
+@if (!Model.Bookings.Any())
+{
+    <p>Der er ingen bookinger.</p>
+}
+else
+{
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th>Booking</th>
+                <th>Bruger</th>
+                <th>Udstyr</th>
+                <th>Id</th>
+                <th>Str.</th>
+                <th>Køn</th>
+                <th>Fra</th>
+                <th>Til</th>
+                <th>Pris/dag</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                @foreach (var item in booking.BookingItems)
+                {
+                    <tr>
+                        <td>@booking.BookingId</td>
+                        <td>@(booking.ApplicationUser?.Email ?? "Ingen bruger")</td>
+                        <td>@item.EquipmentType</td>
+                        <td>@item.EquipmentId</td>
+                        <td>@(item.SelectedSize?.ToString() ?? "-")</td>
+                        <td>@(item.SelectedGender?.ToString() ?? "-")</td>
+                        <td>@item.DateFrom.ToString("dd-MM-yyyy")</td>
+                        <td>@item.DateTo.ToString("dd-MM-yyyy")</td>
+                        <td>@item.Price kr.</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" asp-action="EditBookingItem" asp-route-id="@item.BookingItemId">Rediger</a>
+                            <form asp-action="DeleteBookingItem" asp-route-id="@item.BookingItemId" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger">Slet vare</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="10" class="text-end">
+                        <form asp-action="DeleteBooking" asp-route-id="@booking.BookingId" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Slet hele booking @booking.BookingId</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- ===================== BCD ===================== -->
+
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <h2 id="bcd">BCD</h2>
+    <a asp-action="AddBCD" class="btn btn-success">Tilføj BCD</a>
+</div>
+<table class="table table-light table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Størrelser</th>
+            <th>Pris/dag</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bcd in Model.Equipment.bcds)
+        {
+            <tr>
+                <td>@bcd.BCDId</td>
+                <td>@bcd.Brand</td>
+                <td>@bcd.Model</td>
+                <td>@string.Join(", ", bcd.Size)</td>
+                <td>@bcd.Price kr.</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditBCD" asp-route-id="@bcd.BCDId">Rediger</a>
+                    <form asp-action="DeleteBCD" asp-route-id="@bcd.BCDId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Slet</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- ===================== DRAGTER ===================== -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <h2 id="dragter">Dragter</h2>
+    <a asp-action="AddDivingSuits" class="btn btn-success">Tilføj dragt</a>
+</div>
+<table class="table table-light table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Tykkelse</th>
+            <th>Størrelser</th>
+            <th>Køn</th>
+            <th>Pris/dag</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var suit in Model.Equipment.divingSuits)
+        {
+            <tr>
+                <td>@suit.DivingSuitsId</td>
+                <td>@suit.Brand</td>
+                <td>@suit.Model</td>
+                <td>@suit.Type</td>
+                <td>@suit.Thickness mm</td>
+                <td>@string.Join(", ", suit.Size)</td>
+                <td>@string.Join(", ", suit.Gender)</td>
+                <td>@suit.Price kr.</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditDivingSuits" asp-route-id="@suit.DivingSuitsId">Rediger</a>
+                    <form asp-action="DeleteDivingSuits" asp-route-id="@suit.DivingSuitsId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Slet</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- ===================== FINNER ===================== -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <h2 id="finner">Finner</h2>
+    <a asp-action="AddFinns" class="btn btn-success">Tilføj finner</a>
+</div>
+<table class="table table-light table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Størrelser</th>
+            <th>Pris/dag</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var finn in Model.Equipment.finns)
+        {
+            <tr>
+                <td>@finn.FinnsId</td>
+                <td>@finn.Brand</td>
+                <td>@finn.Model</td>
+                <td>@string.Join(", ", finn.Size)</td>
+                <td>@finn.Price kr.</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditFinns" asp-route-id="@finn.FinnsId">Rediger</a>
+                    <form asp-action="DeleteFinns" asp-route-id="@finn.FinnsId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Slet</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- ===================== MASKE & SNORKEL ===================== -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <h2 id="masker">Maske & snorkel</h2>
+    <a asp-action="AddMask_Snorkel" class="btn btn-success">Tilføj maske & snorkel</a>
+</div>
+<table class="table table-light table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Pris/dag</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mask in Model.Equipment.mask_Snorkels)
+        {
+            <tr>
+                <td>@mask.Mask_SnorkelId</td>
+                <td>@mask.Brand</td>
+                <td>@mask.Model</td>
+                <td>@mask.Price kr.</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditMask_Snorkel" asp-route-id="@mask.Mask_SnorkelId">Rediger</a>
+                    <form asp-action="DeleteMask_Snorkel" asp-route-id="@mask.Mask_SnorkelId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Slet</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- ===================== REGULATORSÆT ===================== -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <h2 id="regulatorer">Regulatorsæt</h2>
+    <a asp-action="AddRegulatorSet" class="btn btn-success">Tilføj regulatorsæt</a>
+</div>
+<table class="table table-light table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>1. trin</th>
+            <th>2. trin</th>
+            <th>Octopus</th>
+            <th>Pris/dag</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reg in Model.Equipment.regulatorSets)
+        {
+            <tr>
+                <td>@reg.RegulatorSetId</td>
+                <td>@reg.Brand</td>
+                <td>@reg.FirstStep</td>
+                <td>@reg.SecondStep</td>
+                <td>@reg.Octopus</td>
+                <td>@reg.Price kr.</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditRegulatorSet" asp-route-id="@reg.RegulatorSetId">Rediger</a>
+                    <form asp-action="DeleteRegulatorSet" asp-route-id="@reg.RegulatorSetId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Slet</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- ===================== TANKE ===================== -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+    <h2 id="tanke">Tanke</h2>
+    <a asp-action="AddTank" class="btn btn-success">Tilføj tank</a>
+</div>
+<table class="table table-light table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Volumen</th>
+            <th>Pris/dag</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tank in Model.Equipment.tanks)
+        {
+            <tr>
+                <td>@tank.TankId</td>
+                <td>@tank.Brand</td>
+                <td>@tank.Volumen L</td>
+                <td>@tank.Price kr.</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="EditTank" asp-route-id="@tank.TankId">Rediger</a>
+                    <form asp-action="DeleteTank" asp-route-id="@tank.TankId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger">Slet</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

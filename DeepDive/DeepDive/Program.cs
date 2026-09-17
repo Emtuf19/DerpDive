@@ -1,6 +1,7 @@
 using DeepDive.Data;
 using DeepDive.Persistance;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace DeepDive
 {
@@ -16,6 +17,8 @@ namespace DeepDive
             builder.Services.AddSession();
 
             builder.Services.AddDbContext<EquipmentContext>(options => { options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); });
+
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<EquipmentContext>();
             // Register repositories
             builder.Services.AddScoped<IMask_SnorkelRepository, Mask_SnorkelRepository>();
             builder.Services.AddScoped<IBCDRepository, BCDRepository>();
@@ -24,8 +27,12 @@ namespace DeepDive
             builder.Services.AddScoped<IRegulatorSetRepository, RegulatorSetRepository>();
             builder.Services.AddScoped<IFinnsRepository, FinnsRepository>();
             builder.Services.AddScoped<IPackageRepository, PackageRepository>();
+            builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 
             var app = builder.Build();
+            SeedAdmin.Seed(app.Services);
+
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -41,6 +48,7 @@ namespace DeepDive
             // Tilføjet for at kunne bruge sessionen i applikationen
             app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();
@@ -48,6 +56,8 @@ namespace DeepDive
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
+
+            app.MapRazorPages();
 
             app.Run();
         }

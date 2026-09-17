@@ -3,10 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using DeepDive.Enums;
 using System.Reflection.Emit;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DeepDive.Data
 {
-    public class EquipmentContext : DbContext
+    public class EquipmentContext : IdentityDbContext<ApplicationUser>
     {
 
         public EquipmentContext(DbContextOptions<EquipmentContext> options) : base(options)
@@ -28,6 +29,7 @@ namespace DeepDive.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
 
             var sizeComparer = new ValueComparer<List<EquipmentSize>>(
                 (a, b) => a.SequenceEqual(b),
@@ -46,6 +48,12 @@ namespace DeepDive.Data
                 .WithMany(b => b.BookingItems)
                 .HasForeignKey(bi => bi.BookingId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Booking>()
+            .HasOne(b => b.ApplicationUser)
+            .WithMany(bb => bb.Bookings)
+            .HasForeignKey(b => b.ApplicationUserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<PackageItem>()
                 .HasOne(p => p.Package)
