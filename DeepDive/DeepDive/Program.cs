@@ -23,6 +23,7 @@ namespace DeepDive
             builder.Services.AddScoped<IDivingSuitsRepository, DivingSuitRepository>();
             builder.Services.AddScoped<IRegulatorSetRepository, RegulatorSetRepository>();
             builder.Services.AddScoped<IFinnsRepository, FinnsRepository>();
+            builder.Services.AddScoped<IPackageRepository, PackageRepository>();
 
             var app = builder.Build();
 
