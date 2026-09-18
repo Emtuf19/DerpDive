@@ -11,6 +11,9 @@ namespace DeepDive.Models
         public string Octopus { get; set; }
         public double Price { get; set; }
 
+        public byte[]? ImageData { get; set; }
+        public string? ImageMimeType { get; set; }
+
         [DateNotInPast]
         public DateTime DateFrom { get; set; }
         [DateNotInPast]

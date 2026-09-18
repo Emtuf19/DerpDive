@@ -25,7 +25,14 @@
         <a asp-controller="SpecificEquipment" asp-action="SpecificBCD" asp-route-id="@equipment.BCDId" class="text-decoration-none">
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
-                        <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="BCD Vest" />
+                        @if (equipment.ImageData != null && equipment.ImageMimeType != null)
+                        {
+                            <img src="data:@equipment.ImageMimeType;base64,@(Convert.ToBase64String(equipment.ImageData))" alt="BCD Vest" />
+                        }
+                        else
+                        {
+                            <img src="~/IMGs/Oceanic-Oceanpro-BCD-.png" alt="BCD Vest" />
+                        }
                         <h5 class="product-title">@equipment.Model</h5>
                         <h6>@equipment.Brand</h6>
                         <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
@@ -47,7 +54,14 @@
          
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
-                        <img src="~/IMGs/Suit.webp" alt="BCD Vest" />
+                        @if (equipment.ImageData != null && equipment.ImageMimeType != null)
+                        {
+                            <img src="data:@equipment.ImageMimeType;base64,@(Convert.ToBase64String(equipment.ImageData))" alt="Suit" />
+                        }
+                        else
+                        {
+                            <img src="~/IMGs/Suit.webp" alt="Suit" />
+                        }
                         <h5 class="product-title">@equipment.Model</h5>
                         <h6>@equipment.Brand</h6>
                         <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
@@ -71,7 +85,14 @@
 
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
-                        <img src="~/IMGs/Flippers.webp" alt="BCD Vest" />
+                        @if (equipment.ImageData != null && equipment.ImageMimeType != null)
+                        {
+                            <img src="data:@equipment.ImageMimeType;base64,@(Convert.ToBase64String(equipment.ImageData))" alt="Flippers" />
+                        }
+                        else
+                        {
+                            <img src="~/IMGs/Flippers.webp" alt="Flippers" />
+                        }
                         <h5 class="product-title">@equipment.Model</h5>
                         <h6>@equipment.Brand</h6>
                         <h6>Størrelse: @string.Join(", ", equipment.Size)</h6>
@@ -93,7 +114,14 @@
 
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
-                        <img src="~/IMGs/Mask.webp" alt="BCD Vest" />
+                        @if (equipment.ImageData != null && equipment.ImageMimeType != null)
+                        {
+                            <img src="data:@equipment.ImageMimeType;base64,@(Convert.ToBase64String(equipment.ImageData))" alt="Mask" />
+                        }
+                        else
+                        {
+                            <img src="~/IMGs/Mask.webp" alt="Mask" />
+                        }
                         <h5 class="product-title">@equipment.Model</h5>
                         <h6>@equipment.Brand</h6>
                         <p class="price">@equipment.Price kr. pr. dag</p>
@@ -114,7 +142,14 @@
 
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
-                        <img src="~/IMGs/Regulator.webp" alt="BCD Vest" />
+                        @if (equipment.ImageData != null && equipment.ImageMimeType != null)
+                        {
+                            <img src="data:@equipment.ImageMimeType;base64,@(Convert.ToBase64String(equipment.ImageData))" alt="Regulator" />
+                        }
+                        else
+                        {
+                            <img src="~/IMGs/Regulator.webp" alt="Regulator" />
+                        }
                         <h5 class="product-title">@equipment.Brand</h5>
                         <h6>1. trin: @equipment.FirstStep</h6>
                         <h6>2. trin: @equipment.SecondStep</h6>
@@ -137,7 +172,14 @@
 
                 <div class="card bg-b EquipmentCard">
                     <div class="card-body">
-                        <img src="~/IMGs/Tank.webp" alt="BCD Vest" />
+                        @if (equipment.ImageData != null && equipment.ImageMimeType != null)
+                        {
+                            <img src="data:@equipment.ImageMimeType;base64,@(Convert.ToBase64String(equipment.ImageData))" alt="Tank" />
+                        }
+                        else
+                        {
+                            <img src="~/IMGs/Tank.webp" alt="Tank" />
+                        }
                         <h5 class="product-title">@equipment.Brand</h5>
                         <h6>Volumen: @equipment.Volumen L</h6>
                         <p class="price">@equipment.Price kr. pr. dag</p>

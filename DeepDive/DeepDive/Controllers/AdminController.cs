@@ -116,6 +116,18 @@ namespace DeepDive.Controllers
             RemoveDateErrors();
             if (!ModelState.IsValid) return View(tank);
 
+            if (Request.Form.Files.Count > 0)
+            {
+                var upload = Request.Form.Files[0];
+                if (upload != null && upload.Length > 0)
+                {
+                    using var ms = new MemoryStream();
+                    upload.CopyTo(ms);
+                    tank.ImageData = ms.ToArray();
+                    tank.ImageMimeType = upload.ContentType;
+                }
+            }
+
             if (tank.TankId == 0)
             {
                 _tankRepository.Add(tank);      
@@ -144,9 +156,18 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditBCD(BCD bcd)
+        public IActionResult EditBCD(BCD bcd, IFormFile? upload)
         {
             RemoveDateErrors();
+
+            if (upload != null && upload.Length > 0)
+            {
+                using var ms = new MemoryStream();
+                upload.CopyTo(ms);
+                bcd.ImageData = ms.ToArray();
+                bcd.ImageMimeType = upload.ContentType;
+            }
+
             if (!ModelState.IsValid) return View(bcd);
             if (bcd.BCDId == 0)
                 _bcdRepository.Add(bcd);
@@ -169,11 +190,19 @@ namespace DeepDive.Controllers
             if (finn == null) return NotFound();
             return View(finn);
         }
-
         [HttpPost]
-        public IActionResult EditFinns(Finns finn)
+        public IActionResult EditFinns(Finns finn, IFormFile? upload)
         {
             RemoveDateErrors();
+
+            if (upload != null && upload.Length > 0)
+            {
+                using var ms = new MemoryStream();
+                upload.CopyTo(ms);
+                finn.ImageData = ms.ToArray();
+                finn.ImageMimeType = upload.ContentType;
+            }
+
             if (!ModelState.IsValid) return View(finn);
             if (finn.FinnsId == 0)
                 _finnsRepository.Add(finn);
@@ -197,14 +226,23 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditDivingSuits(DivingSuits ds)
+        public IActionResult EditDivingSuits(DivingSuits ds, IFormFile? upload)
         {
             RemoveDateErrors();
+
+            if (upload != null && upload.Length > 0)
+            {
+                using var ms = new MemoryStream();
+                upload.CopyTo(ms);
+                ds.ImageData = ms.ToArray();
+                ds.ImageMimeType = upload.ContentType;
+            }
+
             if (!ModelState.IsValid) return View(ds);
             if (ds.DivingSuitsId == 0)
                 _divingSuitsRepository.Add(ds);
             else
-            _divingSuitsRepository.Update(ds);
+                _divingSuitsRepository.Update(ds);
             return RedirectToAction("Index");
         }
 
@@ -223,15 +261,23 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditMask_Snorkel(Mask_Snorkel ms)
+        public IActionResult EditMask_Snorkel(Mask_Snorkel ms, IFormFile? upload)
         {
             RemoveDateErrors();
+
+            if (upload != null && upload.Length > 0)
+            {
+                using var msStream = new MemoryStream();
+                upload.CopyTo(msStream);
+                ms.ImageData = msStream.ToArray();
+                ms.ImageMimeType = upload.ContentType;
+            }
 
             if (!ModelState.IsValid) return View(ms);
             if (ms.Mask_SnorkelId == 0)
                 _maskSnorkelRepository.Add(ms);
             else
-            _maskSnorkelRepository.Update(ms);
+                _maskSnorkelRepository.Update(ms);
             return RedirectToAction("Index");
         }
 
@@ -250,14 +296,23 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditRegulatorSet(RegulatorSet rs)
+        public IActionResult EditRegulatorSet(RegulatorSet rs, IFormFile? upload)
         {
             RemoveDateErrors();
+
+            if (upload != null && upload.Length > 0)
+            {
+                using var ms = new MemoryStream();
+                upload.CopyTo(ms);
+                rs.ImageData = ms.ToArray();
+                rs.ImageMimeType = upload.ContentType;
+            }
+
             if (!ModelState.IsValid) return View(rs);
             if (rs.RegulatorSetId == 0)
                 _regulatorSetRepository.Add(rs);
             else
-            _regulatorSetRepository.Update(rs);
+                _regulatorSetRepository.Update(rs);
             return RedirectToAction("Index");
         }
 
