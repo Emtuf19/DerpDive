@@ -50,6 +50,8 @@ namespace DeepDive.Controllers
                 BCDId = bcd.BCDId,
                 Brand = bcd.Brand,
                 Model = bcd.Model,
+                ImageData = bcd.ImageData,
+                ImageMimeType = bcd.ImageMimeType,
                 Price = bcd.Price,
                 DateFrom = bcd.DateFrom,
                 DateTo = bcd.DateTo,

@@ -1,4 +1,5 @@
 ﻿using DeepDive.Models;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 using DeepDive.Enums;
 using System.Reflection.Emit;
@@ -98,242 +99,195 @@ namespace DeepDive.Data
                 )
                 .Metadata.SetValueComparer(sizeComparer);
 
-            modelBuilder.Entity<BCD>().HasData(
+
+
+
+            string imgsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "IMGs");
+            string GetMime(string p)
+            {
+                return Path.GetExtension(p).ToLowerInvariant() switch
+                {
+                    ".png" => "image/png",
+                    ".jpg" => "image/jpeg",
+                    ".jpeg" => "image/jpeg",
+                    ".webp" => "image/webp",
+                    _ => "application/octet-stream"
+                };
+            }
+
+
+            byte[]? ReadImage(params string[] names)
+            {
+                foreach (var n in names)
+                {
+                    var p = Path.Combine(imgsPath, n);
+                    if (File.Exists(p)) return File.ReadAllBytes(p);
+                }
+                return null;
+            }
+
+            string? ReadMime(params string[] names)
+            {
+                foreach (var n in names)
+                {
+                    var p = Path.Combine(imgsPath, n);
+                    if (File.Exists(p)) return GetMime(p);
+                }
+                return null;
+            }
+
+
+            var bcdWithImages = new List<BCD>
+            {
                 new BCD
                 {
                     BCDId = 1,
                     Brand = "Scubapro",
                     Model = "Navigator Lite BCD",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L
-                    },
-                    Price = 125
-                },
+                    Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
+                    Price = 125,                    
+                    ImageData = ReadImage("BCD-1.webp", "Oceanic-Oceanpro-BCD-.png"),
+                    ImageMimeType = ReadMime("BCD-1.webp", "Oceanic-Oceanpro-BCD-.png")                },
                 new BCD
                 {
                     BCDId = 2,
                     Brand = "Scubapro",
                     Model = "BCD Glide",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L
-                    },
-                    Price = 140
-                },
+                    Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
+                    Price = 140,                    
+                    ImageData = ReadImage("BCD-2.webp", "Oceanic-Oceanpro-BCD-.png"),
+                    ImageMimeType = ReadMime("BCD-2.webp", "Oceanic-Oceanpro-BCD-.png")                },
                 new BCD
                 {
                     BCDId = 3,
                     Brand = "Scubapro",
                     Model = "BCD Hydros Pro",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L
-                    },
-                    Price = 200
-                },
+                    Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
+                    Price = 200,                    
+                    ImageData = ReadImage("BCD-3.webp", "Oceanic-Oceanpro-BCD-.png"),
+                    ImageMimeType = ReadMime("BCD-3.webp", "Oceanic-Oceanpro-BCD-.png")                },
                 new BCD
                 {
                     BCDId = 4,
                     Brand = "Seac",
                     Model = "BCD Modular",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L
-                    },
-                    Price = 145
+                    Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
+                    Price = 145,
+                    ImageData = ReadImage("BCD-4.webp", "Oceanic-Oceanpro-BCD-.png"),
+                    ImageMimeType = ReadMime("BCD-4.webp", "Oceanic-Oceanpro-BCD-.png")
                 }
-            );
-            modelBuilder.Entity<DivingSuits>().HasData(
+            };
+            modelBuilder.Entity<BCD>().HasData(bcdWithImages.ToArray());
+
+
+            var divingWithImages = new List<DivingSuits>
+            {
                 new DivingSuits
                 {
                     DivingSuitsId = 1,
                     Brand = "Scubapro",
                     Model = "Definition",
-
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
-
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Våddragt",
-
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
-
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
-                    Thickness = 3
+                    Thickness = 3,
+                    ImageData = ReadImage("divingsuit-1.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-1.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 2,
                     Brand = "Scubapro",
                     Model = "Definition",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Våddragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
-                    Thickness = 5
+                    Thickness = 5,
+                    ImageData = ReadImage("divingsuit-2.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-2.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 3,
                     Brand = "Scubapro",
                     Model = "Definition",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Våddragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
-                    Thickness = 7
+                    Thickness = 7,
+                    ImageData = ReadImage("divingsuit-3.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-3.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 4,
                     Brand = "Waterproof",
                     Model = "W5",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Våddragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
-                    Thickness = 3
+                    Thickness = 3,
+                    ImageData = ReadImage("divingsuit-4.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-4.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 5,
                     Brand = "Fourth Element",
                     Model = "Proteus",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Våddragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 120,
-                    Thickness = 5
+                    Thickness = 5,
+                    ImageData = ReadImage("divingsuit-5.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-5.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 6,
                     Brand = "Scubapro",
                     Model = "Exodry 4.0",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Tørdragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 300,
-                    Thickness = 0
+                    Thickness = 0,
+                    ImageData = ReadImage("divingsuit-6.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-6.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 7,
                     Brand = "Waterproof",
                     Model = "D7 Evo",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Tørdragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 320,
-                    Thickness = 0
+                    Thickness = 0,
+                    ImageData = ReadImage("divingsuit-7.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-7.webp", "FullSuit.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
                     DivingSuitsId = 8,
                     Brand = "Santi",
                     Model = "E.Lite Plus",
-                    Size = new List<EquipmentSize>
-                    {
-                        EquipmentSize.XS,
-                        EquipmentSize.S,
-                        EquipmentSize.M,
-                        EquipmentSize.L,
-                        EquipmentSize.XL
-                    },
+                    Size = new List<EquipmentSize> { EquipmentSize.XS, EquipmentSize.S, EquipmentSize.M, EquipmentSize.L, EquipmentSize.XL },
                     Type = "Tørdragt",
-                    Gender = new List<EquipmentGender>
-                    {
-                        EquipmentGender.Herre,
-                        EquipmentGender.Dame
-                    },
+                    Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 350,
-                    Thickness = 0
+                    Thickness = 0,
+                    ImageData = ReadImage("divingsuit-8.webp", "FullSuit.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-8.webp", "FullSuit.webp", "Suit.webp")
                 }
-            );
+            };
+            modelBuilder.Entity<DivingSuits>().HasData(divingWithImages.ToArray());
             modelBuilder.Entity<Finns>().HasData(
                 new Finns
                 {

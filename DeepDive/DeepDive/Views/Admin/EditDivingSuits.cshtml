@@ -8,7 +8,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="EditDivingSuits" method="post">
+    <form asp-action="EditDivingSuits" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <input type="hidden" asp-for="DivingSuitsId" />
