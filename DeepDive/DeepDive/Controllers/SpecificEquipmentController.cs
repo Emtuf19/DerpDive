@@ -66,6 +66,11 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var bcd = BCDRepository.GetById(vm.BCDId);
+
+                if (bcd != null)
+                    vm.AvailableSizes = bcd.Size;
+
                 return View(vm);
             }
 
@@ -84,18 +89,31 @@ namespace DeepDive.Controllers
                 vm.DateTo > item.DateFrom);
 
 
-            int bookedCount = _context.BookingItems.Count(item =>
+            var OverlappingBookings = _context.BookingItems.Where(item =>
                 item.EquipmentType == EquipmentType.BCD &&
                 item.EquipmentId == vm.BCDId &&
                 item.SelectedSize == vm.SelectedSize &&
                 vm.DateFrom < item.DateTo &&
-                vm.DateTo > item.DateFrom);
+                vm.DateTo > item.DateFrom).ToList();
+
+            int bookedCount = OverlappingBookings.Count;
 
             if (cartCount + bookedCount >= 5)
             {
+                var overlappingDates = string.Join(
+                    "\n", OverlappingBookings.Select(item =>
+                        $"• {item.DateFrom:dd/MM/yyyy} – {item.DateTo:dd/MM/yyyy}"));
+
                 ModelState.AddModelError(
                     string.Empty,
-                    "Der er ikke flere BCD'er i denne størrelse tilgængelige i det valgte tidsrum.");
+                    $"BCD størrelse {vm.SelectedSize} er optaget i følgende perioder:\n" +
+                    $"{overlappingDates}\n" +
+                    $"Vælg venligst en anden periode.");
+
+                var bcd = BCDRepository.GetById(vm.BCDId);
+                if (bcd != null)
+                    vm.AvailableSizes = bcd.Size;
+
                 return View(vm);
             }
 
@@ -148,8 +166,17 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var ds = DivingSuitsRepository.GetById(vm.DivingSuitsId);
+
+                if (ds != null)
+                {
+                    vm.AvailableSizes = ds.Size;
+                    vm.AvailableGenders = ds.Gender;
+                }
+
                 return View(vm);
             }
+
             var cart = HttpContext.Session.GetObject<Cart>("Cart");
 
             if (cart == null)
@@ -176,6 +203,15 @@ namespace DeepDive.Controllers
             if (cartCount + bookedCount >= 5)
             {
                 ModelState.AddModelError(string.Empty, "Der er ikke flere dragter ledige i denne størrelse i dette tidsrum");
+
+                var ds = DivingSuitsRepository.GetById(vm.DivingSuitsId);
+
+                if (ds != null)
+                {
+                    vm.AvailableSizes = ds.Size;
+                    vm.AvailableGenders = ds.Gender;
+                }
+
                 return View(vm);
             }
 
@@ -225,6 +261,11 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var finns = FinnsRepository.GetById(vm.FinnsId);
+
+                if (finns != null)
+                    vm.AvailableSizes = finns.Size;
+
                 return View(vm);
             }
 
@@ -252,6 +293,12 @@ namespace DeepDive.Controllers
             if (cartCount + bookedCount >= 5)
             {
                 ModelState.AddModelError(string.Empty, "Der er ikke flere finner i denne størelse ledige i dette tidsrum");
+
+                var finns = FinnsRepository.GetById(vm.FinnsId);
+
+                if (finns != null)
+                    vm.AvailableSizes = finns.Size;
+
                 return View(vm);
             }
 

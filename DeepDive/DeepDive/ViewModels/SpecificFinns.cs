@@ -14,6 +14,7 @@ namespace DeepDive.ViewModels
 
         [DateNotInPast]
         public DateTime DateFrom { get; set; }
+        [DateNotInPast]
         public DateTime DateTo { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace DeepDive.Validation
             if (value is DateTime date && date.Date < DateTime.Today)
             {
                 return new ValidationResult(
-                    "Dato fra må ikke være i fortiden.");
+                    "Valgte datoer må ikke være i fortiden");
             }
 
             return ValidationResult.Success;

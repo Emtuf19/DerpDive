@@ -514,4 +514,6 @@ dialog {
         background-color: #bd2130;
     }
 
-
+.validation-summary-errors {
+    white-space: pre-line;
+}
