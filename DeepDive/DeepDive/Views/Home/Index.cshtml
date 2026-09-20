@@ -1,4 +1,21 @@
-﻿@{
+﻿@using DeepDive.Enums
+@model List<DeepDive.Models.Package>
+
+    @*Laves for at der ikke kommer deres navne her i programmet frem, men de danske navne*@
+@functions {
+    string Translation(EquipmentType type) => type switch
+    {
+        EquipmentType.BCD => "BCD",
+        EquipmentType.DivingSuits => "Dragt",
+        EquipmentType.Finns => "Finner",
+        EquipmentType.Mask_Snorkel => "Maske & snorkel",
+        EquipmentType.RegulatorSet => "Regulatorsæt",
+        EquipmentType.Tank => "Tank",
+        EquipmentType.Package => "Pakke",
+        _ => ""
+    };
+}
+@{
     ViewData["Title"] = "Home Page";
 }
 @section Header {
@@ -11,5 +28,31 @@
         </p>
 </section>
 }
+<h1>Vores pakker</h1>
+
+<div class="row row-cols-2 row-cols-md-3">
+    @foreach (var package in Model)
+    {
+        <div class="col">
+            <a asp-controller="SpecificEquipment" asp-action="SpecificPackage" asp-route-id="@package.PackageId" class="text-decoration-none">
+    <div class="card bg-b EquipmentCard">
+            
+                <div class="card-body h-100 align-items-stretch">
+                    <h5 class="product-title">@package.Title</h5>
+                    <h6>@package.PackageItems.Count dele</h6>
+                        <ul class="list-unstyled"> 
+                        @foreach (var item in package.PackageItems)
+                            {
+                                <li>✓ @Translation(item.EquipmentType)</li>
+                            }
+                        </ul>
+                    
+                    <p class="package-price">@package.Price kr. pr. dag</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    }
+</div>
 
 

@@ -1,0 +1,83 @@
+﻿@model DeepDive.Models.Package
+@using DeepDive.Enums
+
+@{
+    var isNew = Model.PackageId == 0;
+    ViewData["Title"] = isNew ? "Tilføj pakke" : "Rediger pakke";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="EditPackage" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="PackageId" />
+
+    <div class="mb-3">
+        <label asp-for="Title">Titel</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price">Pris pr. dag</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gem</button>
+    <a asp-action="Index" class="btn btn-secondary">Tilbage</a>
+</form>
+
+@if (!isNew)
+{
+    <h2 class="mt-4">Indhold</h2>
+
+    <table class="table admin-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Produkt-ID</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PackageItems)
+            {
+                <tr>
+                    <td>@item.EquipmentType</td>
+                    <td>@item.EquipmentId</td>
+                    <td>
+                        <form asp-action="RemovePackageItem" method="post" class="d-inline">
+                            <input type="hidden" name="packageItemId" value="@item.PackageItemId" />
+                            <input type="hidden" name="packageId" value="@Model.PackageId" />
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Fjern</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <form asp-action="AddPackageItem" method="post" class="d-flex gap-2 align-items-end">
+        <input type="hidden" name="packageId" value="@Model.PackageId" />
+
+        <div>
+            <label>Type</label>
+            <select name="equipmentType" class="form-control">
+                @foreach (var type in Enum.GetValues<EquipmentType>())
+                {
+                    @if (type != EquipmentType.Package)
+                    {
+                        <option value="@type">@type</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div>
+            <label>Produkt-ID</label>
+            <input type="number" name="equipmentId" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Tilføj til pakke</button>
+    </form>
+}

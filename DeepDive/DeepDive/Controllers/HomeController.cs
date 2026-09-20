@@ -1,4 +1,5 @@
 using DeepDive.Models;
+using DeepDive.Persistance;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,11 +7,18 @@ namespace DeepDive.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPackageRepository _packageRepository;
+
+        public HomeController(IPackageRepository packageRepository)
+        {
+            _packageRepository = packageRepository;
+        }
+
         public IActionResult Index()
         {
-            //var packages = PackageRepository.GetAll();
-            //return View(packages);
-            return View();
+            var packages = _packageRepository.GetAll();
+            return View(packages);
+            
         }
 
         public IActionResult Privacy()

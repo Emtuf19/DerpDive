@@ -17,10 +17,11 @@ namespace DeepDive.Controllers
         private readonly IDivingSuitsRepository DivingSuitsRepository;
         private readonly IRegulatorSetRepository RegulatorSetRepository;
         private readonly IFinnsRepository FinnsRepository;
+        private readonly IPackageRepository PackageRepository;
 
         private readonly EquipmentContext _context;
 
-        public SpecificEquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context)
+        public SpecificEquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context, IPackageRepository packageRepository)
         {
             Mask_SnorkelRepository = mask_SnorkelRepository;
             BCDRepository = bCDRepository;
@@ -28,6 +29,7 @@ namespace DeepDive.Controllers
             DivingSuitsRepository = divingSuitsRepository;
             RegulatorSetRepository = regulatorSetRepository;
             FinnsRepository = finnsRepository;
+            PackageRepository = packageRepository;
 
             _context = context;
         }
@@ -482,6 +484,76 @@ namespace DeepDive.Controllers
             HttpContext.Session.SetObject("Cart", cart);
             TempData["ItemAdded"] = true;
             return RedirectToAction("SpecificTank", new { id = vm.TankId });
+        }
+        public IActionResult SpecificPackage(int id)
+        {
+            var package = PackageRepository.GetById(id);
+            if (package == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new SpecificPackage
+            {
+                PackageId = package.PackageId,
+                Title = package.Title,
+                Price = package.Price,
+                Content = package.PackageItems.Select(i => i.EquipmentType).ToList(),
+                DateFrom = DateTime.Today,
+                DateTo = DateTime.Today.AddDays(1)
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult SpecificPackage(SpecificPackage vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            var cart = HttpContext.Session.GetObject<Cart>("Cart");
+
+            if (cart == null)
+            {
+                cart = new Cart();
+            }
+
+            int cartCount = cart.Items.Count(item =>
+                item.EquipmentType == EquipmentType.Package &&
+                item.EquipmentId == vm.PackageId &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            int bookedCount = _context.BookingItems.Count(item =>
+                item.EquipmentType == EquipmentType.Package &&
+                item.EquipmentId == vm.PackageId &&
+                vm.DateFrom < item.DateTo &&
+                vm.DateTo > item.DateFrom);
+
+            if (cartCount + bookedCount >= 5)
+            {
+                ModelState.AddModelError(string.Empty, "Der er ikke flere af denne pakke ledige i dette tidsrum");
+                return View(vm);
+            }
+
+            var cartItem = new CartItem
+            {
+                EquipmentType = EquipmentType.Package,
+                EquipmentId = vm.PackageId,
+                DateFrom = vm.DateFrom,
+                DateTo = vm.DateTo,
+                Price = vm.Price
+            };
+
+            cart.AddItem(cartItem);
+
+            HttpContext.Session.SetObject("Cart", cart);
+            TempData["ItemAdded"] = true;
+
+            return RedirectToAction("SpecificPackage", new { id = vm.PackageId });
         }
     }
 }

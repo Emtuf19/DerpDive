@@ -19,10 +19,11 @@ namespace DeepDive.Controllers
         private readonly IRegulatorSetRepository _regulatorSetRepository;
         private readonly IFinnsRepository _finnsRepository;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IPackageRepository _packageRepository;
 
         private readonly EquipmentContext _context;
 
-        public CartController(IDivingSuitsRepository divingSuitsRepository, IBCDRepository bcdRepository, IMask_SnorkelRepository maskSnorkelRepository, ITankRepository tankRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context, UserManager<ApplicationUser> userManager)
+        public CartController(IDivingSuitsRepository divingSuitsRepository, IBCDRepository bcdRepository, IMask_SnorkelRepository maskSnorkelRepository, ITankRepository tankRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context, UserManager<ApplicationUser> userManager, IPackageRepository packageRepository)
         {
             _divingSuitsRepository = divingSuitsRepository;
             _bcdRepository = bcdRepository;
@@ -31,6 +32,7 @@ namespace DeepDive.Controllers
             _regulatorSetRepository = regulatorSetRepository;
             _finnsRepository = finnsRepository;
             _userManager = userManager;
+            _packageRepository = packageRepository;
 
 
             _context = context;
@@ -165,6 +167,25 @@ namespace DeepDive.Controllers
                             EquipmentId = tank.TankId,
                             Brand = tank.Brand,
                             Volumen = tank.Volumen,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
+                            Price = item.Price
+                        });
+                    }
+                }
+                else if (item.EquipmentType == EquipmentType.Package)
+                {
+                    var package = _packageRepository.GetById(item.EquipmentId);
+
+                    if (package != null)
+                    {
+                        vm.Items.Add(new CartItemVM
+                        {
+                            CartItemId = item.CartItemId,
+                            EquipmentType = EquipmentType.Package,
+                            EquipmentId = package.PackageId,
+                            Brand = package.Title,
+                            Model = package.Title,
                             DateFrom = item.DateFrom,
                             DateTo = item.DateTo,
                             Price = item.Price
@@ -326,6 +347,25 @@ namespace DeepDive.Controllers
                             EquipmentId = tank.TankId,
                             Brand = tank.Brand,
                             Volumen = tank.Volumen,
+                            DateFrom = item.DateFrom,
+                            DateTo = item.DateTo,
+                            Price = item.Price
+                        });
+                    }
+                }
+                else if (item.EquipmentType == EquipmentType.Package)
+                {
+                    var package = _packageRepository.GetById(item.EquipmentId);
+
+                    if (package != null)
+                    {
+                        vm.Items.Add(new CartItemVM
+                        {
+                            CartItemId = item.CartItemId,
+                            EquipmentType = EquipmentType.Package,
+                            EquipmentId = package.PackageId,
+                            Brand = package.Title,
+                            Model = package.Title,
                             DateFrom = item.DateFrom,
                             DateTo = item.DateTo,
                             Price = item.Price

@@ -1,0 +1,77 @@
+﻿@using DeepDive.ViewModels;
+@model SpecificPackage;
+
+<form method="post"
+      class="product-form"
+      asp-controller="SpecificEquipment"
+      asp-action="SpecificPackage">
+
+    <input type="hidden" asp-for="PackageId" />
+    <input type="hidden" asp-for="Title" />
+    <input type="hidden" asp-for="Price" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <img src="~/IMGs/scuba.jpg" alt="@Model.Title" class="product-image" />
+
+    <div class="row mb-3">
+        <div class="col">
+            <label>Pakke</label>
+            <p class="equipment-info">@Model.Title</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label>Indhold</label>
+            <ul class="equipment-info">
+                @foreach (var type in Model.Content)
+                {
+                    <li>@type</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label>Dato fra</label>
+            <input asp-for="DateFrom" type="date" class="form-control" />
+            <label>Dato til</label>
+            <input asp-for="DateTo" type="date" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label>Pris pr. dag</label>
+            <p class="equipment-info">@Model.Price kr.</p>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Tilføj til kurv
+    </button>
+
+    <div class="d-flex gap-2 mt-2">
+        <a class="btn btn-ghost flex-fill" asp-controller="Home" asp-action="Index">
+            Se flere pakker
+        </a>
+        <a class="btn btn-ghost flex-fill" asp-controller="Cart" asp-action="Index">
+            Gå til kurv
+        </a>
+    </div>
+</form>
+@*  Vi submitter først produktet og hvis det lykkedes kommer der pop up, hvis ikke kommer fejlmeddelelsen. Det gør vi via TempData. *@
+<script>
+    const closeBtn = document.getElementById('ClosePopUp');
+    closeBtn.addEventListener('click', () => {
+        document.getElementById('ConfirmationModal').close();
+    });
+</script>
+
+@if (TempData["ItemAdded"] != null)
+{
+    <script>
+        document.getElementById('ConfirmationModal').showModal();
+    </script>
+}

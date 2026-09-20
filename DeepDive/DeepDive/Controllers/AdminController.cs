@@ -1,4 +1,5 @@
-﻿using DeepDive.Models;
+﻿using DeepDive.Enums;
+using DeepDive.Models;
 using DeepDive.Persistance;
 using DeepDive.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -17,7 +18,8 @@ namespace DeepDive.Controllers
         private readonly IMask_SnorkelRepository _maskSnorkelRepository;
         private readonly IRegulatorSetRepository _regulatorSetRepository;
         private readonly ITankRepository _tankRepository;
-        public AdminController(IBookingRepository bookingRepository,IBCDRepository bcdRepository, IDivingSuitsRepository divingSuitsRepository, IFinnsRepository finnsRepository, IMask_SnorkelRepository maskSnorkelRepository, IRegulatorSetRepository regulatorSetRepository, ITankRepository tankRepository)
+        private readonly IPackageRepository _packageRepository;
+        public AdminController(IBookingRepository bookingRepository,IBCDRepository bcdRepository, IDivingSuitsRepository divingSuitsRepository, IFinnsRepository finnsRepository, IMask_SnorkelRepository maskSnorkelRepository, IRegulatorSetRepository regulatorSetRepository, ITankRepository tankRepository, IPackageRepository packageRepository)
         {
             _bookingRepository = bookingRepository;
             _bcdRepository = bcdRepository;
@@ -26,6 +28,8 @@ namespace DeepDive.Controllers
             _maskSnorkelRepository = maskSnorkelRepository;
             _regulatorSetRepository = regulatorSetRepository;
             _tankRepository = tankRepository;
+            _packageRepository = packageRepository;
+
         }
         public IActionResult Index()
         {
@@ -39,7 +43,8 @@ namespace DeepDive.Controllers
                     finns = _finnsRepository.GetAll(),
                     mask_Snorkels = _maskSnorkelRepository.GetAll(),
                     regulatorSets = _regulatorSetRepository.GetAll(),
-                    tanks = _tankRepository.GetAll()
+                    tanks = _tankRepository.GetAll(),
+                    Packages = _packageRepository.GetAll(),
                 }
             };
             return View(vm);
@@ -358,6 +363,53 @@ namespace DeepDive.Controllers
         {
             ModelState.Remove("DateFrom");
             ModelState.Remove("DateTo");
+        }
+
+        // ---------- Pakker ----------
+        public IActionResult AddPackage()
+        {
+            return View("EditPackage", new Package());
+        }
+
+        public IActionResult EditPackage(int id)
+        {
+            var package = _packageRepository.GetById(id);
+            if (package == null) return NotFound();
+            return View(package);
+        }
+
+        [HttpPost]
+        public IActionResult EditPackage(Package package)
+        {
+            if (!ModelState.IsValid) return View(package);
+
+            if (package.PackageId == 0)
+                _packageRepository.Add(package);
+            else
+                _packageRepository.Update(package);
+
+            return RedirectToAction("EditPackage", new { id = package.PackageId });
+        }
+
+        [HttpPost]
+        public IActionResult DeletePackage(int id)
+        {
+            _packageRepository.Delete(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult AddPackageItem(int packageId, EquipmentType equipmentType, int equipmentId)
+        {
+            _packageRepository.AddItem(packageId, equipmentType, equipmentId);
+            return RedirectToAction("EditPackage", new { id = packageId });
+        }
+
+        [HttpPost]
+        public IActionResult RemovePackageItem(int packageItemId, int packageId)
+        {
+            _packageRepository.RemoveItem(packageItemId);
+            return RedirectToAction("EditPackage", new { id = packageId });
         }
 
     }
