@@ -72,12 +72,19 @@
                             {
                                 <span>@item.Volumen L</span>
                             }
+                            else if (item.EquipmentType == EquipmentType.Package)
+                            {
+                                <span>Pakke</span>
+                            }
                         </div>
 
                         <div class="cart-item-footer">
+                            @{
+                                var dage = (item.DateTo - item.DateFrom).Days;
+                            }
                             <span class="cart-dates">
                                 Fra d. @item.DateFrom.ToString("dd/MM/yyyy") til d. @item.DateTo.ToString("dd/MM/yyyy")
-                                (@((item.DateTo - item.DateFrom).Days + 1) dage)
+                                (@dage @(dage == 1 ? "dag" : "dage"))
                             </span>
                         </div>
 

@@ -1,49 +1,82 @@
 ﻿@model List<DeepDive.Models.Booking>
+@using DeepDive.Enums
+
+@functions {
+    string Translation(EquipmentType type) => type switch
+    {
+        EquipmentType.BCD => "BCD",
+        EquipmentType.DivingSuits => "Dragt",
+        EquipmentType.Finns => "Finner",
+        EquipmentType.Mask_Snorkel => "Maske & snorkel",
+        EquipmentType.RegulatorSet => "Regulatorsæt",
+        EquipmentType.Tank => "Tank",
+        EquipmentType.Package => "Pakke",
+        _ => ""
+    };
+}
 
 @{
     ViewData["Title"] = "Mine bookinger";
 }
 
 <h1>Mine bookinger</h1>
+<div class="admin-card">
+    <h2>Samlede antal bookinger: (@Model.Count stk.)</h2>
 
-@if (!Model.Any())
-{
-    <p>Du har ingen bookinger endnu.</p>
-}
-else
-{
-    <table class="table table-striped table-light">
-        <thead>
-            <tr>
-                <th>Booking nr.</th>
-                <th>Udstyr</th>
-                <th>Størrelse</th>
-                <th>Køn</th>
-                <th>Fra</th>
-                <th>Til</th>
-                <th>Pris pr. dag</th>
-                <th>Pris i alt</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var booking in Model)
-            {
-                @foreach (var item in booking.BookingItems)
-                {
-                    var days = (item.DateTo - item.DateFrom).TotalDays;
+    @if (!Model.Any())
+    {
+        <p>Du har ingen bookinger endnu.</p>
+    }
+    else
+    {
+        @foreach (var booking in Model)
+        {
+            <div class="booking-card">
 
-                    <tr>
-                        <td>@booking.BookingId</td>
-                        <td>@item.EquipmentType</td>
-                        <td>@(item.SelectedSize?.ToString() ?? "-")</td>
-                        <td>@(item.SelectedGender?.ToString() ?? "-")</td>
-                        <td>@item.DateFrom.ToString("dd-MM-yyyy")</td>
-                        <td>@item.DateTo.ToString("dd-MM-yyyy")</td>
-                        <td>@item.Price kr.</td>
-                        <td>@(item.Price * days) kr.</td>
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
-}
+                <div class="mb-2">
+                    <strong>Booking #@booking.BookingId</strong>
+                    @if (booking.BookingItems.Any())
+                    {
+                        <span>
+                            | @booking.BookingItems.Min(i => i.DateFrom).ToString("dd-MM-yyyy")
+                            - @booking.BookingItems.Max(i => i.DateTo).ToString("dd-MM-yyyy")
+                        </span>
+                        <span>
+                            | @booking.BookingItems.Count varer
+                        </span>
+                    }
+                </div>
+
+                <table class="table admin-table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Udstyr</th>
+                            <th>Str.</th>
+                            <th>Køn</th>
+                            <th>Fra</th>
+                            <th>Til</th>
+                            <th class="num">Pris pr. dag</th>
+                            <th class="num">Pris i alt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in booking.BookingItems)
+                        {
+                            var days = (item.DateTo - item.DateFrom).TotalDays;
+
+                            <tr>
+                                <td>@Translation(item.EquipmentType)</td>
+                                <td>@(item.SelectedSize?.ToString() ?? "-")</td>
+                                <td>@(item.SelectedGender?.ToString() ?? "-")</td>
+                                <td>@item.DateFrom.ToString("dd-MM-yyyy")</td>
+                                <td>@item.DateTo.ToString("dd-MM-yyyy")</td>
+                                <td class="num">@item.Price kr.</td>
+                                <td class="num">@(item.Price * days) kr.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+</div>

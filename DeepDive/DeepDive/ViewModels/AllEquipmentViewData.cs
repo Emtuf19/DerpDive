@@ -15,5 +15,6 @@ namespace DeepDive.ViewModels
         public List<RegulatorSet> regulatorSets { get; set; } = new List<RegulatorSet>();
 
         public List<Tank> tanks { get; set; } = new List<Tank>();
+        public List<Package> Packages { get; set; } = new();
     }
 }

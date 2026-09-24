@@ -180,6 +180,10 @@ a {
         overflow: hidden;
     }
 
+    .package-price{
+        font-weight:bold;
+    }
+
 .EquipmentCard {
     width: 100%;
     margin-bottom: 32px;
@@ -513,7 +517,76 @@ dialog {
     .close-btn:hover {
         background-color: #bd2130;
     }
+/*Admin tabeller layout*/
 
+.admin-card {
+    background: white;
+    color: rgb(18, 27, 75);
+    border-radius: 12px;
+    padding: 0px 20px 0px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+    .admin-card h2 {
+        color: rgb(18, 27, 75);
+        margin-bottom: 10px;
+       
+    }
+
+
+    .admin-card .admin-table thead th {
+        background: transparent;
+        color: white;
+        padding: 12px;
+    }
+    .admin-card .admin-table thead tr {
+        background: linear-gradient(135deg, #1b6ec2, #123a6b);
+    }
+    .admin-card .admin-table tbody td {
+        border: none;
+        border-bottom: 2px solid #e4e5e6;
+        padding: 12px;
+        vertical-align: middle;
+    }
+    .admin-card .admin-table tbody tr:not(.booking-group):hover td {
+        background-color: #eef3fb;
+    }
+
+.admin-table .num {
+    text-align: right;
+    width: 120px;
+    font-variant-numeric: tabular-nums;
+}
+    .admin-table .col-id{
+        color: grey;
+    }
+.admin-table .btn {
+    margin-left: 4px;
+    font-weight: 600;
+   
+}
+.admin-card .btn {
+    margin-left: 4px;
+    font-weight: 600;
+}
+.admin-table tbody tr.booking-group td {
+    background: #f4f6fa;
+    border-top: 4px solid #e4e5e6;
+}
+.booking-card {
+    background: #f7f9fc;
+    color: rgb(18, 27, 75);
+    border: 1px solid #e4e9f2;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+.admin-table td:last-child,
+.admin-table th:last-child {
+    text-align: right;
+    width: 300px;
 .validation-summary-errors {
     white-space: pre-line;
 }
