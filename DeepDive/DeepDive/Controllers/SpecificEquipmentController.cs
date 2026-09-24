@@ -192,7 +192,7 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            int bookedCount = cart.Items.Count(item =>
+            var OverlappingBookings = cart.Items.Where(item =>
                 item.EquipmentType == EquipmentType.DivingSuits &&
                 item.EquipmentId == vm.DivingSuitsId &&
                 item.SelectedSize == vm.SelectedSize &&
@@ -200,12 +200,21 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
+            int bookedCount = OverlappingBookings.Count();
+
             if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Der er ikke flere dragter ledige i denne størrelse i dette tidsrum");
+                var overlappingDates = string.Join(
+                    "\n", OverlappingBookings.Select(item =>
+                        $"• {item.DateFrom:dd/MM/yyyy} – {item.DateTo:dd/MM/yyyy}"));
+
+                ModelState.AddModelError(
+                    string.Empty,
+                    $"Dykkerdragt størrelse {vm.SelectedSize} er optaget i følgende perioder:\n" +
+                    $"{overlappingDates}\n" +
+                    $"Vælg venligst en anden periode.");
 
                 var ds = DivingSuitsRepository.GetById(vm.DivingSuitsId);
-
                 if (ds != null)
                 {
                     vm.AvailableSizes = ds.Size;
@@ -283,19 +292,28 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            int bookedCount = _context.BookingItems.Count(item =>
+            var OverlappingBookings = _context.BookingItems.Where(item =>
                 item.EquipmentType == EquipmentType.Finns &&
                 item.EquipmentId == vm.FinnsId &&
                 item.SelectedSize == vm.SelectedSize &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
+            int bookedCount = OverlappingBookings.Count();
+
             if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Der er ikke flere finner i denne størelse ledige i dette tidsrum");
+                var overlappingDates = string.Join(
+                    "\n", OverlappingBookings.Select(item =>
+                        $"• {item.DateFrom:dd/MM/yyyy} – {item.DateTo:dd/MM/yyyy}"));
+
+                ModelState.AddModelError(
+                    string.Empty,
+                    $"Finner i størrelse {vm.SelectedSize} er optaget i følgende perioder:\n" +
+                    $"{overlappingDates}\n" +
+                    $"Vælg venligst en anden periode.");
 
                 var finns = FinnsRepository.GetById(vm.FinnsId);
-
                 if (finns != null)
                     vm.AvailableSizes = finns.Size;
 
@@ -361,15 +379,26 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            int bookedCount = _context.BookingItems.Count(item =>
+            var OverlappingBookings = _context.BookingItems.Where(item =>
                 item.EquipmentType == EquipmentType.Mask_Snorkel &&
                 item.EquipmentId == vm.Mask_SnorkelId &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
+            int bookedCount = OverlappingBookings.Count();
+
             if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Der er ikke flere masker/snorkler ledige i dette tidsrum");
+                var overlappingDates = string.Join(
+                    "\n", OverlappingBookings.Select(item =>
+                        $"• {item.DateFrom:dd/MM/yyyy} – {item.DateTo:dd/MM/yyyy}"));
+
+                ModelState.AddModelError(
+                    string.Empty,
+                    $"Denne maske/snorkel er optaget i følgende perioder:\n" +
+                    $"{overlappingDates}\n" +
+                    $"Vælg venligst en anden periode.");
+
                 return View(vm);
             }
 
@@ -433,15 +462,26 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            int bookedCount = _context.BookingItems.Count(item =>
+            var OverlappingBookings = _context.BookingItems.Where(item =>
                 item.EquipmentType == EquipmentType.RegulatorSet &&
                 item.EquipmentId == vm.RegulatorSetId &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
+            int bookedCount = OverlappingBookings.Count();
+
             if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Der er ikke flere af denne type regulatorset ledige i dette tidsrum");
+                var overlappingDates = string.Join(
+                    "\n", OverlappingBookings.Select(item =>
+                        $"• {item.DateFrom:dd/MM/yyyy} – {item.DateTo:dd/MM/yyyy}"));
+
+                ModelState.AddModelError(
+                    string.Empty,
+                    $"Dette regulatorset er optaget i følgende perioder:\n" +
+                    $"{overlappingDates}\n" +
+                    $"Vælg venligst en anden periode.");
+
                 return View(vm);
             }
 
@@ -503,15 +543,26 @@ namespace DeepDive.Controllers
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
-            int bookedCount = _context.BookingItems.Count(item =>
+            var OverlappingBookings = _context.BookingItems.Where(item =>
                 item.EquipmentType == EquipmentType.Tank &&
                 item.EquipmentId == vm.TankId &&
                 vm.DateFrom < item.DateTo &&
                 vm.DateTo > item.DateFrom);
 
+            int bookedCount = OverlappingBookings.Count();
+
             if (cartCount + bookedCount >= 5)
             {
-                ModelState.AddModelError(string.Empty, "Der er ikke flere af denne type tank ledige i dette tidsrum");
+                var overlappingDates = string.Join(
+                    "\n", OverlappingBookings.Select(item =>
+                        $"• {item.DateFrom:dd/MM/yyyy} – {item.DateTo:dd/MM/yyyy}"));
+
+                ModelState.AddModelError(
+                    string.Empty,
+                    $"Denne tank er optaget i følgende perioder:\n" +
+                    $"{overlappingDates}\n" +
+                    $"Vælg venligst en anden periode.");
+                
                 return View(vm);
             }
 
