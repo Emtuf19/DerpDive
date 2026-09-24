@@ -71,7 +71,11 @@ namespace DeepDive.Controllers
                 var bcd = BCDRepository.GetById(vm.BCDId);
 
                 if (bcd != null)
+                {
                     vm.AvailableSizes = bcd.Size;
+                    vm.ImageData = bcd.ImageData;
+                    vm.ImageMimeType = bcd.ImageMimeType;
+                }
 
                 return View(vm);
             }
@@ -174,6 +178,8 @@ namespace DeepDive.Controllers
                 {
                     vm.AvailableSizes = ds.Size;
                     vm.AvailableGenders = ds.Gender;
+                    vm.ImageData = ds.ImageData;
+                    vm.ImageMimeType = ds.ImageMimeType;
                 }
 
                 return View(vm);
@@ -275,7 +281,11 @@ namespace DeepDive.Controllers
                 var finns = FinnsRepository.GetById(vm.FinnsId);
 
                 if (finns != null)
+                {
                     vm.AvailableSizes = finns.Size;
+                    vm.ImageData = finns.ImageData;
+                    vm.ImageMimeType = finns.ImageMimeType;
+                }
 
                 return View(vm);
             }
@@ -365,6 +375,12 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var mask_snorkel = Mask_SnorkelRepository.GetById(vm.Mask_SnorkelId);
+                if (mask_snorkel != null)
+                {
+                    vm.ImageData = mask_snorkel.ImageData;
+                    vm.ImageMimeType = mask_snorkel.ImageMimeType;
+                }
                 return View(vm);
             }
 
@@ -448,6 +464,12 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var rs = RegulatorSetRepository.GetById(vm.RegulatorSetId);
+                if (rs != null)
+                {
+                    vm.ImageData = rs.ImageData;
+                    vm.ImageMimeType = rs.ImageMimeType;
+                }
                 return View(vm);
             }
 
@@ -529,6 +551,12 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var tank = TankRepository.GetById(vm.TankId);
+                if (tank != null)
+                {
+                    vm.ImageData = tank.ImageData;
+                    vm.ImageMimeType = tank.ImageMimeType;
+                }
                 return View(vm);
             }
 
