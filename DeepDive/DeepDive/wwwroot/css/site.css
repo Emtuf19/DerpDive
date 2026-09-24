@@ -587,4 +587,6 @@ dialog {
 .admin-table th:last-child {
     text-align: right;
     width: 300px;
+.validation-summary-errors {
+    white-space: pre-line;
 }
