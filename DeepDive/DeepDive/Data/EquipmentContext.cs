@@ -147,7 +147,8 @@ namespace DeepDive.Data
                     Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
                     Price = 125,                    
                     ImageData = ReadImage("BCD-1.webp", "Oceanic-Oceanpro-BCD-.png"),
-                    ImageMimeType = ReadMime("BCD-1.webp", "Oceanic-Oceanpro-BCD-.png")                },
+                    ImageMimeType = ReadMime("BCD-1.webp", "Oceanic-Oceanpro-BCD-.png")
+                },
                 new BCD
                 {
                     BCDId = 2,
@@ -156,7 +157,8 @@ namespace DeepDive.Data
                     Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
                     Price = 140,                    
                     ImageData = ReadImage("BCD-2.webp", "Oceanic-Oceanpro-BCD-.png"),
-                    ImageMimeType = ReadMime("BCD-2.webp", "Oceanic-Oceanpro-BCD-.png")                },
+                    ImageMimeType = ReadMime("BCD-2.webp", "Oceanic-Oceanpro-BCD-.png")
+                },
                 new BCD
                 {
                     BCDId = 3,
@@ -165,7 +167,8 @@ namespace DeepDive.Data
                     Size = new List<EquipmentSize> { EquipmentSize.S, EquipmentSize.M, EquipmentSize.L },
                     Price = 200,                    
                     ImageData = ReadImage("BCD-3.webp", "Oceanic-Oceanpro-BCD-.png"),
-                    ImageMimeType = ReadMime("BCD-3.webp", "Oceanic-Oceanpro-BCD-.png")                },
+                    ImageMimeType = ReadMime("BCD-3.webp", "Oceanic-Oceanpro-BCD-.png")                
+                },
                 new BCD
                 {
                     BCDId = 4,
@@ -192,8 +195,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
                     Thickness = 3,
-                    ImageData = ReadImage("divingsuit-1.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-1.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-1.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-1.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -205,8 +208,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
                     Thickness = 5,
-                    ImageData = ReadImage("divingsuit-2.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-2.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-2.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-2.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -218,8 +221,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
                     Thickness = 7,
-                    ImageData = ReadImage("divingsuit-3.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-3.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-3.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-3.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -231,8 +234,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 100,
                     Thickness = 3,
-                    ImageData = ReadImage("divingsuit-4.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-4.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-4.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-4.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -244,8 +247,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 120,
                     Thickness = 5,
-                    ImageData = ReadImage("divingsuit-5.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-5.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-5.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-5.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -257,8 +260,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 300,
                     Thickness = 0,
-                    ImageData = ReadImage("divingsuit-6.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-6.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-6.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-6.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -270,8 +273,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 320,
                     Thickness = 0,
-                    ImageData = ReadImage("divingsuit-7.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-7.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-7.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-7.webp", "Suit.webp")
                 },
                 new DivingSuits
                 {
@@ -283,8 +286,8 @@ namespace DeepDive.Data
                     Gender = new List<EquipmentGender> { EquipmentGender.Herre, EquipmentGender.Dame },
                     Price = 350,
                     Thickness = 0,
-                    ImageData = ReadImage("divingsuit-8.webp", "FullSuit.webp", "Suit.webp"),
-                    ImageMimeType = ReadMime("divingsuit-8.webp", "FullSuit.webp", "Suit.webp")
+                    ImageData = ReadImage("divingsuit-8.webp", "Suit.webp"),
+                    ImageMimeType = ReadMime("divingsuit-8.webp", "Suit.webp")
                 }
             };
             modelBuilder.Entity<DivingSuits>().HasData(divingWithImages.ToArray());
@@ -302,7 +305,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 50
+                    Price = 50,
+                    ImageData = ReadImage("finns1.webp", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns1.webp", "Flippers.webp")
                 },
                 new Finns
                 {
@@ -317,7 +322,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 50
+                    Price = 50,
+                    ImageData = ReadImage("finns2.webp", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns2.webp", "Flippers.webp")
                 },
                 new Finns
                 {
@@ -332,7 +339,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 60
+                    Price = 60,
+                    ImageData = ReadImage("finns3.webp", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns3.webp", "Flippers.webp")
                 },
                 new Finns
                 {
@@ -347,7 +356,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 50
+                    Price = 50,
+                    ImageData = ReadImage("finns4.webp", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns4.webp", "Flippers.webp")
                 },
                 new Finns
                 {
@@ -362,7 +373,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 50
+                    Price = 50,
+                    ImageData = ReadImage("finns5.jpg", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns5.jpg", "Flippers.webp")
                 },
                 new Finns
                 {
@@ -377,7 +390,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 75
+                    Price = 75,
+                    ImageData = ReadImage("finns6.webp", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns6.webp", "Flippers.webp")
                 },
                 new Finns
                 {
@@ -392,7 +407,9 @@ namespace DeepDive.Data
                         EquipmentSize.L,
                         EquipmentSize.XL
                     },
-                    Price = 80
+                    Price = 80,
+                    ImageData = ReadImage("finns7.jpg", "Flippers.webp"),
+                    ImageMimeType = ReadMime("finns7.jpg", "Flippers.webp")
                 }
             );
             modelBuilder.Entity<Mask_Snorkel>().HasData(
@@ -401,49 +418,63 @@ namespace DeepDive.Data
                     Mask_SnorkelId = 1,
                     Brand = "Scubapro",
                     Model = "Ghost",
-                    Price = 50
+                    Price = 50,
+                    ImageData = ReadImage("mask1.webp", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask1.webp", "Mask.webp")
                 },
                 new Mask_Snorkel
                 {
                     Mask_SnorkelId = 2,
                     Brand = "Scubapro",
                     Model = "D-Mask",
-                    Price = 60
+                    Price = 60,
+                    ImageData = ReadImage("mask2.webp", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask2.webp", "Mask.webp")
                 },
                 new Mask_Snorkel
                 {
                     Mask_SnorkelId = 3,
                     Brand = "Scubapro",
                     Model = "Spectra Mini",
-                    Price = 50
+                    Price = 50,
+                    ImageData = ReadImage("mask3.jpg", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask3.jpg", "Mask.webp")
                 },
                 new Mask_Snorkel
                 {
                     Mask_SnorkelId = 4,
                     Brand = "Scubapro",
                     Model = "Crystal VU",
-                    Price = 75
+                    Price = 75,
+                    ImageData = ReadImage("mask4.jpg", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask4.jpg", "Mask.webp")
                 },
                 new Mask_Snorkel
                 {
                     Mask_SnorkelId = 5,
                     Brand = "Fourth Element",
                     Model = "Scout Kontrast",
-                    Price = 75
+                    Price = 75,
+                    ImageData = ReadImage("mask5.jpg", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask5.jpg", "Mask.webp")
                 },
                 new Mask_Snorkel
                 {
                     Mask_SnorkelId = 6,
                     Brand = "Fourth Element",
                     Model = "Scout Enhance",
-                    Price = 75
+                    Price = 75,
+                    ImageData = ReadImage("mask6.jpg", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask6.jpg", "Mask.webp")
                 },
                 new Mask_Snorkel
                 {
                     Mask_SnorkelId = 7,
                     Brand = "Tusa",
                     Model = "Element",
-                    Price = 75
+                    Price = 75,
+                    ImageData = ReadImage("mask7.webp", "Mask.webp"),
+                    ImageMimeType = ReadMime("mask7.webp", "Mask.webp")
                 }
             );
             modelBuilder.Entity<RegulatorSet>().HasData(
@@ -454,7 +485,9 @@ namespace DeepDive.Data
                     FirstStep = "MK25EVO",
                     SecondStep = "S600",
                     Octopus = "R105",
-                    Price = 125
+                    Price = 125,
+                    ImageData = ReadImage("regulatorset1.webp", "Regulator.webp"),
+                    ImageMimeType = ReadMime("regulatorset1.webp", "Regulator.webp")
                 },
                 new RegulatorSet
                 {
@@ -463,7 +496,9 @@ namespace DeepDive.Data
                     FirstStep = "MK17EVO",
                     SecondStep = "C370",
                     Octopus = "R095",
-                    Price = 100
+                    Price = 100,
+                    ImageData = ReadImage("regulatorset2.webp", "Regulator.webp"),
+                    ImageMimeType = ReadMime("regulatorset2.webp", "Regulator.webp")
                 },
                 new RegulatorSet
                 {
@@ -472,7 +507,9 @@ namespace DeepDive.Data
                     FirstStep = "MK25EVO BT",
                     SecondStep = "A700 Carbon BT",
                     Octopus = "S270",
-                    Price = 150
+                    Price = 150,
+                    ImageData = ReadImage("regulatorset3.webp", "Regulator.webp"),
+                    ImageMimeType = ReadMime("regulatorset3.webp", "Regulator.webp")
                 }
             );
             modelBuilder.Entity<Tank>().HasData(
@@ -481,28 +518,36 @@ namespace DeepDive.Data
                     TankId = 1,
                     Brand = "Scubapro",
                     Price = 150,
-                    Volumen = 5
+                    Volumen = 5,
+                    ImageData = ReadImage("tank1.webp", "Tank.webp"),
+                    ImageMimeType = ReadMime("tank1.webp", "Tank.webp")
                 },
                 new Tank
                 {
                     TankId = 2,
                     Brand = "Scubapro",
                     Price = 160,
-                    Volumen = 10
+                    Volumen = 10,
+                    ImageData = ReadImage("tank1.webp", "Tank.webp"),
+                    ImageMimeType = ReadMime("tank1.webp", "Tank.webp")
                 },
                 new Tank
                 {
                     TankId = 3,
                     Brand = "Scubapro",
                     Price = 170,
-                    Volumen = 12
+                    Volumen = 12,
+                    ImageData = ReadImage("tank1.webp", "Tank.webp"),
+                    ImageMimeType = ReadMime("tank1.webp", "Tank.webp")
                 },
                 new Tank
                 {
                     TankId = 4,
                     Brand = "Scubapro",
                     Price = 180,
-                    Volumen = 15
+                    Volumen = 15,
+                    ImageData = ReadImage("tank1.webp", "Tank.webp"),
+                    ImageMimeType = ReadMime("tank1.webp", "Tank.webp")
                 }
             );
 
