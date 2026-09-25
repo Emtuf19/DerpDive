@@ -2,6 +2,7 @@ using DeepDive.Data;
 using DeepDive.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using DeepDive.Services;
 
 namespace DeepDive
 {
@@ -18,7 +19,16 @@ namespace DeepDive
 
             builder.Services.AddDbContext<EquipmentContext>(options => { options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); });
 
+            //Login
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<EquipmentContext>();
+            
+            //API
+            builder.Services.AddHttpClient("GeocodingClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.api-ninjas.com/v1/geocoding"); 
+                httpClient.DefaultRequestHeaders.Add("X-Api-Key", "TKIWMkwNraRx8HHDCl6b9Yqhhx41qHfNxVNF6udB"); });
+
+            builder.Services.AddHttpClient("WeatherClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.open-meteo.com/v1/forecast"); });
+            builder.Services.AddHttpClient("MarineClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://marine-api.open-meteo.com/v1/marine"); });
+
             // Register repositories
             builder.Services.AddScoped<IMask_SnorkelRepository, Mask_SnorkelRepository>();
             builder.Services.AddScoped<IBCDRepository, BCDRepository>();
@@ -28,6 +38,7 @@ namespace DeepDive
             builder.Services.AddScoped<IFinnsRepository, FinnsRepository>();
             builder.Services.AddScoped<IPackageRepository, PackageRepository>();
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+            builder.Services.AddScoped<ICompleteWeatherService, ComlpeteWeatherService>();
 
             var app = builder.Build();
             SeedAdmin.Seed(app.Services);

@@ -1,0 +1,35 @@
+﻿@model DeepDive.ViewModels.WeatherVM
+
+<h1>Vejr</h1>
+
+<form asp-action="Index" method="post">
+
+    <label for="city">By</label>
+
+    <input type="text" id="city" name="city" placeholder="Indtast by" />
+
+    <button type="submit">Søg</button>
+
+</form>
+
+@if (Model?.Weather != null)
+{
+    <h2>@Model.Geocoding.Name</h2>
+
+    <p>Temperatur: @Model.Weather.Current.Temperature °C</p>
+    <p>Regn: @Model.Weather.Current.Rain mm</p>
+    <p>Vindhastighed: @Model.Weather.Current.WindSpeed km/t</p>
+    <p>Weather code: @Model.Weather.Current.WeatherCode</p>
+
+    <h3>Hav</h3>
+
+    <p>
+        Bølgehøjde:
+        @(Model.MarineWeather.Current.WaveHeight?.ToString() ?? "Ikke tilgængelig") m
+    </p>
+
+    <p>
+        Havtemperatur:
+        @(Model.MarineWeather.Current.SeaSurfaceTemperature?.ToString() ?? "Ikke tilgængelig") °C
+    </p>
+}
