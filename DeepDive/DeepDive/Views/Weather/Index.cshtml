@@ -1,0 +1,86 @@
+﻿@model DeepDive.ViewModels.WeatherVM
+
+<h1>Vejr</h1>
+
+<form asp-action="Index" method="post">
+
+    <label for="city">By</label>
+
+    <input type="text" id="city" name="city" placeholder="Indtast by" />
+    
+    <button type="submit">Søg</button>
+
+    <div asp-validation-summary="All"></div>
+
+</form>
+
+@if (Model?.Weather != null)
+{
+    <h2>@Model.Geocoding.Name</h2>
+
+    <p>Temperatur: @Model.Weather.Current.Temperature °C</p>
+
+    <span>
+    <p>Nedbør: @Model.Weather.Current.Rain mm</p>
+    <p>
+        @(Model.Weather.Current.Rain < 2
+        ? "Gode dykker forhold"
+        : "Dårlige dykker forhold"
+        )
+    </p>
+    </span>
+
+    <span>
+    <p>Vindhastighed: @Model.Weather.Current.WindSpeed km/t </p>
+    <p>
+        @(Model.Weather.Current.WindSpeed < 8
+        ? "Gode dykker forhold"
+        : "Dårlige dykker forhold"
+        )
+    </p>
+    </span>
+        
+
+    <p>
+        Tordenvejr:
+        @(Model.Weather.Current.WeatherCode <= 90
+        ? "Ingen Tordenvejr"
+        : "Tordenvejr!! Alt dykning frarådes!!")
+        </p>
+    
+    <h3>Hav</h3>
+
+
+    <span>
+    <p>
+        Bølgehøjde:
+        @(Model.MarineWeather.Current.WaveHeight?.ToString() ?? "Ikke tilgængelig") 
+    </p>
+    <p>
+        @(Model.MarineWeather.Current.WaveHeight < 1.5
+        ? "Gode dykker forhold"
+        : "Dårlige dykker forhold"
+        )
+    </p>
+    </span>
+
+    var waterTemp = Model.MarineWeather.Current.SeaSurfaceTemperature;
+    var divingSuitRecommendation = waterTemp switch
+    {
+        > 24 => "Våddragt (3mm)",
+        >= 18 => "Våddragt (5mm)",
+        >= 10 => "Våddragt (7mm)",
+        < 10 => "Tørdragt",
+        _ => "Vandtemperaturen er ikke tilgængelig"
+    };
+
+    <span>
+    <p>
+        Havtemperatur:
+        @(Model.MarineWeather.Current.SeaSurfaceTemperature?.ToString() ?? "Ikke tilgængelig") °C
+    </p>
+    <p>
+        Anbefalet dykker dragt: @divingSuitRecommendation
+    </p>
+    </span>
+}
