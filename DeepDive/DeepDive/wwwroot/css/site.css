@@ -587,6 +587,49 @@ dialog {
 .admin-table th:last-child {
     text-align: right;
     width: 300px;
-.validation-summary-errors {
-    white-space: pre-line;
 }
+
+    .validation-summary-errors {
+        white-space: pre-line;
+    }
+
+    .weather-card {
+        background: white;
+        color: #123a6b;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        height: 100%;
+    }
+
+.weather-card h3 {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+        .weather-card btn btn-primary {
+            padding: 24px;
+        }
+.weather-label {
+    font-weight: bold; 
+}
+.weather-comment {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+}
+    .weather-comment.inline {
+        display: inline;
+        font-size: 16px;
+        font-style: normal;
+    }
+
+    .comment-good {
+        color: #1b6ec2;
+    }
+    .comment-goody {
+        color: #123a6b;
+    }
+
+    .comment-bad {
+        color: darkred;
+    }

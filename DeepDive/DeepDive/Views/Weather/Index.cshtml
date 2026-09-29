@@ -2,13 +2,13 @@
 
 <h1>Vejr</h1>
 
-<form asp-action="Index" method="post">
+<form asp-action="Index" method="post" class="product-form">
 
     <label for="city">By</label>
 
-    <input type="text" id="city" name="city" placeholder="Indtast by" />
+    <input type="text" id="city" name="city" class="form-control mb-3" placeholder="Indtast by" />
     
-    <button type="submit">Søg</button>
+    <button type="submit" class="btn btn-primary">Søg</button>
 
     <div asp-validation-summary="All"></div>
 
@@ -16,54 +16,7 @@
 
 @if (Model?.Weather != null)
 {
-    <h2>@Model.Geocoding.Name</h2>
-
-    <p>Temperatur: @Model.Weather.Current.Temperature °C</p>
-
-    <span>
-    <p>Nedbør: @Model.Weather.Current.Rain mm</p>
-    <p>
-        @(Model.Weather.Current.Rain < 2
-        ? "Gode dykker forhold"
-        : "Dårlige dykker forhold"
-        )
-    </p>
-    </span>
-
-    <span>
-    <p>Vindhastighed: @Model.Weather.Current.WindSpeed km/t </p>
-    <p>
-        @(Model.Weather.Current.WindSpeed < 8
-        ? "Gode dykker forhold"
-        : "Dårlige dykker forhold"
-        )
-    </p>
-    </span>
-        
-
-    <p>
-        Tordenvejr:
-        @(Model.Weather.Current.WeatherCode <= 90
-        ? "Ingen Tordenvejr"
-        : "Tordenvejr!! Alt dykning frarådes!!")
-        </p>
-    
-    <h3>Hav</h3>
-
-
-    <span>
-    <p>
-        Bølgehøjde:
-        @(Model.MarineWeather.Current.WaveHeight?.ToString() ?? "Ikke tilgængelig") 
-    </p>
-    <p>
-        @(Model.MarineWeather.Current.WaveHeight < 1.5
-        ? "Gode dykker forhold"
-        : "Dårlige dykker forhold"
-        )
-    </p>
-    </span>
-
+    <h2 class="section-title"> @Model.Geocoding.Name</h2>
     var waterTemp = Model.MarineWeather.Current.SeaSurfaceTemperature;
     var divingSuitRecommendation = waterTemp switch
     {
@@ -73,14 +26,101 @@
         < 10 => "Tørdragt",
         _ => "Vandtemperaturen er ikke tilgængelig"
     };
+    //bruges til vores link i bunden
+    int? suitThickness = waterTemp switch
+    {
+        > 24 => 3,
+        >= 18 => 5,
+        >= 10 => 7,
+        < 10 => 0,     
+        _ => null      
+    };
 
-    <span>
+
+    <div class="row">
+
+     <div class="col-md-6">
+     <div class="weather-card">
+     <h3>Vejr</h3>
+    <p><span class="weather-label">Temperatur: </span> @Model.Weather.Current.Temperature °C</p>
+                <p>
+    <span class="weather-label">
+        Nedbør: </span> @Model.Weather.Current.Rain mm
+                    <span class="weather-comment @(Model.Weather.Current.Rain < 2 ? "comment-good" : "comment-bad")">
+        @(Model.Weather.Current.Rain < 2
+        ? "Gode dykker forhold"
+        : "Dårlige dykker forhold"
+        )
+        </span>
+    </p>
     <p>
-        Havtemperatur:
+    <span class="weather-label">
+    Vindhastighed:</span> @Model.Weather.Current.WindSpeed km/t
+                    <span class="weather-comment @(Model.Weather.Current.WindSpeed < 8 ? "comment-good" : "comment-bad")">
+        @(Model.Weather.Current.WindSpeed < 8
+        ? "Gode dykker forhold"
+        : "Dårlige dykker forhold"
+        )
+        </span>
+    </p>
+      <p>
+     <span class="weather-label">
+        Tordenvejr: 
+          </span>
+         <span class="weather-comment inline @(Model.Weather.Current.WeatherCode <= 90 ? "comment-goody" : "comment-bad")">
+        @(Model.Weather.Current.WeatherCode <= 90
+        ? "Ingen Tordenvejr"
+        : "Tordenvejr!! Alt dykning frarådes!!")
+       
+        </span>
+        </p>
+    </div>
+ </div>
+
+    <div class="col-md-6">
+     <div class="weather-card">
+    <h3>Hav</h3>
+ <p>
+ <span class="weather-label">
+        Bølgehøjde: </span>
+        @(Model.MarineWeather.Current.WaveHeight?.ToString() ?? "Ikke tilgængelig") 
+      <span class="weather-comment @(Model.MarineWeather.Current.WaveHeight < 1.5 ? " comment-good" : "comment-bad")">
+    @(Model.MarineWeather.Current.WaveHeight == null
+        ? ""
+        : Model.MarineWeather.Current.WaveHeight < 1.5
+            ? "Gode dykker forhold"
+            : "Dårlige dykker forhold"
+        )
+        </span>
+     </p>
+    
+                <p>
+                    <span class="weather-label">
+        Havtemperatur: </span>
         @(Model.MarineWeather.Current.SeaSurfaceTemperature?.ToString() ?? "Ikke tilgængelig") °C
     </p>
-    <p>
-        Anbefalet dykker dragt: @divingSuitRecommendation
-    </p>
-    </span>
+    
+ </div>
+    </div>
+    </div>
+
+           
+ <div class="weather-card mt-4 align-content-center" >
+        <p>
+            <span class="weather-label">Anbefalet dykker dragt:</span>
+            @if (suitThickness != null)
+            {
+                <a class="btn btn-primary" asp-controller="Equipment"
+                   asp-action="DivingSuits"
+                   asp-route-thickness="@suitThickness">
+                    @divingSuitRecommendation
+                </a>
+            }
+            else
+            {
+                @divingSuitRecommendation
+            }
+        </p>
+ </div>
 }
+

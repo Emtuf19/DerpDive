@@ -57,11 +57,19 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
-        public IActionResult DivingSuits()
+        public IActionResult DivingSuits( int? thickness)
         {
             ViewBag.Action = "DivingSuits";
 
             var divingSuits = DivingSuitsRepository.GetAll();
+
+            if (thickness != null)
+            {
+                divingSuits = divingSuits
+                    .Where(s => s.Thickness == thickness)
+                    .ToList();
+            }
+
 
             var vm = new AllEquipmentViewData
             {
