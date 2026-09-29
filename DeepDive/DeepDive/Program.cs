@@ -23,8 +23,9 @@ namespace DeepDive
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<EquipmentContext>();
             
             //API
-            builder.Services.AddHttpClient("GeocodingClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.api-ninjas.com/v1/geocoding"); 
-                httpClient.DefaultRequestHeaders.Add("X-Api-Key", "TKIWMkwNraRx8HHDCl6b9Yqhhx41qHfNxVNF6udB"); });
+            builder.Services.AddHttpClient("GeocodingClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.api-ninjas.com/v1/geocoding");
+                httpClient.DefaultRequestHeaders.Add("X-Api-Key", builder.Configuration["ApiSettings:ApiKey"]);
+            });
 
             builder.Services.AddHttpClient("WeatherClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.open-meteo.com/v1/forecast"); });
             builder.Services.AddHttpClient("MarineClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://marine-api.open-meteo.com/v1/marine"); });

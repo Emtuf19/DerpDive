@@ -6,6 +6,7 @@ namespace DeepDive.Services
     public class ComlpeteWeatherService : ICompleteWeatherService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+
         public ComlpeteWeatherService(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
