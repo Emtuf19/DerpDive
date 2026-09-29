@@ -22,7 +22,14 @@ namespace DeepDive.Controllers
         {
             var location = await _completeWeatherService.GetLocationAsync(city);
 
+            if (location == null)
+            {
+                ModelState.AddModelError("City", "Byen kunne ikke findes");
+
+                return View();
+            }
             var weather = await _completeWeatherService.GetWeatherAsync(location.Latitude, location.Longitude);
+
             var marineWeather = await _completeWeatherService.GetMarineWeatherAsync(location.Latitude, location.Longitude);
 
             var vm = new WeatherVM

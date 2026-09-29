@@ -27,7 +27,7 @@ namespace DeepDive.Services
 
             var result = await response.Content.ReadFromJsonAsync<List<Geocoding>>();
 
-            return result.First();
+            return result.FirstOrDefault();
         }
 
         public async Task<MarineWeather> GetMarineWeatherAsync(double latitude, double longitude)
