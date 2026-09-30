@@ -7,44 +7,44 @@ namespace DeepDive.Persistance
 {
     public class PackageRepository : IPackageRepository
     {
-        private readonly EquipmentContext _equipmentContext;
+        private readonly EquipmentContext _context;
 
         public PackageRepository(EquipmentContext equipmentContext)
         {
-            _equipmentContext = equipmentContext;
+            _context = equipmentContext;
         }
 
 
         public void Add(Package package)
         {
-            _equipmentContext.Packages.Add(package);
-            _equipmentContext.SaveChanges();
+            _context.Packages.Add(package);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var package = _equipmentContext.Packages.Find(id);
+            var package = _context.Packages.Find(id);
             if (package != null)
             {
-                _equipmentContext.Packages.Remove(package);
-                _equipmentContext.SaveChanges();
+                _context.Packages.Remove(package);
+                _context.SaveChanges();
             }
         }
 
         public List<Package> GetAll()
         {
-            return _equipmentContext.Packages.Include(p => p.PackageItems).ToList();
+            return _context.Packages.Include(p => p.PackageItems).ToList();
         }
 
         public Package? GetById(int id)
         {
-            return _equipmentContext.Packages.Include(p => p.PackageItems).FirstOrDefault(p => p.PackageId == id);
+            return _context.Packages.Include(p => p.PackageItems).FirstOrDefault(p => p.PackageId == id);
         }
 
         public void Update(Package package)
         {
-            _equipmentContext.Packages.Update(package);
-            _equipmentContext.SaveChanges();
+            _context.Packages.Update(package);
+            _context.SaveChanges();
         }
 
         public void AddItem(int packageId, EquipmentType equipmentType, int equipmentId)
@@ -56,17 +56,17 @@ namespace DeepDive.Persistance
                 EquipmentId = equipmentId                
             };
 
-            _equipmentContext.PackageItems.Add(item);
-            _equipmentContext.SaveChanges();
+            _context.PackageItems.Add(item);
+            _context.SaveChanges();
         }
 
         public void RemoveItem(int packageItemId)
         {
-            var item = _equipmentContext.PackageItems.Find(packageItemId);
+            var item = _context.PackageItems.Find(packageItemId);
             if (item != null)
             {
-                _equipmentContext.PackageItems.Remove(item);
-                _equipmentContext.SaveChanges();
+                _context.PackageItems.Remove(item);
+                _context.SaveChanges();
             }
         }
     }

@@ -3,11 +3,11 @@ using System.Globalization;
 
 namespace DeepDive.Services
 {
-    public class ComlpeteWeatherService : ICompleteWeatherService
+    public class CompleteWeatherService : ICompleteWeatherService
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ComlpeteWeatherService(IHttpClientFactory httpClientFactory)
+        public CompleteWeatherService(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }

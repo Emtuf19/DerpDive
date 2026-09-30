@@ -8,21 +8,21 @@ namespace DeepDive.Controllers
 {
     public class EquipmentController : Controller
     {
-        private readonly IMask_SnorkelRepository Mask_SnorkelRepository;
-        private readonly IBCDRepository BCDRepository;
-        private readonly ITankRepository TankRepository;
-        private readonly IDivingSuitsRepository DivingSuitsRepository;
-        private readonly IRegulatorSetRepository RegulatorSetRepository;
-        private readonly IFinnsRepository FinnsRepository;
+        private readonly IMask_SnorkelRepository _mask_SnorkelRepository;
+        private readonly IBCDRepository _bcdRepository;
+        private readonly ITankRepository _tankRepository;
+        private readonly IDivingSuitsRepository _divingSuitsRepository;
+        private readonly IRegulatorSetRepository _regulatorSetRepository;
+        private readonly IFinnsRepository _finnsRepository;
 
         public EquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository)
         {
-            Mask_SnorkelRepository = mask_SnorkelRepository;
-            BCDRepository = bCDRepository;
-            TankRepository = tankRepository;
-            DivingSuitsRepository = divingSuitsRepository;
-            RegulatorSetRepository = regulatorSetRepository;
-            FinnsRepository = finnsRepository;
+            _mask_SnorkelRepository = mask_SnorkelRepository;
+            _bcdRepository = bCDRepository;
+            _tankRepository = tankRepository;
+            _divingSuitsRepository = divingSuitsRepository;
+            _regulatorSetRepository = regulatorSetRepository;
+            _finnsRepository = finnsRepository;
         }
         public IActionResult Category()
         {
@@ -33,7 +33,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "Mask_Snorkel";
 
-            var mask_snorkels = Mask_SnorkelRepository.GetAll();
+            var mask_snorkels = _mask_SnorkelRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -47,7 +47,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "Tank";
 
-            var tanks = TankRepository.GetAll();
+            var tanks = _tankRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -61,7 +61,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "DivingSuits";
 
-            var divingSuits = DivingSuitsRepository.GetAll();
+            var divingSuits = _divingSuitsRepository.GetAll();
 
             if (thickness != null)
             {
@@ -83,7 +83,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "RegulatorSet";
 
-            var regulatorSets = RegulatorSetRepository.GetAll();
+            var regulatorSets = _regulatorSetRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -97,7 +97,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "BCD";
 
-            var BCDs = BCDRepository.GetAll();
+            var BCDs = _bcdRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -111,7 +111,7 @@ namespace DeepDive.Controllers
         {
             ViewBag.Action = "Finns";
 
-            var finns = FinnsRepository.GetAll();
+            var finns = _finnsRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {

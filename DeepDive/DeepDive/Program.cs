@@ -39,7 +39,7 @@ namespace DeepDive
             builder.Services.AddScoped<IFinnsRepository, FinnsRepository>();
             builder.Services.AddScoped<IPackageRepository, PackageRepository>();
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
-            builder.Services.AddScoped<ICompleteWeatherService, ComlpeteWeatherService>();
+            builder.Services.AddScoped<ICompleteWeatherService, CompleteWeatherService>();
 
             var app = builder.Build();
             SeedAdmin.Seed(app.Services);

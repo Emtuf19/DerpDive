@@ -11,25 +11,25 @@ namespace DeepDive.Controllers
 {
     public class SpecificEquipmentController : Controller
     {
-        private readonly IMask_SnorkelRepository Mask_SnorkelRepository;
-        private readonly IBCDRepository BCDRepository;
-        private readonly ITankRepository TankRepository;
-        private readonly IDivingSuitsRepository DivingSuitsRepository;
-        private readonly IRegulatorSetRepository RegulatorSetRepository;
-        private readonly IFinnsRepository FinnsRepository;
-        private readonly IPackageRepository PackageRepository;
+        private readonly IMask_SnorkelRepository _mask_SnorkelRepository;
+        private readonly IBCDRepository _bcdRepository;
+        private readonly ITankRepository _tankRepository;
+        private readonly IDivingSuitsRepository _divingSuitsRepository;
+        private readonly IRegulatorSetRepository _regulatorSetRepository;
+        private readonly IFinnsRepository _finnsRepository;
+        private readonly IPackageRepository _packageRepository;
 
         private readonly EquipmentContext _context;
 
         public SpecificEquipmentController(IMask_SnorkelRepository mask_SnorkelRepository, IBCDRepository bCDRepository, ITankRepository tankRepository, IDivingSuitsRepository divingSuitsRepository, IRegulatorSetRepository regulatorSetRepository, IFinnsRepository finnsRepository, EquipmentContext context, IPackageRepository packageRepository)
         {
-            Mask_SnorkelRepository = mask_SnorkelRepository;
-            BCDRepository = bCDRepository;
-            TankRepository = tankRepository;
-            DivingSuitsRepository = divingSuitsRepository;
-            RegulatorSetRepository = regulatorSetRepository;
-            FinnsRepository = finnsRepository;
-            PackageRepository = packageRepository;
+            _mask_SnorkelRepository = mask_SnorkelRepository;
+            _bcdRepository = bCDRepository;
+            _tankRepository = tankRepository;
+            _divingSuitsRepository = divingSuitsRepository;
+            _regulatorSetRepository = regulatorSetRepository;
+            _finnsRepository = finnsRepository;
+            _packageRepository = packageRepository;
 
             _context = context;
         }
@@ -40,7 +40,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificBCD(int id)
         {
-            var bcd = BCDRepository.GetById(id);
+            var bcd = _bcdRepository.GetById(id);
 
             if (bcd == null)
             {
@@ -68,7 +68,7 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var bcd = BCDRepository.GetById(vm.BCDId);
+                var bcd = _bcdRepository.GetById(vm.BCDId);
 
                 if (bcd != null)
                 {
@@ -116,7 +116,7 @@ namespace DeepDive.Controllers
                     $"{overlappingDates}\n" +
                     $"Vælg venligst en anden periode.");
 
-                var bcd = BCDRepository.GetById(vm.BCDId);
+                var bcd = _bcdRepository.GetById(vm.BCDId);
                 if (bcd != null)
                     vm.AvailableSizes = bcd.Size;
 
@@ -145,7 +145,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificDivingSuits(int id)
         {
-            var sDivingSuit = DivingSuitsRepository.GetById(id);
+            var sDivingSuit = _divingSuitsRepository.GetById(id);
             if (sDivingSuit == null)
             {
                 return NotFound();
@@ -172,7 +172,7 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var ds = DivingSuitsRepository.GetById(vm.DivingSuitsId);
+                var ds = _divingSuitsRepository.GetById(vm.DivingSuitsId);
 
                 if (ds != null)
                 {
@@ -222,7 +222,7 @@ namespace DeepDive.Controllers
                     $"{overlappingDates}\n" +
                     $"Vælg venligst en anden periode.");
 
-                var ds = DivingSuitsRepository.GetById(vm.DivingSuitsId);
+                var ds = _divingSuitsRepository.GetById(vm.DivingSuitsId);
                 if (ds != null)
                 {
                     vm.AvailableSizes = ds.Size;
@@ -254,7 +254,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificFinns(int id)
         {
-            var sFinns = FinnsRepository.GetById(id);
+            var sFinns = _finnsRepository.GetById(id);
             if (sFinns == null)
             {
                 return NotFound();
@@ -278,7 +278,7 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var finns = FinnsRepository.GetById(vm.FinnsId);
+                var finns = _finnsRepository.GetById(vm.FinnsId);
 
                 if (finns != null)
                 {
@@ -325,7 +325,7 @@ namespace DeepDive.Controllers
                     $"{overlappingDates}\n" +
                     $"Vælg venligst en anden periode.");
 
-                var finns = FinnsRepository.GetById(vm.FinnsId);
+                var finns = _finnsRepository.GetById(vm.FinnsId);
                 if (finns != null)
                     vm.AvailableSizes = finns.Size;
 
@@ -352,7 +352,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificMask_Snorkel(int id)
         {
-            var sMask_Snorkel = Mask_SnorkelRepository.GetById(id);
+            var sMask_Snorkel = _mask_SnorkelRepository.GetById(id);
             if (sMask_Snorkel == null)
             {
                 return NotFound();
@@ -375,7 +375,7 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var mask_snorkel = Mask_SnorkelRepository.GetById(vm.Mask_SnorkelId);
+                var mask_snorkel = _mask_SnorkelRepository.GetById(vm.Mask_SnorkelId);
                 if (mask_snorkel != null)
                 {
                     vm.ImageData = mask_snorkel.ImageData;
@@ -439,7 +439,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificRegulatorSet(int id)
         {
-            var sRegulatorSet = RegulatorSetRepository.GetById(id);
+            var sRegulatorSet = _regulatorSetRepository.GetById(id);
             if (sRegulatorSet == null)
             {
                 return NotFound();
@@ -464,7 +464,7 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var rs = RegulatorSetRepository.GetById(vm.RegulatorSetId);
+                var rs = _regulatorSetRepository.GetById(vm.RegulatorSetId);
                 if (rs != null)
                 {
                     vm.ImageData = rs.ImageData;
@@ -528,7 +528,7 @@ namespace DeepDive.Controllers
 
         public IActionResult SpecificTank(int id)
         {
-            var sTank = TankRepository.GetById(id);
+            var sTank = _tankRepository.GetById(id);
             if (sTank == null)
             {
                 return NotFound();
@@ -551,7 +551,7 @@ namespace DeepDive.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var tank = TankRepository.GetById(vm.TankId);
+                var tank = _tankRepository.GetById(vm.TankId);
                 if (tank != null)
                 {
                     vm.ImageData = tank.ImageData;
@@ -613,7 +613,7 @@ namespace DeepDive.Controllers
         }
         public IActionResult SpecificPackage(int id)
         {
-            var package = PackageRepository.GetById(id);
+            var package = _packageRepository.GetById(id);
             if (package == null)
             {
                 return NotFound();
