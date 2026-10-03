@@ -31,11 +31,20 @@ namespace DeepDive.Controllers
             _packageRepository = packageRepository;
 
         }
-        public IActionResult Index()
+
+        public IActionResult Index(string search)
         {
+            var bookings = _bookingRepository.GetAll();
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                bookings = bookings
+                    .Where(b => b.ApplicationUser != null &&
+                                b.ApplicationUser.Email.Contains(search))
+            .ToList();
+            }
             var vm = new AdminVM
             {
-                Bookings = _bookingRepository.GetAll(),
+                Bookings = bookings,
                 Equipment = new AllEquipmentViewData
                 {
                     bcds = _bcdRepository.GetAll(),
@@ -48,8 +57,8 @@ namespace DeepDive.Controllers
                 }
             };
             return View(vm);
-       
         }
+
         public IActionResult EditBookingItem(int id)
         {
             var item = _bookingRepository.GetItemById(id);

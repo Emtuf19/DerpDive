@@ -633,3 +633,12 @@ dialog {
     .comment-bad {
         color: darkred;
     }
+.search-form .btn-primary {
+    background-color: #1b6ec2;
+    color: white;
+    border-color: #1b6ec2;
+    width:auto;
+}
+.search-form .form-control {
+    border: 1px solid #1b6ec2;
+}
