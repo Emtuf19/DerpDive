@@ -1,5 +1,6 @@
 ﻿using DeepDive.Data;
 using DeepDive.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Persistance
 {
@@ -11,13 +12,13 @@ namespace DeepDive.Persistance
             _context = context;
         }
 
-        public void Add(Mask_Snorkel mask_Snorkel)
+        public async Task Add(Mask_Snorkel mask_Snorkel)
         {
             _context.Mask_Snorkels.Add(mask_Snorkel);
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             var mask_snorkel = _context.Mask_Snorkels.Find(id);
             if (mask_snorkel != null)
@@ -27,17 +28,17 @@ namespace DeepDive.Persistance
             }
         }
 
-        public List<Mask_Snorkel> GetAll()
+        public async Task<List<Mask_Snorkel>> GetAll()
         {
-            return _context.Mask_Snorkels.ToList();
+            return await _context.Mask_Snorkels.ToListAsync();
         }
 
-        public Mask_Snorkel? GetById(int id)
+        public async Task<Mask_Snorkel?> GetById(int id)
         {
-            return _context.Mask_Snorkels.FirstOrDefault(m => m.Mask_SnorkelId == id);
+            return await _context.Mask_Snorkels.FirstOrDefaultAsync(m => m.Mask_SnorkelId == id);
         }
 
-        public void Update(Mask_Snorkel mask_Snorkel)
+        public async Task Update(Mask_Snorkel mask_Snorkel)
         {
             _context.Mask_Snorkels.Update(mask_Snorkel);
             _context.SaveChanges();

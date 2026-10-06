@@ -32,9 +32,9 @@ namespace DeepDive.Controllers
 
         }
 
-        public IActionResult Index(string search)
+        public async Task<IActionResult> Index(string search)
         {
-            var bookings = _bookingRepository.GetAll();
+            var bookings = await _bookingRepository.GetAll();
             if (!string.IsNullOrWhiteSpace(search))
             {
                 bookings = bookings
@@ -47,13 +47,13 @@ namespace DeepDive.Controllers
                 Bookings = bookings,
                 Equipment = new AllEquipmentViewData
                 {
-                    bcds = _bcdRepository.GetAll(),
-                    divingSuits = _divingSuitsRepository.GetAll(),
-                    finns = _finnsRepository.GetAll(),
-                    mask_Snorkels = _maskSnorkelRepository.GetAll(),
-                    regulatorSets = _regulatorSetRepository.GetAll(),
-                    tanks = _tankRepository.GetAll(),
-                    Packages = _packageRepository.GetAll(),
+                    bcds = await _bcdRepository.GetAll(),
+                    divingSuits = await _divingSuitsRepository.GetAll(),
+                    finns = await _finnsRepository.GetAll(),
+                    mask_Snorkels = await _maskSnorkelRepository.GetAll(),
+                    regulatorSets = await _regulatorSetRepository.GetAll(),
+                    tanks = await _tankRepository.GetAll(),
+                    Packages = await _packageRepository.GetAll(),
                 }
             };
             return View(vm);

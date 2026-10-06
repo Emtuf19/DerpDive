@@ -1,5 +1,6 @@
 ﻿using DeepDive.Data;
 using DeepDive.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Persistance
 {
@@ -11,13 +12,13 @@ namespace DeepDive.Persistance
             _context = context;
         }
 
-        public void Add(RegulatorSet regulatorSet)
+        public async Task Add(RegulatorSet regulatorSet)
         {
             _context.RegulatorSets.Add(regulatorSet);
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             var regulatorSet = _context.RegulatorSets.Find(id);
             if (regulatorSet != null)
@@ -27,17 +28,17 @@ namespace DeepDive.Persistance
             }
         }
 
-        public List<RegulatorSet> GetAll()
+        public async Task<List<RegulatorSet>> GetAll()
         {
-            return _context.RegulatorSets.ToList();
+            return await _context.RegulatorSets.ToListAsync();
         }
 
-        public RegulatorSet? GetById(int id)
+        public async Task<RegulatorSet?> GetById(int id)
         {
-            return _context.RegulatorSets.FirstOrDefault(r => r.RegulatorSetId == id);
+            return await _context.RegulatorSets.FirstOrDefaultAsync(r => r.RegulatorSetId == id);
         }
 
-        public void Update(RegulatorSet regulatorSet)
+        public async Task Update(RegulatorSet regulatorSet)
         {
             _context.RegulatorSets.Update(regulatorSet);
             _context.SaveChanges();

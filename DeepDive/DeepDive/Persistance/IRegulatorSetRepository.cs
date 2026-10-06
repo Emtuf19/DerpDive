@@ -4,10 +4,10 @@ namespace DeepDive.Persistance
 {
     public interface IRegulatorSetRepository
     {
-        void Add(RegulatorSet regulatorSet);
-        void Delete(int id);
-        List<RegulatorSet> GetAll();
-        RegulatorSet? GetById(int id);
-        void Update(RegulatorSet regulatorSet);
+        Task Add(RegulatorSet regulatorSet);
+        Task Delete(int id);
+        Task<List<RegulatorSet>> GetAll();
+        Task<RegulatorSet?> GetById(int id);
+        Task Update(RegulatorSet regulatorSet);
     }
 }
