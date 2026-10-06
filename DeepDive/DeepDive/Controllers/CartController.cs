@@ -38,7 +38,7 @@ namespace DeepDive.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var cart = HttpContext.Session.GetObject<Cart>("Cart");
 
@@ -53,7 +53,7 @@ namespace DeepDive.Controllers
             {
                 if (item.EquipmentType == EquipmentType.DivingSuits)
                 {
-                    var divingSuit = _divingSuitsRepository.GetById(item.EquipmentId);
+                    var divingSuit = await _divingSuitsRepository.GetById(item.EquipmentId);
 
                     if (divingSuit != null)
                     {
@@ -76,7 +76,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.BCD)
                 {
-                    var bcd = _bcdRepository.GetById(item.EquipmentId);
+                    var bcd = await _bcdRepository.GetById(item.EquipmentId);
 
                     if (bcd != null)
                     {
@@ -96,7 +96,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Finns)
                 {
-                    var finns = _finnsRepository.GetById(item.EquipmentId);
+                    var finns = await _finnsRepository.GetById(item.EquipmentId);
 
                     if (finns != null)
                     {
@@ -116,7 +116,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
                 {
-                    var maskSnorkel = _maskSnorkelRepository.GetById(item.EquipmentId);
+                    var maskSnorkel = await _maskSnorkelRepository.GetById(item.EquipmentId);
 
                     if (maskSnorkel != null)
                     {
@@ -135,7 +135,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.RegulatorSet)
                 {
-                    var regulatorSet = _regulatorSetRepository.GetById(item.EquipmentId);
+                    var regulatorSet = await _regulatorSetRepository.GetById(item.EquipmentId);
 
                     if (regulatorSet != null)
                     {
@@ -156,7 +156,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Tank)
                 {
-                    var tank = _tankRepository.GetById(item.EquipmentId);
+                    var tank = await _tankRepository.GetById(item.EquipmentId);
 
                     if (tank != null)
                     {
@@ -175,7 +175,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Package)
                 {
-                    var package = _packageRepository.GetById(item.EquipmentId);
+                    var package = await _packageRepository.GetById(item.EquipmentId);
 
                     if (package != null)
                     {
@@ -199,7 +199,7 @@ namespace DeepDive.Controllers
 
         //Virker ikke rigtigt. Fjerner første i listen!
         [HttpPost]
-        public IActionResult Remove(int cartItemId)
+        public async Task<IActionResult> Remove(int cartItemId)
         {
             var cart = HttpContext.Session.GetObject<Cart>("Cart");
 
@@ -218,7 +218,7 @@ namespace DeepDive.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout()
         {
             var cart = HttpContext.Session.GetObject<Cart>("Cart");
 
@@ -233,7 +233,7 @@ namespace DeepDive.Controllers
             {
                 if (item.EquipmentType == EquipmentType.DivingSuits)
                 {
-                    var divingSuit = _divingSuitsRepository.GetById(item.EquipmentId);
+                    var divingSuit = await _divingSuitsRepository.GetById(item.EquipmentId);
 
                     if (divingSuit != null)
                     {
@@ -256,7 +256,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.BCD)
                 {
-                    var bcd = _bcdRepository.GetById(item.EquipmentId);
+                    var bcd = await _bcdRepository.GetById(item.EquipmentId);
 
                     if (bcd != null)
                     {
@@ -276,7 +276,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Finns)
                 {
-                    var finns = _finnsRepository.GetById(item.EquipmentId);
+                    var finns = await _finnsRepository.GetById(item.EquipmentId);
 
                     if (finns != null)
                     {
@@ -296,7 +296,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Mask_Snorkel)
                 {
-                    var maskSnorkel = _maskSnorkelRepository.GetById(item.EquipmentId);
+                    var maskSnorkel = await _maskSnorkelRepository.GetById(item.EquipmentId);
 
                     if (maskSnorkel != null)
                     {
@@ -315,7 +315,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.RegulatorSet)
                 {
-                    var regulatorSet = _regulatorSetRepository.GetById(item.EquipmentId);
+                    var regulatorSet = await _regulatorSetRepository.GetById(item.EquipmentId);
 
                     if (regulatorSet != null)
                     {
@@ -336,7 +336,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Tank)
                 {
-                    var tank = _tankRepository.GetById(item.EquipmentId);
+                    var tank = await _tankRepository.GetById(item.EquipmentId);
 
                     if (tank != null)
                     {
@@ -355,7 +355,7 @@ namespace DeepDive.Controllers
                 }
                 else if (item.EquipmentType == EquipmentType.Package)
                 {
-                    var package = _packageRepository.GetById(item.EquipmentId);
+                    var package = await _packageRepository.GetById(item.EquipmentId);
 
                     if (package != null)
                     {

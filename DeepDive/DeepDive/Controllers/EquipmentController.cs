@@ -29,11 +29,11 @@ namespace DeepDive.Controllers
             return View();
         }
 
-        public IActionResult Mask_Snorkel()
+        public async Task<IActionResult> Mask_Snorkel()
         {
             ViewBag.Action = "Mask_Snorkel";
 
-            var mask_snorkels = _mask_SnorkelRepository.GetAll();
+            var mask_snorkels = await _mask_SnorkelRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -43,11 +43,11 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
-        public IActionResult Tank()
+        public async Task<IActionResult> Tank()
         {
             ViewBag.Action = "Tank";
 
-            var tanks = _tankRepository.GetAll();
+            var tanks = await _tankRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -57,11 +57,11 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
-        public IActionResult DivingSuits( int? thickness)
+        public async Task<IActionResult> DivingSuits( int? thickness)
         {
             ViewBag.Action = "DivingSuits";
 
-            var divingSuits = _divingSuitsRepository.GetAll();
+            var divingSuits = await _divingSuitsRepository.GetAll();
 
             if (thickness != null)
             {
@@ -79,11 +79,11 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
-        public IActionResult RegulatorSet()
+        public async Task<IActionResult> RegulatorSet()
         {
             ViewBag.Action = "RegulatorSet";
 
-            var regulatorSets = _regulatorSetRepository.GetAll();
+            var regulatorSets = await _regulatorSetRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -93,11 +93,11 @@ namespace DeepDive.Controllers
             return View(vm);
         }
         
-        public IActionResult BCD()
+        public async Task<IActionResult> BCD()
         {
             ViewBag.Action = "BCD";
 
-            var BCDs = _bcdRepository.GetAll();
+            var BCDs = await _bcdRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {
@@ -107,11 +107,11 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
-        public IActionResult Finns()
+        public async Task<IActionResult> Finns()
         {
             ViewBag.Action = "Finns";
 
-            var finns = _finnsRepository.GetAll();
+            var finns = await _finnsRepository.GetAll();
 
             var vm = new AllEquipmentViewData
             {

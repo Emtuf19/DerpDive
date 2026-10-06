@@ -5,12 +5,12 @@ namespace DeepDive.Persistance
 {
     public interface IPackageRepository
     {
-        void Add(Package package);
-        void Delete(int id);
-        List<Package> GetAll();
-        Package? GetById(int id);
-        void Update(Package package);
-        void AddItem(int packageId, EquipmentType equipmentType, int equipmentId);
-        void RemoveItem(int packageItemId);
+        Task Add(Package package);
+        Task Delete(int id);
+        Task<List<Package>> GetAll();
+        Task<Package?> GetById(int id);
+        Task Update(Package package);
+        Task AddItem(int packageId, EquipmentType equipmentType, int equipmentId);
+        Task RemoveItem(int packageItemId);
     }
 }

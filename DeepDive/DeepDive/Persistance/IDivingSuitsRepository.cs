@@ -4,10 +4,10 @@ namespace DeepDive.Persistance
 {
     public interface IDivingSuitsRepository
     {
-        void Add(DivingSuits divingSuit);
-        void Delete(int id);
-        List<DivingSuits> GetAll();
-        DivingSuits? GetById(int id);
-        void Update(DivingSuits divingSuit);
+        Task Add(DivingSuits divingSuit);
+        Task Delete(int id);
+        Task<List<DivingSuits>> GetAll();
+        Task<DivingSuits?> GetById(int id);
+        Task Update(DivingSuits divingSuit);
     }
 }

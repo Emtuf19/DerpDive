@@ -15,13 +15,13 @@ namespace DeepDive.Persistance
         }
 
 
-        public void Add(Package package)
+        public async Task Add(Package package)
         {
             _context.Packages.Add(package);
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             var package = _context.Packages.Find(id);
             if (package != null)
@@ -31,23 +31,23 @@ namespace DeepDive.Persistance
             }
         }
 
-        public List<Package> GetAll()
+        public async Task<List<Package>> GetAll()
         {
-            return _context.Packages.Include(p => p.PackageItems).ToList();
+            return await _context.Packages.Include(p => p.PackageItems).ToListAsync();
         }
 
-        public Package? GetById(int id)
+        public async Task<Package?> GetById(int id)
         {
-            return _context.Packages.Include(p => p.PackageItems).FirstOrDefault(p => p.PackageId == id);
+            return await _context.Packages.Include(p => p.PackageItems).FirstOrDefaultAsync(p => p.PackageId == id);
         }
 
-        public void Update(Package package)
+        public async Task Update(Package package)
         {
             _context.Packages.Update(package);
             _context.SaveChanges();
         }
 
-        public void AddItem(int packageId, EquipmentType equipmentType, int equipmentId)
+        public async Task AddItem(int packageId, EquipmentType equipmentType, int equipmentId)
         {
             var item = new PackageItem
             {
@@ -60,7 +60,7 @@ namespace DeepDive.Persistance
             _context.SaveChanges();
         }
 
-        public void RemoveItem(int packageItemId)
+        public async Task RemoveItem(int packageItemId)
         {
             var item = _context.PackageItems.Find(packageItemId);
             if (item != null)
