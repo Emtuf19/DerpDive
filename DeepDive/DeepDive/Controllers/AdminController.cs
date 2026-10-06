@@ -59,14 +59,15 @@ namespace DeepDive.Controllers
             return View(vm);
         }
 
-        public IActionResult EditBookingItem(int id)
+        public async Task<IActionResult> EditBookingItem(int id)
         {
-            var item = _bookingRepository.GetItemById(id);
+            var item = await _bookingRepository.GetItemById(id);
             if (item == null) return NotFound();
             return View(item);
         }
+
         [HttpPost]
-        public IActionResult EditBookingItem(BookingItem item)
+        public async Task<IActionResult> EditBookingItem(BookingItem item)
         {
             ModelState.Remove("Booking");
 
@@ -77,7 +78,7 @@ namespace DeepDive.Controllers
 
             try
             {
-                _bookingRepository.UpdateItem(item);
+                await _bookingRepository.UpdateItem(item);
                 return RedirectToAction("Index");
             }
             catch (DbUpdateConcurrencyException ex)
@@ -103,32 +104,36 @@ namespace DeepDive.Controllers
                 return View(item);
             }
         }
+
         [HttpPost]
-        public IActionResult DeleteBookingItem(int id)
+        public async Task<IActionResult> DeleteBookingItem(int id)
         {
-            _bookingRepository.DeleteItem(id);
+            await _bookingRepository.DeleteItem(id);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult DeleteBooking(int id)
+        public async Task<IActionResult> DeleteBooking(int id)
         {
-            _bookingRepository.Delete(id);
+            await _bookingRepository.Delete(id);
             return RedirectToAction("Index");
         }
-        public IActionResult EditTank(int id)
+        public async Task<IActionResult> EditTank(int id)
         {
-          
-            var tank = _tankRepository.GetById(id);
-            if (tank == null) return NotFound();
+            var tank = await _tankRepository.GetById(id);
+
+            if (tank == null) 
+                return NotFound();
+
             return View(tank);
         }
 
         [HttpPost]
-        public IActionResult EditTank(Tank tank)
+        public async Task<IActionResult> EditTank(Tank tank)
         {
             RemoveDateErrors();
-            if (!ModelState.IsValid) return View(tank);
+            if (!ModelState.IsValid) 
+                return View(tank);
 
             if (Request.Form.Files.Count > 0)
             {
@@ -144,11 +149,11 @@ namespace DeepDive.Controllers
 
             if (tank.TankId == 0)
             {
-                _tankRepository.Add(tank);      
+                await _tankRepository.Add(tank);      
             }
             else
             {
-                _tankRepository.Update(tank);   
+                await _tankRepository.Update(tank);   
             }
 
             return RedirectToAction("Index");
@@ -162,15 +167,15 @@ namespace DeepDive.Controllers
         }
 
         // ---------- BCD ----------
-        public IActionResult EditBCD(int id)
+        public async Task<IActionResult> EditBCD(int id)
         {
-            var bcd = _bcdRepository.GetById(id);
+            var bcd = await _bcdRepository.GetById(id);
             if (bcd == null) return NotFound();
             return View(bcd);
         }
 
         [HttpPost]
-        public IActionResult EditBCD(BCD bcd, IFormFile? upload)
+        public async Task<IActionResult> EditBCD(BCD bcd, IFormFile? upload)
         {
             RemoveDateErrors();
 
@@ -198,14 +203,14 @@ namespace DeepDive.Controllers
         }
 
         // ---------- Finns ----------
-        public IActionResult EditFinns(int id)
+        public async Task<IActionResult> EditFinns(int id)
         {
-            var finn = _finnsRepository.GetById(id);
+            var finn = await _finnsRepository.GetById(id);
             if (finn == null) return NotFound();
             return View(finn);
         }
         [HttpPost]
-        public IActionResult EditFinns(Finns finn, IFormFile? upload)
+        public async Task<IActionResult> EditFinns(Finns finn, IFormFile? upload)
         {
             RemoveDateErrors();
 
@@ -219,9 +224,9 @@ namespace DeepDive.Controllers
 
             if (!ModelState.IsValid) return View(finn);
             if (finn.FinnsId == 0)
-                _finnsRepository.Add(finn);
+                await _finnsRepository.Add(finn);
             else
-                _finnsRepository.Update(finn);
+                await _finnsRepository.Update(finn);
             return RedirectToAction("Index");
         }
 
@@ -232,15 +237,15 @@ namespace DeepDive.Controllers
             return RedirectToAction("Index");
         }
         // ---------- DivingSuits ----------
-        public IActionResult EditDivingSuits(int id)
+        public async Task<IActionResult> EditDivingSuits(int id)
         {
-            var ds = _divingSuitsRepository.GetById(id);
+            var ds = await _divingSuitsRepository.GetById(id);
             if (ds == null) return NotFound();
             return View(ds);
         }
 
         [HttpPost]
-        public IActionResult EditDivingSuits(DivingSuits ds, IFormFile? upload)
+        public async Task<IActionResult> EditDivingSuits(DivingSuits ds, IFormFile? upload)
         {
             RemoveDateErrors();
 
@@ -254,9 +259,9 @@ namespace DeepDive.Controllers
 
             if (!ModelState.IsValid) return View(ds);
             if (ds.DivingSuitsId == 0)
-                _divingSuitsRepository.Add(ds);
+                await _divingSuitsRepository.Add(ds);
             else
-                _divingSuitsRepository.Update(ds);
+                await _divingSuitsRepository.Update(ds);
             return RedirectToAction("Index");
         }
 
@@ -267,15 +272,15 @@ namespace DeepDive.Controllers
             return RedirectToAction("Index");
         }
         // ---------- Mask/snorkel ----------
-        public IActionResult EditMask_Snorkel(int id)
+        public async Task<IActionResult> EditMask_Snorkel(int id)
         {
-            var ms = _maskSnorkelRepository.GetById(id);
+            var ms = await _maskSnorkelRepository.GetById(id);
             if (ms == null) return NotFound();
             return View(ms);
         }
 
         [HttpPost]
-        public IActionResult EditMask_Snorkel(Mask_Snorkel ms, IFormFile? upload)
+        public async Task<IActionResult> EditMask_Snorkel(Mask_Snorkel ms, IFormFile? upload)
         {
             RemoveDateErrors();
 
@@ -289,9 +294,9 @@ namespace DeepDive.Controllers
 
             if (!ModelState.IsValid) return View(ms);
             if (ms.Mask_SnorkelId == 0)
-                _maskSnorkelRepository.Add(ms);
+                await _maskSnorkelRepository.Add(ms);
             else
-                _maskSnorkelRepository.Update(ms);
+                await _maskSnorkelRepository.Update(ms);
             return RedirectToAction("Index");
         }
 
@@ -302,15 +307,15 @@ namespace DeepDive.Controllers
             return RedirectToAction("Index");
         }
         // ---------- RegulatorSet----------
-        public IActionResult EditRegulatorSet(int id)
+        public async Task<IActionResult> EditRegulatorSet(int id)
         {
-            var rs = _regulatorSetRepository.GetById(id);
+            var rs = await _regulatorSetRepository.GetById(id);
             if (rs == null) return NotFound();
             return View(rs);
         }
 
         [HttpPost]
-        public IActionResult EditRegulatorSet(RegulatorSet rs, IFormFile? upload)
+        public async Task<IActionResult> EditRegulatorSet(RegulatorSet rs, IFormFile? upload)
         {
             RemoveDateErrors();
 
@@ -324,9 +329,9 @@ namespace DeepDive.Controllers
 
             if (!ModelState.IsValid) return View(rs);
             if (rs.RegulatorSetId == 0)
-                _regulatorSetRepository.Add(rs);
+                await _regulatorSetRepository.Add(rs);
             else
-                _regulatorSetRepository.Update(rs);
+                await _regulatorSetRepository.Update(rs);
             return RedirectToAction("Index");
         }
 
@@ -380,22 +385,22 @@ namespace DeepDive.Controllers
             return View("EditPackage", new Package());
         }
 
-        public IActionResult EditPackage(int id)
+        public async Task<IActionResult> EditPackage(int id)
         {
-            var package = _packageRepository.GetById(id);
+            var package = await _packageRepository.GetById(id);
             if (package == null) return NotFound();
             return View(package);
         }
 
         [HttpPost]
-        public IActionResult EditPackage(Package package)
+        public async Task<IActionResult> EditPackage(Package package)
         {
             if (!ModelState.IsValid) return View(package);
 
             if (package.PackageId == 0)
-                _packageRepository.Add(package);
+                await _packageRepository.Add(package);
             else
-                _packageRepository.Update(package);
+                await _packageRepository.Update(package);
 
             return RedirectToAction("EditPackage", new { id = package.PackageId });
         }
