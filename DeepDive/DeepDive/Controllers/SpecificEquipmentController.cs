@@ -158,6 +158,8 @@ namespace DeepDive.Controllers
                 Model = sDivingSuit.Model,
                 Type = sDivingSuit.Type,
                 Thickness = sDivingSuit.Thickness,
+                ImageData = sDivingSuit.ImageData,
+                ImageMimeType = sDivingSuit.ImageMimeType,
                 Price = sDivingSuit.Price,
                 DateFrom = sDivingSuit.DateFrom,
                 DateTo = sDivingSuit.DateTo,
@@ -266,6 +268,8 @@ namespace DeepDive.Controllers
                 Brand = sFinns.Brand,
                 Model = sFinns.Model,
                 AvailableSizes = sFinns.Size,
+                ImageData = sFinns.ImageData,
+                ImageMimeType = sFinns.ImageMimeType,
                 DateFrom = sFinns.DateFrom,
                 DateTo = sFinns.DateTo,
                 Price = sFinns.Price
@@ -365,6 +369,8 @@ namespace DeepDive.Controllers
                 Model = sMask_Snorkel.Model,
                 DateFrom = sMask_Snorkel.DateFrom,
                 DateTo = sMask_Snorkel.DateTo,
+                ImageData = sMask_Snorkel.ImageData,
+                ImageMimeType = sMask_Snorkel.ImageMimeType,
                 Price = sMask_Snorkel.Price
             };
             return View(vm);
@@ -454,7 +460,9 @@ namespace DeepDive.Controllers
                 Octopus = sRegulatorSet.Octopus,
                 DateFrom = sRegulatorSet.DateFrom,
                 DateTo = sRegulatorSet.DateTo,
-                Price = sRegulatorSet.Price
+                Price = sRegulatorSet.Price,
+                ImageData = sRegulatorSet.ImageData,
+                ImageMimeType = sRegulatorSet.ImageMimeType
             };
             return View(vm);
         }
@@ -541,6 +549,8 @@ namespace DeepDive.Controllers
                 Volumen = sTank.Volumen,
                 DateFrom = sTank.DateFrom,
                 DateTo = sTank.DateTo,
+                ImageData = sTank.ImageData,
+                ImageMimeType = sTank.ImageMimeType,
                 Price = sTank.Price
             };
             return View(vm);
