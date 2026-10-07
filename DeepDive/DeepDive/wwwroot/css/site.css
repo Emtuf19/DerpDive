@@ -642,3 +642,17 @@ dialog {
 .search-form .form-control {
     border: 1px solid #1b6ec2;
 }
+
+#BackgroundIMG_Text {
+    color: white;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 600;
+    line-height: 1.5;
+    font-style: normal;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
