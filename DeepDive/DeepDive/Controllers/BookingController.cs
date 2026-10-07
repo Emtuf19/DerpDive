@@ -17,7 +17,7 @@ namespace DeepDive.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
         public async Task<IActionResult> Index()
         {
             return View(await _bookingRepository.GetAll());
@@ -30,7 +30,7 @@ namespace DeepDive.Controllers
             return View(bookings);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
         [HttpPost]
         public async Task<IActionResult> Edit(Booking booking)
         {
@@ -38,7 +38,7 @@ namespace DeepDive.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {

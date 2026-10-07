@@ -375,7 +375,7 @@ namespace DeepDive.Controllers
             }
             return View(vm);
         }
-        [Authorize]
+        [Authorize(AuthenticationSchemes = "Identity.Application")]
         [HttpPost]
         [ActionName("Checkout")]
         public IActionResult ConfirmCheckout()

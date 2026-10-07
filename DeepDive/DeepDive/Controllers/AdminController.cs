@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
     public class AdminController : Controller
     {
         private readonly IBookingRepository _bookingRepository;
