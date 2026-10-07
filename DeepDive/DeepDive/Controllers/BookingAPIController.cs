@@ -28,7 +28,7 @@ namespace DeepDive.Controllers
             var bookings = await _bookingRepository.GetAll();
             return Ok(bookings);
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> BookingByUser()
         {

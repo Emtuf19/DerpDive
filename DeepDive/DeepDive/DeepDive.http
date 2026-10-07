@@ -1,0 +1,27 @@
+@host = https://localhost:7240
+@token = CfDJ8A1QDlKCe41KvaFF446d8wfH_XejKMQ8qZoecXtAh4edq84R4dG5I0jv4MU_IanYm2eMG62295hCt2dBdmDAk3P1wTELCaDfs5-nRoXOcIaxsOlcciy9fi2fUIWadVTYrGS53oOvT-UeTLA4h4BXAJRX7Tr17f6Iv4a3TZm1_h28rB1Ak20FgehiCKFxjpiXzEaHs9wL1U_SFcal2RuLk94U5uFAE-ot7e7Yzzmz1rjcH1y_mftLSn_YujI-aCUIY1r-yIbtkreff9bQL-zo_urTE18xTqyt9SRvWjwfL28I6kko7tLVXgUM7POaSZJVtLnjwYAW3aybEaMMLKuBjfcY1OX_wUx-rH4VGZYOMoRPvu4sk22WCMjb_Wm1p7WJcD5GsGIBkpj3lD7a4JRKCvKMKLVJ5euxB1sP-B4qA_OvnOb_r_jbA6z_HT8KrZadIYLMyz2fRrav7pVvlTAF_9X2KbbDIJlVYUy-q4U-ebOJb8ZP6X7HHFN3jN_1mU2-J_fSh6A_S7I_Mnb8-xyjkX4A_s7ocvlOvi17qbCxEDBB4VrRCCawgMczM73DoWp3n2nkGS0Uu_O4QTFlHuXCerTbCXgG0tp4EKl8QmsZTWSrrdp7wNetyihH8oFvJdNHIx1iqtIXyUD56cOAfR7udmryG85jzmWZxT3Oe5jccnQnjSTX6z_b_hNuvDwcyqSVXA
+
+### 1. Register
+POST {{host}}/api/account/register
+Content-Type: application/json
+
+{
+  "email": "test@test.dk",
+  "password": "Test123!"
+}
+### 2. Login (mobile - returns token)
+POST {{host}}/api/account/login
+Content-Type: application/json
+
+{
+  "email": "test@test.dk",
+  "password": "Test123!"
+}
+### 3. Who am I - without token (expect 401)
+GET {{host}}/claims
+### 4. Who am I - with token (expect 200)
+GET {{host}}/claims
+Authorization: Bearer {{token}}
+### My bookings with token (expect 200)
+GET {{host}}/api/BookingAPI
+Authorization: Bearer {{token}}
