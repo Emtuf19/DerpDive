@@ -39,7 +39,7 @@ namespace DeepDive.Controllers
             {
                 bookings = bookings
                     .Where(b => b.ApplicationUser != null &&
-                                b.ApplicationUser.Email.Contains(search))
+                                b.ApplicationUser.Email.Contains(search, StringComparison.OrdinalIgnoreCase))
             .ToList();
             }
             var vm = new AdminVM

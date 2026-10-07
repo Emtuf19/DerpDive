@@ -78,7 +78,6 @@ namespace DeepDive.Controllers
 
             var dto = new
             {
-                ds.DivingSuitsId,
                 ds.Brand,
                 ds.Model,
                 ds.Price,
@@ -111,7 +110,6 @@ namespace DeepDive.Controllers
 
             var dto = new
             {
-                finns.FinnsId,
                 finns.Brand,
                 finns.Model,
                 finns.Price,
@@ -142,7 +140,6 @@ namespace DeepDive.Controllers
 
             var dto = new
             {
-                ms.Mask_SnorkelId,
                 ms.Brand,
                 ms.Model,
                 ms.Price,
@@ -173,7 +170,6 @@ namespace DeepDive.Controllers
 
             var dto = new
             {
-                rs.RegulatorSetId,
                 rs.Brand,
                 rs.FirstStep,
                 rs.SecondStep,
@@ -206,7 +202,6 @@ namespace DeepDive.Controllers
 
             var dto = new
             {
-                tank.TankId,
                 tank.Brand,
                 tank.Volumen,
                 tank.Price,
