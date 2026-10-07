@@ -37,18 +37,20 @@ namespace DeepDive.Controllers
             var bookings = await _bookingRepository.GetAll();
             if (!string.IsNullOrWhiteSpace(search))
             {
-                if (!showPast)
-                {
-                    bookings = bookings
-                    .Where(b => b.BookingItems.Any(i => i.DateTo >= DateTime.Today))
-                           .ToList();
-                }
-                ViewBag.ShowPast = showPast;
+             
                 bookings = bookings
                     .Where(b => b.ApplicationUser != null &&
                                 b.ApplicationUser.Email.Contains(search, StringComparison.OrdinalIgnoreCase))
             .ToList();
             }
+            if (!showPast)
+            {
+                bookings = bookings
+                .Where(b => b.BookingItems.Any(i => i.DateTo >= DateTime.Today))
+                       .ToList();
+            }
+            ViewBag.ShowPast = showPast;
+            ViewBag.Search = search;
             var vm = new AdminVM
             {
                 Bookings = bookings,
