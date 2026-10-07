@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="DeepDive/DeepDive.csproj" />
-  <Project Path="DeepDiveTest/DeepDiveTest.csproj" Id="b578eff0-f39e-4984-8229-5b25b34c97ca" />
+  <Project Path="DeepDiveTest/DeepDiveTest.csproj" Id="b578eff0-f39e-4984-8229-5b25b34c97ca">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
 </Solution>
