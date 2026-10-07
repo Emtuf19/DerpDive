@@ -14,9 +14,9 @@ namespace DeepDive.Controllers
             _packageRepository = packageRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var packages = _packageRepository.GetAll();
+            var packages = await _packageRepository.GetAll();
             return View(packages);
             
         }

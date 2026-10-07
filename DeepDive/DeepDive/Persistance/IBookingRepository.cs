@@ -4,14 +4,14 @@ namespace DeepDive.Persistance
 {
     public interface IBookingRepository
     {
-        List<Booking> GetAll();
-        List<Booking> GetByUser(string userId);
-        Booking? GetById(int id);
-        void Update(Booking booking);
-        void Delete(int id);
-        BookingItem? GetItemById(int id);
-        void UpdateItem(BookingItem item);
-        void DeleteItem(int id);
+        Task<List<Booking>> GetAll();
+        Task<List<Booking>> GetByUser(string userId);
+        Task<Booking?> GetById(int id);
+        Task Update(Booking booking);
+        Task Delete(int id);
+        Task<BookingItem?> GetItemById(int id);
+        Task UpdateItem(BookingItem item);
+        Task DeleteItem(int id);
 
 
     }

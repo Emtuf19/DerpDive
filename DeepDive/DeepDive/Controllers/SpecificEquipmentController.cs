@@ -38,9 +38,9 @@ namespace DeepDive.Controllers
             return View();
         }
 
-        public IActionResult SpecificBCD(int id)
+        public async Task<IActionResult> SpecificBCD(int id)
         {
-            var bcd = _bcdRepository.GetById(id);
+            var bcd = await _bcdRepository.GetById(id);
 
             if (bcd == null)
             {
@@ -64,11 +64,11 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificBCD(SpecificBCD vm)
+        public async Task<IActionResult> SpecificBCD(SpecificBCD vm)
         {
             if (!ModelState.IsValid)
             {
-                var bcd = _bcdRepository.GetById(vm.BCDId);
+                var bcd = await _bcdRepository.GetById(vm.BCDId);
 
                 if (bcd != null)
                 {
@@ -116,7 +116,7 @@ namespace DeepDive.Controllers
                     $"{overlappingDates}\n" +
                     $"Vælg venligst en anden periode.");
 
-                var bcd = _bcdRepository.GetById(vm.BCDId);
+                var bcd = await _bcdRepository.GetById(vm.BCDId);
                 if (bcd != null)
                     vm.AvailableSizes = bcd.Size;
 
@@ -143,9 +143,9 @@ namespace DeepDive.Controllers
             return RedirectToAction("SpecificBCD", new { id = vm.BCDId });
         }
 
-        public IActionResult SpecificDivingSuits(int id)
+        public async Task<IActionResult> SpecificDivingSuits(int id)
         {
-            var sDivingSuit = _divingSuitsRepository.GetById(id);
+            var sDivingSuit = await _divingSuitsRepository.GetById(id);
             if (sDivingSuit == null)
             {
                 return NotFound();
@@ -168,11 +168,11 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificDivingSuits(SpecificDivingSuitVM vm)
+        public async Task<IActionResult> SpecificDivingSuits(SpecificDivingSuitVM vm)
         {
             if (!ModelState.IsValid)
             {
-                var ds = _divingSuitsRepository.GetById(vm.DivingSuitsId);
+                var ds = await _divingSuitsRepository.GetById(vm.DivingSuitsId);
 
                 if (ds != null)
                 {
@@ -222,7 +222,7 @@ namespace DeepDive.Controllers
                     $"{overlappingDates}\n" +
                     $"Vælg venligst en anden periode.");
 
-                var ds = _divingSuitsRepository.GetById(vm.DivingSuitsId);
+                var ds = await _divingSuitsRepository.GetById(vm.DivingSuitsId);
                 if (ds != null)
                 {
                     vm.AvailableSizes = ds.Size;
@@ -252,9 +252,9 @@ namespace DeepDive.Controllers
 
         }
 
-        public IActionResult SpecificFinns(int id)
+        public async Task<IActionResult> SpecificFinns(int id)
         {
-            var sFinns = _finnsRepository.GetById(id);
+            var sFinns = await _finnsRepository.GetById(id);
             if (sFinns == null)
             {
                 return NotFound();
@@ -274,11 +274,11 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificFinns(SpecificFinns vm)
+        public async Task<IActionResult> SpecificFinns(SpecificFinns vm)
         {
             if (!ModelState.IsValid)
             {
-                var finns = _finnsRepository.GetById(vm.FinnsId);
+                var finns = await _finnsRepository.GetById(vm.FinnsId);
 
                 if (finns != null)
                 {
@@ -325,7 +325,7 @@ namespace DeepDive.Controllers
                     $"{overlappingDates}\n" +
                     $"Vælg venligst en anden periode.");
 
-                var finns = _finnsRepository.GetById(vm.FinnsId);
+                var finns = await _finnsRepository.GetById(vm.FinnsId);
                 if (finns != null)
                     vm.AvailableSizes = finns.Size;
 
@@ -350,9 +350,9 @@ namespace DeepDive.Controllers
             return RedirectToAction("SpecificFinns", new { id = vm.FinnsId });
         }
 
-        public IActionResult SpecificMask_Snorkel(int id)
+        public async Task<IActionResult> SpecificMask_Snorkel(int id)
         {
-            var sMask_Snorkel = _mask_SnorkelRepository.GetById(id);
+            var sMask_Snorkel = await _mask_SnorkelRepository.GetById(id);
             if (sMask_Snorkel == null)
             {
                 return NotFound();
@@ -371,11 +371,11 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificMask_Snorkel(SpecificMask_Snorkel vm)
+        public async Task<IActionResult> SpecificMask_Snorkel(SpecificMask_Snorkel vm)
         {
             if (!ModelState.IsValid)
             {
-                var mask_snorkel = _mask_SnorkelRepository.GetById(vm.Mask_SnorkelId);
+                var mask_snorkel = await _mask_SnorkelRepository.GetById(vm.Mask_SnorkelId);
                 if (mask_snorkel != null)
                 {
                     vm.ImageData = mask_snorkel.ImageData;
@@ -437,9 +437,9 @@ namespace DeepDive.Controllers
             return RedirectToAction("SpecificMask_Snorkel", new { id = vm.Mask_SnorkelId });
         }
 
-        public IActionResult SpecificRegulatorSet(int id)
+        public async Task<IActionResult> SpecificRegulatorSet(int id)
         {
-            var sRegulatorSet = _regulatorSetRepository.GetById(id);
+            var sRegulatorSet = await _regulatorSetRepository.GetById(id);
             if (sRegulatorSet == null)
             {
                 return NotFound();
@@ -460,11 +460,11 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificRegulatorSet(SpecificRegulatorSet vm)
+        public async Task<IActionResult> SpecificRegulatorSet(SpecificRegulatorSet vm)
         {
             if (!ModelState.IsValid)
             {
-                var rs = _regulatorSetRepository.GetById(vm.RegulatorSetId);
+                var rs = await _regulatorSetRepository.GetById(vm.RegulatorSetId);
                 if (rs != null)
                 {
                     vm.ImageData = rs.ImageData;
@@ -526,9 +526,9 @@ namespace DeepDive.Controllers
             return RedirectToAction("SpecificRegulatorSet", new { id = vm.RegulatorSetId });
         }
 
-        public IActionResult SpecificTank(int id)
+        public async Task<IActionResult> SpecificTank(int id)
         {
-            var sTank = _tankRepository.GetById(id);
+            var sTank = await _tankRepository.GetById(id);
             if (sTank == null)
             {
                 return NotFound();
@@ -547,11 +547,11 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificTank(SpecificTank vm)
+        public async Task<IActionResult> SpecificTank(SpecificTank vm)
         {
             if (!ModelState.IsValid)
             {
-                var tank = _tankRepository.GetById(vm.TankId);
+                var tank = await _tankRepository.GetById(vm.TankId);
                 if (tank != null)
                 {
                     vm.ImageData = tank.ImageData;
@@ -611,9 +611,9 @@ namespace DeepDive.Controllers
             TempData["ItemAdded"] = true;
             return RedirectToAction("SpecificTank", new { id = vm.TankId });
         }
-        public IActionResult SpecificPackage(int id)
+        public async Task<IActionResult> SpecificPackage(int id)
         {
-            var package = _packageRepository.GetById(id);
+            var package = await _packageRepository.GetById(id);
             if (package == null)
             {
                 return NotFound();
@@ -633,7 +633,7 @@ namespace DeepDive.Controllers
         }
 
         [HttpPost]
-        public IActionResult SpecificPackage(SpecificPackage vm)
+        public async Task<IActionResult> SpecificPackage(SpecificPackage vm)
         {
             if (!ModelState.IsValid)
             {

@@ -4,10 +4,10 @@ namespace DeepDive.Persistance
 {
     public interface IMask_SnorkelRepository
     {
-        void Add(Mask_Snorkel mask_Snorkel);
-        void Delete(int id);
-        List<Mask_Snorkel> GetAll();
-        Mask_Snorkel? GetById(int id);
-        void Update(Mask_Snorkel mask_Snorkel);
+        Task Add(Mask_Snorkel mask_Snorkel);
+        Task Delete(int id);
+        Task<List<Mask_Snorkel>> GetAll();
+        Task<Mask_Snorkel?> GetById(int id);
+        Task Update(Mask_Snorkel mask_Snorkel);
     }
 }

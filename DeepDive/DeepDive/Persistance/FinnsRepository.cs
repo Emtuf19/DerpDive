@@ -1,5 +1,6 @@
 ﻿using DeepDive.Data;
 using DeepDive.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Persistance
 {
@@ -11,13 +12,13 @@ namespace DeepDive.Persistance
             _context = context;
         }
 
-        public void Add(Finns finns)
+        public async Task Add(Finns finns)
         {
             _context.Finns.Add(finns);
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             var finns = _context.Finns.Find(id);
             if (finns != null)
@@ -27,17 +28,17 @@ namespace DeepDive.Persistance
             }
         }
 
-        public List<Finns> GetAll()
+        public async Task<List<Finns>> GetAll()
         {
-            return _context.Finns.ToList();
+            return await _context.Finns.ToListAsync();
         }
 
-        public Finns? GetById(int id)
+        public async Task<Finns?> GetById(int id)
         {
-            return _context.Finns.FirstOrDefault(f => f.FinnsId == id);
+            return await _context.Finns.FirstOrDefaultAsync(f => f.FinnsId == id);
         }
 
-        public void Update(Finns finns)
+        public async Task Update(Finns finns)
         {
             _context.Finns.Update(finns);
             _context.SaveChanges();
