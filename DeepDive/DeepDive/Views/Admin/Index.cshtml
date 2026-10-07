@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Admin";
+   
 }
 
 <h1>Admin</h1>
@@ -20,8 +21,27 @@
 </p>
 
 <!-- ===================== BOOKINGER ===================== -->
+@{
+    bool showPast = ViewBag.ShowPast ?? false;
+    string? search = ViewBag.Search;
+
+}
 <div class="admin-card">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
     <h2 id="bookinger">Bookinger (@Model.Bookings.Count stk.)</h2>
+
+        <form method="get" class="d-flex align-items-center gap-2 search-form">
+            <input type="text" name="search"value="@Context.Request.Query["search"]"placeholder="Søg kunde" class="form-control form-control-sm" style="width: 200px;" />
+            <input type="hidden" name="showPast" value="@showPast.ToString().ToLower()"/>
+            <button type="submit" class="btn btn-primary">Søg</button>
+        </form>
+       <a asp-action="Index"
+       asp-route-search="@search"
+       asp-route-showPast="@(!showPast)"
+       class="btn btn-outline-secondary">
+   @(showPast ? "Skjul tidligere" : "Vis tidligere")
+   </a>
+    </div>
 
     @foreach (var booking in Model.Bookings)
     {

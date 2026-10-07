@@ -4,10 +4,10 @@ namespace DeepDive.Persistance
 {
     public interface IBCDRepository
     {
-        void Add(BCD bcd);
-        void Delete(int id);
-        List<BCD> GetAll();
-        BCD? GetById(int id);
-        void Update(BCD bcd);
+        Task Add(BCD bcd);
+        Task Delete(int id);
+        Task<List<BCD>> GetAll();
+        Task<BCD?> GetById(int id);
+        Task Update(BCD bcd);
     }
 }

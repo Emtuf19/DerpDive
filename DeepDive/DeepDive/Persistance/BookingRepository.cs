@@ -11,63 +11,63 @@ namespace DeepDive.Persistance
         {
             _context = context;
         }
-        public List<Booking> GetAll()
+        public async Task<List<Booking>> GetAll()
         {
-            return _context.Bookings
+            return await _context.Bookings
                 .Include(b => b.BookingItems)
                 .Include(b => b.ApplicationUser)   // så admin kan se email
-                .ToList();
+                .ToListAsync();
         }
 
-        public List<Booking> GetByUser(string userId)
+        public async Task<List<Booking>> GetByUser(string userId)
         {
-            return _context.Bookings
+            return await _context.Bookings
                 .Include(b => b.BookingItems)
                 .Where(b => b.ApplicationUserId == userId)   // kun egne
-                .ToList();
+                .ToListAsync();
         }
 
-        public Booking? GetById(int id)
+        public async Task<Booking?> GetById(int id)
         {
-            return _context.Bookings
+            return await _context.Bookings
                .Include(b => b.BookingItems)
                .Include(b => b.ApplicationUser)
-               .FirstOrDefault(b => b.BookingId == id);
+               .FirstOrDefaultAsync(b => b.BookingId == id);
         }
 
-        public void Update(Booking booking)
+        public async Task Update(Booking booking)
         {
-            _context.Bookings.Add(booking);
-            _context.SaveChanges();
+            _context.Bookings.Update(booking);
+            await _context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            var booking = _context.Bookings.Find(id);
+            var booking = await _context.Bookings.FindAsync(id);
             if (booking != null)
             {
                 _context.Bookings.Remove(booking);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
-        public BookingItem? GetItemById(int id)
+        public async Task<BookingItem?> GetItemById(int id)
         {
-            return _context.BookingItems.Find(id);
+            return await _context.BookingItems.FindAsync(id);
         }
 
-        public void UpdateItem(BookingItem item)
+        public async Task UpdateItem(BookingItem item)
         {
             _context.BookingItems.Update(item);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            var item = _context.BookingItems.Find(id);
+            var item = await _context.BookingItems.FindAsync(id);
             if (item != null)
             {
                 _context.BookingItems.Remove(item);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 

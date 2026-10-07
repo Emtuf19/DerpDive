@@ -17,32 +17,40 @@ namespace DeepDive.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "Admin")]
-        public IActionResult Index()
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
+        public async Task<IActionResult> Index()
         {
-            return View(_bookingRepository.GetAll());
+            return View(await _bookingRepository.GetAll());
         }
 
-        public IActionResult BookingByUser()
+        public async Task<IActionResult> BookingByUser(bool showPast = false)
          {
             var userId = _userManager.GetUserId(User);
-            var bookings = _bookingRepository.GetByUser(userId);
+            var bookings = await _bookingRepository.GetByUser(userId);
+
+            if (!showPast)
+            {
+                bookings = bookings 
+                .Where(b => b.BookingItems.Any(i => i.DateTo >= DateTime.Today))
+                       .ToList();
+            }
+            ViewBag.ShowPast = showPast;
             return View(bookings);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
         [HttpPost]
-        public IActionResult Edit(Booking booking)
+        public async Task<IActionResult> Edit(Booking booking)
         {
-            _bookingRepository.Update(booking);
+            await _bookingRepository.Update(booking);
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Identity.Application")]
         [HttpPost]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _bookingRepository.Delete(id);
+            await _bookingRepository.Delete(id);
             return RedirectToAction("Index");
         }
 

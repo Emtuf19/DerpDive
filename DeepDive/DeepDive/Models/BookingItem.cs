@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using DeepDive.Enums;
+﻿using DeepDive.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace DeepDive.Models
 {
@@ -8,6 +9,7 @@ namespace DeepDive.Models
         public int BookingItemId { get; set; }
 
         public int BookingId { get; set; }
+        [JsonIgnore]
         public Booking Booking { get; set; }
 
         public EquipmentType EquipmentType { get; set; }

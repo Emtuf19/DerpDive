@@ -20,7 +20,10 @@ namespace DeepDive
             builder.Services.AddDbContext<EquipmentContext>(options => { options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); });
 
             //Login
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<EquipmentContext>();
+            builder.Services.AddIdentityApiEndpoints<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<EquipmentContext>()
+                .AddDefaultUI();
             
             //API
             builder.Services.AddHttpClient("GeocodingClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.api-ninjas.com/v1/geocoding");
@@ -70,6 +73,12 @@ namespace DeepDive
                 .WithStaticAssets();
 
             app.MapRazorPages();
+            app.MapGroup("api/account").MapIdentityApi<ApplicationUser>();
+            app.MapGet("/claims", (HttpContext context) =>
+            {
+                var claims = context.User.Claims.Select(c => new { c.Type, c.Value });
+                return Results.Ok(claims);
+            }).RequireAuthorization();
 
             app.Run();
         }

@@ -1,5 +1,6 @@
 ﻿using DeepDive.Data;
 using DeepDive.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeepDive.Persistance
 {
@@ -11,13 +12,13 @@ namespace DeepDive.Persistance
             _context = context;
         }
 
-        public void Add(DivingSuits divingSuit)
+        public async Task Add(DivingSuits divingSuit)
         {
             _context.DivingSuits.Add(divingSuit);
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             var divingSuit = _context.DivingSuits.Find(id);
             if (divingSuit != null)
@@ -27,17 +28,17 @@ namespace DeepDive.Persistance
             }
         }
 
-        public List<DivingSuits> GetAll()
+        public async Task<List<DivingSuits>> GetAll()
         {
-            return _context.DivingSuits.ToList();
+            return await _context.DivingSuits.ToListAsync();
         }
 
-        public DivingSuits? GetById(int id)
+        public async Task<DivingSuits?> GetById(int id)
         {
-            return _context.DivingSuits.FirstOrDefault(d => d.DivingSuitsId == id);
+            return await _context.DivingSuits.FirstOrDefaultAsync(d => d.DivingSuitsId == id);
         }
 
-        public void Update(DivingSuits divingSuit)
+        public async Task Update(DivingSuits divingSuit)
         {
             _context.DivingSuits.Update(divingSuit);
             _context.SaveChanges();
