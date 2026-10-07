@@ -23,10 +23,18 @@ namespace DeepDive.Controllers
             return View(await _bookingRepository.GetAll());
         }
 
-        public async Task<IActionResult> BookingByUser()
+        public async Task<IActionResult> BookingByUser(bool showPast = false)
          {
             var userId = _userManager.GetUserId(User);
             var bookings = await _bookingRepository.GetByUser(userId);
+
+            if (!showPast)
+            {
+                bookings = bookings 
+                .Where(b => b.BookingItems.Any(i => i.DateTo >= DateTime.Today))
+                       .ToList();
+            }
+            ViewBag.ShowPast = showPast;
             return View(bookings);
         }
 

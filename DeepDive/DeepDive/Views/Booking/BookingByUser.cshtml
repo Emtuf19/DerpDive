@@ -20,6 +20,15 @@
 }
 
 <h1>Mine bookinger</h1>
+@{
+    bool showPast = ViewBag.ShowPast ?? false;
+}
+
+<a asp-action="BookingByUser"
+   asp-route-showPast="@(!showPast)"
+   class="btn btn-outline-primary mb-3">
+   @(showPast ? "Skjul tidligere bookinger" : "Vis tidligere bookinger")
+</a>
 <div class="admin-card">
     <h2>Samlede antal bookinger: (@Model.Count stk.)</h2>
 
