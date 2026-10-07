@@ -3,6 +3,8 @@
 
 @{
     ViewData["Title"] = "Admin";
+    bool showPast = ViewBag.ShowPast ?? false;
+    string? search = ViewBag.Search;
 }
 
 <h1>Admin</h1>
@@ -26,9 +28,15 @@
 
         <form method="get" class="d-flex align-items-center gap-2 search-form">
             <input type="text" name="search"value="@Context.Request.Query["search"]"placeholder="Søg kunde" class="form-control form-control-sm" style="width: 200px;" />
-
+            <input type="hidden" name="showPast" value="@showPast.ToString().ToLower()"/>
             <button type="submit" class="btn btn-primary">Søg</button>
         </form>
+       <a asp-action="Index"
+       asp-route-search="@search"
+       asp-route-showPast="@(!showPast)"
+       class="btn btn-outline-secondary">
+   @(showPast ? "Skjul tidligere" : "Vis tidligere")
+   </a>
     </div>
 
     @foreach (var booking in Model.Bookings)
