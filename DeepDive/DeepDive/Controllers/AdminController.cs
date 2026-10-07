@@ -46,7 +46,7 @@ namespace DeepDive.Controllers
                 ViewBag.ShowPast = showPast;
                 bookings = bookings
                     .Where(b => b.ApplicationUser != null &&
-                                b.ApplicationUser.Email.Contains(search))
+                                b.ApplicationUser.Email.Contains(search, StringComparison.OrdinalIgnoreCase))
             .ToList();
             }
             var vm = new AdminVM
