@@ -32,11 +32,18 @@ namespace DeepDive.Controllers
 
         }
 
-        public async Task<IActionResult> Index(string search)
+        public async Task<IActionResult> Index(string search, bool showPast = false)
         {
             var bookings = await _bookingRepository.GetAll();
             if (!string.IsNullOrWhiteSpace(search))
             {
+                if (!showPast)
+                {
+                    bookings = bookings
+                    .Where(b => b.BookingItems.Any(i => i.DateTo >= DateTime.Today))
+                           .ToList();
+                }
+                ViewBag.ShowPast = showPast;
                 bookings = bookings
                     .Where(b => b.ApplicationUser != null &&
                                 b.ApplicationUser.Email.Contains(search))
