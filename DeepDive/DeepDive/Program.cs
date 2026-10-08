@@ -24,7 +24,20 @@ namespace DeepDive
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<EquipmentContext>()
                 .AddDefaultUI();
-            
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("DeepDivePolicy", policy =>
+                {
+                    policy.WithOrigins(
+                            "https://localhost:7240",   
+                            "http://localhost:5271"     
+                        )
+                        .WithMethods("GET", "POST", "PUT", "DELETE")
+                        .WithHeaders("Content-Type", "Authorization");
+                });
+            });
+
             //API
             builder.Services.AddHttpClient("GeocodingClient", (httpClient) => { httpClient.BaseAddress = new Uri("https://api.api-ninjas.com/v1/geocoding");
                 httpClient.DefaultRequestHeaders.Add("X-Api-Key", builder.Configuration["ApiSettings:ApiKey"]);
@@ -56,10 +69,11 @@ namespace DeepDive
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+           
             app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseCors("DeepDivePolicy");
             // Tilføjet for at kunne bruge sessionen i applikationen
             app.UseSession();
 
